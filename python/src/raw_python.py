@@ -48,6 +48,24 @@ def fibonacci_numpy(n: int) -> int:
     return fib
 
 
+def sum_range(n: int) -> int:
+    """Sum integers from 1 to n using a loop"""
+    if n <= 0:
+        return 0
+    total = 0
+    for i in range(1, n + 1):
+        total += i
+    return total
+
+
+def sum_range_numpy(n: int) -> int:
+    """Sum integers from 1 to n using numpy"""
+    if n <= 0:
+        return 0
+    arr = np.arange(1, n + 1, dtype=int)
+    return np.sum(arr)
+
+
 class MyClass:
     def __init__(self, x: float, y: float, n: int):
         self.x, self.y, self.n = x, y, n
@@ -58,6 +76,8 @@ class MyClass:
         self._fib_n: NDArray[int] = np.zeros(n, dtype=int)
         self._fib_n[0] = 1
         self._fib_n[1] = 2
+
+        self._sum_arr: NDArray[int] = np.zeros(n, dtype=int)
 
     def class_addition(self, x: float, y: float) -> float:
         """Return simple addition between x and y"""
@@ -97,3 +117,19 @@ class MyClass:
         for i in range(2, n):
             fib[i] = ((fib[i - 1] + fib[i - 2]) / fib[i - 2])
         return fib
+
+    def class_sum_range(self, n: int) -> int:
+        """Sum integers from 1 to n using a loop"""
+        if n <= 0:
+            return 0
+        total = 0
+        for i in range(1, n + 1):
+            total += i
+        return total
+
+    def class_sum_range_numpy(self, n: int) -> int:
+        """Sum integers from 1 to n using numpy"""
+        if self.n <= 0:
+            return 0
+        self._sum_arr[:] = np.arange(1, self.n + 1, dtype=int)
+        return np.sum(self._sum_arr)

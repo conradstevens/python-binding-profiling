@@ -23,6 +23,7 @@ class MyClass {
     py::array_t<int64_t> fib_0;
     py::array_t<int64_t> fib_1;
     py::array_t<int64_t> fib_2;
+    py::array_t<int64_t> sum_arr;
 
 public:
     float x;
@@ -40,6 +41,10 @@ public:
     [[nodiscard]] std::vector<unsigned long> class_fibonacci(int n_) const;
 
     [[nodiscard]] py::array_t<int64_t> class_fibonacci_numpy(int n_);
+
+    [[nodiscard]] int64_t class_sum_range(int n_) const;
+
+    [[nodiscard]] int64_t class_sum_range_numpy(int n_) const;
 };
 
 #endif // RAW_CPP_H

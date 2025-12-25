@@ -1,9 +1,9 @@
-cmake_minimum_required(VERSION 3.29)
+cmake_minimum_required(VERSION 3.15)
 project(binding_sand_box)
 set(CMAKE_CXX_STANDARD 20)
 
 # Add Libraries
-add_subdirectory(lib/include/pybind11)
+add_subdirectory(lib/pybind11)
 include_directories(${pybind11_INCLUDE_DIRS})
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
