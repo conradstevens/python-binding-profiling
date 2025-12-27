@@ -44,7 +44,7 @@ public:
 
     [[nodiscard]] int64_t class_sum_range(int n_) const;
 
-    [[nodiscard]] int64_t class_sum_range_numpy(int n_) const;
+    [[nodiscard]] int64_t class_sum_range_numpy(int n_);
 };
 
 #endif // RAW_CPP_H

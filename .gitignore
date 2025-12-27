@@ -33,7 +33,10 @@ Thumbs.db
 .python-version
 
 # C++ build artifacts
-cpp/binding_sand_box/build/
+cpp/pybind11_sand_box/lib/
+cpp/pybind11_sand_box/build/
+cpp/pybind11_sand_box/cmake_build_debug/
+cpp/pybind11_sand_box/cmake_build_release/
 *.o
 *.a
 *.out

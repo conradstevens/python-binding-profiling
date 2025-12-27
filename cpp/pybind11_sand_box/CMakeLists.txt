@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.15)
 project(binding_sand_box)
 set(CMAKE_CXX_STANDARD 20)
 
+find_package(Python 3.12 COMPONENTS Interpreter Development REQUIRED)
 # Add Libraries
 add_subdirectory(lib/pybind11)
 include_directories(${pybind11_INCLUDE_DIRS})

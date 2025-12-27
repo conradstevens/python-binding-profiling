@@ -127,7 +127,7 @@ MyClass::MyClass(const float x_, const float y_, const int n_) {
     return total;
 }
 
-[[nodiscard]] int64_t MyClass::class_sum_range_numpy(const int n_) const {
+[[nodiscard]] int64_t MyClass::class_sum_range_numpy(const int n_) {
     if (n <= 0) {
         return 0;
     }
@@ -145,7 +145,7 @@ PYBIND11_MODULE(pybind11_bindings, m) {
     m.def("addition", &addition, "Pybind11 function that adds two floats");
     m.def("addition_three_times", &addition_three_times, "Pybind11 function that adds, divides and multiplies two floats");
     m.def("fibonacci", &fibonacci, "Pybind11 function that returns list of fibonacci numbers");
-    m.def("fibonacci_numpy", &fibonacci_numpy, py::call_guard<py::gil_scoped_release>(), "Returns list of fibonacci numbers");
+    m.def("fibonacci_numpy", &fibonacci_numpy, "Returns list of fibonacci numbers");
 
     py::class_<MyClass>(m, "MyClass")
         .def(py::init<const float &, const float &, const int &>())
