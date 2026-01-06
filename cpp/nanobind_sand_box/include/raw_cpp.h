@@ -2,9 +2,7 @@
 #define RAW_CPP_H
 
 #include <vector>
-#include <numeric>
 #include <nanobind/nanobind.h>
-#include <nanobind/stl/vector.h>
 #include <nanobind/ndarray.h>
 
 namespace nb = nanobind;
@@ -20,6 +18,11 @@ nb::ndarray<nb::numpy, int64_t> fibonacci_numpy(int n);
 
 
 class MyClass {
+
+    std::vector<unsigned long> fib_vec;
+    std::vector<unsigned long> fib_vec_0;
+    std::vector<unsigned long> fib_vec_1;
+    std::vector<unsigned long> fib_vec_2;
 
     int64_t* fib_arr;
     int64_t fib_0_arr[0] = {};
@@ -45,9 +48,9 @@ public:
 
     [[nodiscard]] float class_addition_three_times(float x_, float y_) const;
 
-    [[nodiscard]] std::vector<unsigned long> class_fibonacci(int n_) const;
+    [[nodiscard]] std::vector<unsigned long> class_fibonacci();
 
-    [[nodiscard]] nb::ndarray<nb::numpy, int64_t> class_fibonacci_numpy(int n_) const;
+    [[nodiscard]] nb::ndarray<nb::numpy, int64_t> class_fibonacci_numpy();
 
     // [[nodiscard]] int64_t class_sum_range_numpy(int n_);
 

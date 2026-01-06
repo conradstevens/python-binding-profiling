@@ -1,5 +1,4 @@
 #include "raw_cpp.h"
-#include <numeric>
 
 
 float addition(const float x, const float y) {
@@ -7,20 +6,27 @@ float addition(const float x, const float y) {
     return x + y;
 }
 
+
 float addition_three_times(const float x, const float y) {
     /** Addition function in cpp */
     float var = x + y;
-    var /= 5;
-    var *= 7;
+    var /= x + 5;
+    var *= y + 7;
     return var;
 }
 
+
 std::vector<unsigned long> fibonacci(const int n) {
+    /** Return std::move fibonacci sequence n long as vector
+     * (deviding by index - 1 to limit number size) */
     if (n <= 0) {
         return {};
     }
     if (n == 1) {
-        return {0};
+        return {1};
+    }
+    if (n == 2) {
+        return {1, 2};
     }
     auto fib = std::vector<unsigned long>(n);
     fib[0] = 1;
@@ -31,19 +37,28 @@ std::vector<unsigned long> fibonacci(const int n) {
     return fib;
 }
 
+
 py::array_t<int64_t> fibonacci_numpy(const int n) {
+    /** Return std::move fibonacci sequence n long as nanobind
+     * numpy array type (deviding by index - 1 to limit number
+     * size) */
     if (n == 0) {
         return py::array_t<int64_t>(0);
     }
-    if (n == 1) {
-        auto arr = py::array_t<int64_t>(1);
-        arr.mutable_at(0) = 1;
-        return arr;
-    }
 
     auto fib = py::array_t<int64_t>(n);
-    auto buf = fib.mutable_unchecked<1>();
+    if (n == 1) {
+        fib.mutable_at(0) = 1;
+        return fib;
+    }
 
+    if (n == 2) {
+        fib.mutable_at(0) = 1;
+        fib.mutable_at(1) = 2;
+        return fib;
+    }
+
+    auto buf = fib.mutable_unchecked<1>();
     buf(0) = 1;
     buf(1) = 2;
     for (int i = 2; i < n; ++i) {
@@ -53,11 +68,18 @@ py::array_t<int64_t> fibonacci_numpy(const int n) {
     return fib;
 }
 
-MyClass::MyClass(const float x_, const float y_, const int n_) {
+
+MyClass::MyClass(const float x_, const float y_, const size_t n_) {
+    /** Initialization of addition variables */
     x = x_;
     y = y_;
     n = n_;
 
+    /** Allocate memory and fixed balues for fibonacci arrays */
+    fib_vec = std::vector<unsigned long>(n);
+    fib_vec_0 = std::vector<unsigned long>();
+    fib_vec_1 = std::vector<unsigned long>{1};
+    fib_vec_2 = std::vector<unsigned long>{1, 2};
     fib = py::array_t<int64_t>(n);
     fib_0 = py::array_t<int64_t>(0);
     fib_1 = py::array_t<int64_t>(1);
@@ -65,8 +87,6 @@ MyClass::MyClass(const float x_, const float y_, const int n_) {
     fib_1.mutable_at(0) = 1;
     fib_2.mutable_at(0) = 1;
     fib_2.mutable_at(0) = 2;
-
-    sum_arr = py::array_t<int64_t>(n);
 }
 
 [[nodiscard]] float MyClass::class_addition(const float x_, const float y_) const {
@@ -76,34 +96,38 @@ MyClass::MyClass(const float x_, const float y_, const int n_) {
 [[nodiscard]] float MyClass::class_addition_three_times(const float x_, const float y_) const {
     /** Addition function in cpp */
     float var = x_ + y_;
-    var /= 5;
-    var *= 7;
+    var /= x_ + 5;
+    var *= y_ + 7;
     return var;
 }
 
-[[nodiscard]] std::vector<unsigned long> MyClass::class_fibonacci(const int n_) const {
-    const int n_var = n;
-    if (n_var == 0) {
-        return {};
+[[nodiscard]] std::vector<unsigned long> MyClass::class_fibonacci() {
+    if (n == 0) {
+        return fib_vec_0;
     }
-    if (n_var == 1) {
-        return {0};
+    if (n == 1) {
+        return fib_vec_1;
     }
-    auto fib = std::vector<unsigned long>(n_var);
-    fib[0] = 1;
-    fib[1] = 2;
-    for (int i = 2; i < n_var; ++i) {
-        fib[i] = (fib[i - 2] + fib[i - 1]) / fib[i - 2];
+    if (n == 2) {
+        return fib_vec_2;
     }
-    return fib;
+    fib_vec[0] = 1;
+    fib_vec[1] = 2;
+    for (int i = 2; i < n; ++i) {
+        fib_vec[i] = (fib_vec[i - 2] + fib_vec[i - 1]) / fib_vec[i - 2];
+    }
+    return fib_vec;
 }
 
-[[nodiscard]] py::array_t<int64_t> MyClass::class_fibonacci_numpy(const int n_) {
+[[nodiscard]] py::array_t<int64_t> MyClass::class_fibonacci_numpy() {
     if (n == 0) {
         return fib_0;
     }
     if (n == 1) {
         return fib_1;
+    }
+    if (n == 2) {
+        return fib_2;
     }
 
     auto buf = fib.mutable_unchecked<1>();
@@ -116,29 +140,6 @@ MyClass::MyClass(const float x_, const float y_, const int n_) {
     return fib;
 }
 
-[[nodiscard]] int64_t MyClass::class_sum_range(const int n_) const {
-    if (n_ <= 0) {
-        return 0;
-    }
-    int64_t total = 0;
-    for (int i = 1; i <= n_; ++i) {
-        total += i;
-    }
-    return total;
-}
-
-[[nodiscard]] int64_t MyClass::class_sum_range_numpy(const int n_) {
-    if (n <= 0) {
-        return 0;
-    }
-    auto* data = sum_arr.mutable_data();
-
-    // Efficiently fill array with values 1 to n using std::iota
-    std::iota(data, data + n, int64_t{1});
-
-    // Sum using std::accumulate
-    return std::accumulate(data, data + n, int64_t{0});
-}
 
 PYBIND11_MODULE(pybind11_bindings, m) {
     m.doc() = "pybind11 functions and classes for profiling";
@@ -152,7 +153,5 @@ PYBIND11_MODULE(pybind11_bindings, m) {
         .def("class_addition", &MyClass::class_addition)
         .def("class_addition_three_times", &MyClass::class_addition_three_times)
         .def("class_fibonacci", &MyClass::class_fibonacci)
-        .def("class_fibonacci_numpy", &MyClass::class_fibonacci_numpy)
-        .def("class_sum_range", &MyClass::class_sum_range)
-        .def("class_sum_range_numpy", &MyClass::class_sum_range_numpy);
+        .def("class_fibonacci_numpy", &MyClass::class_fibonacci_numpy);
 }

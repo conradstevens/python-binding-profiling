@@ -22,11 +22,4 @@ add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/nanobind)
 # Create Python extension module
 nanobind_add_module(nano_bindings NOMINSIZE src/raw_cpp.cpp)
 
-# Link
-#add_executable(${PROJECT_NAME}
-#        include/raw_cpp.h
-#            src/raw_cpp.cpp
-#)
-#
-#target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/include)
 target_include_directories(nano_bindings PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
