@@ -3,4 +3,9 @@ project(pure_cpp)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(pure_cpp main.cpp)
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
+add_executable(pure_cpp
+        main.cpp
+            src/raw_cpp.cpp
+        include/raw_cpp.h)

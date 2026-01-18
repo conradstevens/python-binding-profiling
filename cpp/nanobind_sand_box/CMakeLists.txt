@@ -9,12 +9,7 @@ else()
     set(DEV_MODULE Development.Module)
 endif()
 
-find_package(Python 3.9 COMPONENTS Interpreter ${DEV_MODULE} REQUIRED)
-
-if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
-    set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build." FORCE)
-    set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release" "MinSizeRel" "RelWithDebInfo")
-endif()
+find_package(Python 3.12 COMPONENTS Interpreter ${DEV_MODULE} REQUIRED)
 
 # Add libraries
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/nanobind)

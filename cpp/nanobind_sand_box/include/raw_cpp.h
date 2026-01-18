@@ -4,6 +4,7 @@
 #include <vector>
 #include <nanobind/nanobind.h>
 #include <nanobind/ndarray.h>
+#include <nanobind/stl/vector.h>
 
 namespace nb = nanobind;
 
@@ -12,28 +13,26 @@ float addition(float x, float y);
 
 float addition_three_times(float x, float y);
 
-std::vector<unsigned long> fibonacci(int n);
+std::vector<float> fibonacci(size_t n);
 
-nb::ndarray<nb::numpy, int64_t> fibonacci_numpy(int n);
+nb::ndarray<nb::numpy, float> fibonacci_numpy(size_t n);
 
 
 class MyClass {
 
-    std::vector<unsigned long> fib_vec;
-    std::vector<unsigned long> fib_vec_0;
-    std::vector<unsigned long> fib_vec_1;
-    std::vector<unsigned long> fib_vec_2;
+    std::vector<float> fib_vec;
+    std::vector<float> fib_vec_0;
+    std::vector<float> fib_vec_1;
+    std::vector<float> fib_vec_2;
 
-    int64_t* fib_arr;
-    int64_t fib_0_arr[0] = {};
-    int64_t fib_1_arr[1] = {1};
-    int64_t fib_2_arr[2] = {1, 2};
-    int64_t* fib_sum_arr;
-    nb::ndarray<nb::numpy, int64_t> fib;
-    nb::ndarray<nb::numpy, int64_t> sum_arr;
-    nb::ndarray<nb::numpy, int64_t> fib_0;
-    nb::ndarray<nb::numpy, int64_t> fib_1;
-    nb::ndarray<nb::numpy, int64_t> fib_2;
+    float* fib_arr;
+    float fib_0_arr[0] = {};
+    float fib_1_arr[1] = {1};
+    float fib_2_arr[2] = {1, 2};
+    nb::ndarray<nb::numpy, float> fib;
+    nb::ndarray<nb::numpy, float> fib_0;
+    nb::ndarray<nb::numpy, float> fib_1;
+    nb::ndarray<nb::numpy, float> fib_2;
 
 public:
     float x;
@@ -48,11 +47,9 @@ public:
 
     [[nodiscard]] float class_addition_three_times(float x_, float y_) const;
 
-    [[nodiscard]] std::vector<unsigned long> class_fibonacci();
+    [[nodiscard]] std::vector<float> class_fibonacci();
 
-    [[nodiscard]] nb::ndarray<nb::numpy, int64_t> class_fibonacci_numpy();
-
-    // [[nodiscard]] int64_t class_sum_range_numpy(int n_);
+    [[nodiscard]] nb::ndarray<nb::numpy, float> class_fibonacci_numpy();
 
     ~MyClass();
 };

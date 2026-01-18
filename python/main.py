@@ -1,15 +1,9 @@
 from src.profiler import Profiler
 from src import raw_python
 
-# noinspection PyUnresolvedReferences
-import sys
-from pathlib import Path
-sys.path.insert(0, str(Path(__file__).parent.parent))
-import cpp.pybind11_sand_box.cmake_build_debug.pybind11_bindings as pybind11_bindings
-# import cpp.pybind11_sand_box.cmake_build_release.pybind11_bindings as pybind11_bindings
 
-import cpp.nanobind_sand_box.cmake_build_debug.nano_bindings as nano_bindings
-# import cpp.nanobind_sand_box.cmake_build_release.nano_bindings as nano_bindings
+import cpp.pybind11_sand_box.cmake_build_release.pybind11_bindings as pybind11_bindings
+import cpp.nanobind_sand_box.cmake_build_release.nano_bindings as nano_bindings
 
 NUM_TRIALS = 1_000
 FIBONACCI_NUMBER = 1000

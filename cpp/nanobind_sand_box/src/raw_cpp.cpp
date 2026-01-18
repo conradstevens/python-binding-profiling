@@ -16,7 +16,7 @@ float addition_three_times(const float x, const float y) {
 }
 
 
-std::vector<unsigned long> fibonacci(const int n) {
+std::vector<float> fibonacci(const size_t n) {
     /** Return std::move fibonacci sequence n long as vector
     * (deviding by index - 1 to limit number size) */
     if (n <= 0) {
@@ -28,67 +28,68 @@ std::vector<unsigned long> fibonacci(const int n) {
     if (n == 2) {
         return {1, 2};
     }
-    auto fib = std::vector<unsigned long>(n);
+    auto fib = std::vector<float>(n);
     fib[0] = 1;
     fib[1] = 2;
-    for (int i = 2; i < n; ++i) {  // Changed <= to
-        fib[i] = (fib[i - 2] + fib[i - 1]) / fib[i - 2];
+    for (size_t i = 2; i < n; ++i) {
+        fib[i] = (fib[i - 2] + fib[i - 1]) / (fib[i - 2] + 1);
     }
     return fib;
 }
 
 
-nb::ndarray<nb::numpy, int64_t> fibonacci_numpy(const int n) {
+nb::ndarray<nb::numpy, float> fibonacci_numpy(const size_t n) {
+    /** Return std::move fibonacci sequence n long as nanobind
+     * numpy array type (deviding by index - 1 to limit number
+     * size) */
     if (n == 0) {
-        return nb::ndarray<nb::numpy, int64_t>(nullptr, {0});
+        return nb::ndarray<nb::numpy, float>(nullptr, {0});
     }
-    const auto c_arr = new int64_t[n];
+    const auto c_arr = new float[n];
     nb::capsule owner(c_arr, [](void* p) noexcept {
-        delete[] static_cast<int64_t*>(p);
+        delete[] static_cast<float*>(p);
     });
 
     c_arr[0] = 1;
     if (n == 1) {
-        return nb::ndarray<nb::numpy, int64_t>(c_arr, {1}, owner);
+        return nb::ndarray<nb::numpy, float>(c_arr, {1}, owner);
     }
 
     c_arr[1] = 2;
     if (n == 2) {
-        return nb::ndarray<nb::numpy, int64_t>(c_arr, {2}, owner);
+        return nb::ndarray<nb::numpy, float>(c_arr, {2}, owner);
     }
 
     for (size_t i = 2; i < n; ++i) {
-        c_arr[i] = (c_arr[i - 2] + c_arr[i - 1]) / c_arr[i - 2];
+        c_arr[i] = (c_arr[i - 2] + c_arr[i - 1]) / (c_arr[i - 2] + 1);
     }
 
-    return nb::ndarray<nb::numpy, int64_t>(c_arr, {static_cast<size_t>(n)}, owner);
+    return nb::ndarray<nb::numpy, float>(c_arr, {static_cast<size_t>(n)}, owner);
 }
 
 
 MyClass::MyClass(const float x_, const float y_, const size_t n_) {
+    /** Initialization of addition variables */
     x = x_;
     y = y_;
     n = n_;
 
-    fib_vec = std::vector<unsigned long>(n);
-    fib_vec_0 = std::vector<unsigned long>();
-    fib_vec_1 = std::vector<unsigned long>{1};
-    fib_vec_2 = std::vector<unsigned long>{1, 2};
+    /** Allocate memory and fixed values for fibonacci arrays */
+    fib_vec = std::vector<float>(n);
+    fib_vec_0 = std::vector<float>();
+    fib_vec_1 = std::vector<float>{1};
+    fib_vec_2 = std::vector<float>{1, 2};
 
-    fib_arr = new int64_t[n]{1, 2};
-    fib = nb::ndarray<nb::numpy, int64_t>(fib_arr, {n});
+    fib_arr = new float[n]{1, 2};  // Would typically use a vector if noto profiling
+    fib = nb::ndarray<nb::numpy, float>(fib_arr, {n});
 
-    fib_sum_arr = new int64_t[n]{1, 2};
-    fib = nb::ndarray<nb::numpy, int64_t>(fib_sum_arr, {n});
-
-    fib_0 = nb::ndarray<nb::numpy, int64_t>(fib_0_arr, {});
-    fib_1 = nb::ndarray<nb::numpy, int64_t>(fib_1_arr, {1});
-    fib_2 = nb::ndarray<nb::numpy, int64_t>(fib_2_arr, {2});
+    fib_0 = nb::ndarray<nb::numpy, float>(fib_0_arr, {});
+    fib_1 = nb::ndarray<nb::numpy, float>(fib_1_arr, {1});
+    fib_2 = nb::ndarray<nb::numpy, float>(fib_2_arr, {2});
 }
 
 MyClass::~MyClass() {
     delete[] fib_arr;
-    delete[] fib_sum_arr;
 }
 
 [[nodiscard]] float MyClass::class_addition(const float x_, const float y_) const {
@@ -103,7 +104,7 @@ MyClass::~MyClass() {
     return var;
 }
 
-[[nodiscard]] std::vector<unsigned long> MyClass::class_fibonacci() {
+[[nodiscard]] std::vector<float> MyClass::class_fibonacci() {
     if (n == 0) {
         return fib_vec_0;
     }
@@ -115,13 +116,13 @@ MyClass::~MyClass() {
     }
     fib_vec[0] = 1;
     fib_vec[1] = 2;
-    for (int i = 2; i < n; ++i) {
-        fib_vec[i] = (fib_vec[i - 2] + fib_vec[i - 1]) / fib_vec[i - 2];
+    for (size_t i = 2; i < n; ++i) {
+        fib_vec[i] = (fib_vec[i - 2] + fib_vec[i - 1]) / (fib_vec[i - 2] + 1);
     }
     return fib_vec;
 }
 
-nb::ndarray<nb::numpy, int64_t> MyClass::class_fibonacci_numpy() {
+nb::ndarray<nb::numpy, float> MyClass::class_fibonacci_numpy() {
     if (n == 0) {
         return fib_0;
     }
@@ -131,8 +132,8 @@ nb::ndarray<nb::numpy, int64_t> MyClass::class_fibonacci_numpy() {
     if (n == 2) {
         return fib_2;
     }
-    for (int i = 2; i < n; ++i) {
-        fib_arr[i] = ((fib_arr[i-1] + fib_arr[i-2]) / fib_arr[i-1]);
+    for (size_t i = 2; i < n; ++i) {
+        fib_arr[i] = ((fib_arr[i-1] + fib_arr[i-2]) / (fib_arr[i-1] + 1));
     }
     return fib;
 }
@@ -140,9 +141,9 @@ nb::ndarray<nb::numpy, int64_t> MyClass::class_fibonacci_numpy() {
 NB_MODULE(nano_bindings, m) {
     m.doc() = "Nanobind functions and classes for profiling";
     m.def("addition", &addition, "Nanobind, Addition");
-    m.def("addition_three_times", &addition_three_times, "Nanobind ,3 opperations addiotion, division subreaction");
-    m.def("fibonacci", &fibonacci, "Nanobind, fibonacci sequence to n");
-    m.def("fibonacci_numpy", &fibonacci_numpy, "Nanobind, fibonacci sequence to n using numpy");
+    m.def("addition_three_times", &addition_three_times, "Nanobind function that adds, divides and multiplies two floats");
+    m.def("fibonacci", &fibonacci, "Pybind11 function that returns list of fibonacci numbers");
+    m.def("fibonacci_numpy", &fibonacci_numpy, "Nanobind, returns list of fibonacci numbers");
 
     nb::class_<MyClass>(m, "MyClass")
         .def(nb::init<const float, const float, const size_t>())

@@ -1,5 +1,6 @@
 import logging
 import shutil
+import types
 from time import time
 from typing import Callable, Type, Protocol
 
@@ -17,7 +18,7 @@ class ModuleProtocol(Protocol):
     def addition_three_times(x: float, y: float) -> float: pass
 
     @staticmethod
-    def fibonacci(n: int) -> list[int]: pass
+    def fibonacci(n: int) -> list[float]: pass
 
     @staticmethod
     def fibonacci_numpy(n: int) -> int: pass
@@ -37,9 +38,9 @@ class Profiler:
 
     def __init__(
             self,
-            modulo: ModuleProtocol,
+            modulo: ModuleProtocol | types.ModuleType,
             header: str,
-    ):
+    ) -> None:
         ## Module used to call functions
         self._m: ModuleProtocol = modulo
 
@@ -59,8 +60,8 @@ class Profiler:
         self.profile_func(self._m.MyClass, 99, 100, self._FIB_NUM)
         self.profile_func(self._m_class.class_addition, 99, 100)
         self.profile_func(self._m_class.class_addition_three_times, 99, 100)
-        self.profile_func(self._m_class.class_fibonacci, self._FIB_NUM)
-        self.profile_func(self._m_class.class_fibonacci_numpy, self._FIB_NUM)
+        self.profile_func(self._m_class.class_fibonacci)
+        self.profile_func(self._m_class.class_fibonacci_numpy)
 
     @classmethod
     def profile_func(cls, obj: Callable, *args, **kwargs):
