@@ -7,5 +7,8 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 
 add_executable(pure_cpp
         main.cpp
-            src/raw_cpp.cpp
-        include/raw_cpp.h)
+        src/raw_cpp.cpp
+        src/profiler.cpp
+        include/raw_cpp.h
+        include/profiler.h
+)

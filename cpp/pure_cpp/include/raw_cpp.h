@@ -23,15 +23,13 @@ public:
     int n;
 
     // Constructor
-    MyClass(const float x_, const float y_, const int n_);
+    MyClass(float x_, float y_, int n_);
 
-    [[nodiscard]] float class_addition(const float x_, const float y_) const;
+    [[nodiscard]] float class_addition( float x_, float y_) const;
 
-    [[nodiscard]] float class_addition_three_times(const float x_, const float y_) const;
+    [[nodiscard]] float class_addition_three_times( float x_, float y_) const;
 
-    [[nodiscard]] std::vector<unsigned long> class_fibonacci(int const n_) const;
-
-    [[nodiscard]] unsigned long class_sum_range(int const n_) const;
+    [[nodiscard]] std::vector<unsigned long> class_fibonacci(int  n_) const;
 
 };
 

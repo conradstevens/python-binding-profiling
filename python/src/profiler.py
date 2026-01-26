@@ -9,7 +9,6 @@ logger = logging.Logger(__name__)
 
 
 class ModuleProtocol(Protocol):
-    __all__: list[str]
 
     @staticmethod
     def addition(x: float, y: float) -> float: pass
@@ -34,7 +33,7 @@ class Profiler:
     _FIB_NUM: int = None
 
     ## Number of trials to run before profiling
-    _BURNER_TRIALS: int = 100
+    _BURNER_TRIALS: int = None
 
     def __init__(
             self,
@@ -98,6 +97,18 @@ class Profiler:
                                f"Value not set.")
         else:
             logger.warning(f"Profiler._FIB_NUM can only be set once, is still: {cls._FIB_NUM}")
+
+    @classmethod
+    def set_burner_num(cls, burner_num: int):
+        if cls._BURNER_TRIALS is None:
+            if isinstance(burner_num, int) and burner_num > 0:
+                cls._BURNER_TRIALS = burner_num
+            else:
+                logger.warning(f"Invalid value for Profiler._BURNER_TRIALS: {burner_num}\n"
+                               f"Value not set.")
+        else:
+            logger.warning(f"Profiler._BURNER_TRIALS can only be set once, is still: {cls._FIB_NUM}")
+
 
     def print_heading(self):
         """Print start heading"""
