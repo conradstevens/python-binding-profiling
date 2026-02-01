@@ -4,11 +4,11 @@
 #include <vector>
 
 // Function declarations
-float addition(float x, float y);
+[[nodiscard]] float addition(float x, float y);
 
-float addition_three_times(float x, float y);
+[[nodiscard]] float addition_three_times(float x, float y);
 
-std::vector<unsigned long> fibonacci(int n);
+[[nodiscard]] std::vector<unsigned long> fibonacci(size_t n);
 
 class MyClass {
     std::vector<unsigned long> fib;
@@ -20,16 +20,16 @@ class MyClass {
 public:
     float x;
     float y;
-    int n;
+    size_t n;
 
     // Constructor
-    MyClass(float x_, float y_, int n_);
+    MyClass(float x_, float y_, size_t n_);
 
     [[nodiscard]] float class_addition( float x_, float y_) const;
 
     [[nodiscard]] float class_addition_three_times( float x_, float y_) const;
 
-    [[nodiscard]] std::vector<unsigned long> class_fibonacci(int  n_) const;
+    [[nodiscard]] std::vector<unsigned long> class_fibonacci(size_t  n_) const;
 
 };
 

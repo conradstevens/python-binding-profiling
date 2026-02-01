@@ -1,17 +1,17 @@
 #include <raw_cpp.h>
 
-inline float addition(float x, float y) {
+float addition(const float x, const float y) {
     return x + y;
 }
 
-float addition_three_times(float x, float y) {
+float addition_three_times(const float x, const float y) {
     float var = x + y;
     var /= 5;
     var *= 7;
     return var;
 }
 
-std::vector<unsigned long> fibonacci(int n) {
+std::vector<unsigned long> fibonacci(const size_t n) {
     if (n == 0) {
         return {};
     }
@@ -22,12 +22,12 @@ std::vector<unsigned long> fibonacci(int n) {
     fib[0] = 1;
     fib[1] = 2;
     for (int i = 2; i < n; i++) {
-        fib[0] = fib[i-2] + fib[i - 1] / fib[i - 2];
+        fib[i] = fib[i-2] + fib[i - 1] / fib[i - 2];
     }
     return fib;
 }
 
-MyClass::MyClass(const float x_, const float y_, const int n_) {
+MyClass::MyClass(const float x_, const float y_, const size_t n_) {
     x = x_;
     y = y_;
     n = n_;
@@ -52,7 +52,7 @@ float MyClass::class_addition_three_times(const float x_, const float y_) const 
     return var;
 }
 
-[[nodiscard]] std::vector<unsigned long> MyClass::class_fibonacci(const int n_) const {
+std::vector<unsigned long> MyClass::class_fibonacci(const size_t n_) const {
     const int n_var = n;
     if (n_var == 0) {
         return {};
