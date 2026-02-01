@@ -1,6 +1,8 @@
 import logging
 import shutil
 import types
+import subprocess
+from pathlib import Path
 from time import time
 from typing import Callable, Type, Protocol
 
@@ -109,9 +111,19 @@ class Profiler:
         else:
             logger.warning(f"Profiler._BURNER_TRIALS can only be set once, is still: {cls._FIB_NUM}")
 
+    @classmethod
+    def run_pure_cpp(cls, rel_path: Path) -> None:
+        result = subprocess.run(
+            [rel_path,
+             "--num-trials", str(cls._NUM_TRIALS),
+             "--fibonacci-number", str(cls._FIB_NUM),
+             "--burner-trials", str(cls._BURNER_TRIALS),],
+            capture_output=True,
+            text=True
+        )
+        print(result.stdout)
 
     def print_heading(self):
-        """Print start heading"""
         # Get terminal width, default to 80 if unable to determine
         try:
             width = shutil.get_terminal_size().columns

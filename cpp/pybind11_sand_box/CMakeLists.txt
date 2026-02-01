@@ -8,6 +8,6 @@ find_package(Python 3.12 COMPONENTS Interpreter Development REQUIRED)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/pybind11)
 
 # Create Python extension module
-pybind11_add_module(pybind11_bindings src/raw_cpp.cpp)
+pybind11_add_module(pybind11_bindings src/bindings_11.cpp)
 
 target_include_directories(pybind11_bindings PRIVATE ${CMAKE_SOURCE_DIR}/include)

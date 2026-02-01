@@ -15,6 +15,6 @@ find_package(Python 3.12 COMPONENTS Interpreter ${DEV_MODULE} REQUIRED)
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/nanobind)
 
 # Create Python extension module
-nanobind_add_module(nano_bindings NOMINSIZE src/raw_cpp.cpp)
+nanobind_add_module(nano_bindings NOMINSIZE src/bindings_nano.cpp)
 
 target_include_directories(nano_bindings PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
