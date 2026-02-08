@@ -1,7 +1,7 @@
 [project]
 name = "python-binding-profiling"
 version = "0.1.0"
-description = "This repo profiles a number of C and CPP python extensions determining which is the best for different use c>
+description = "This repo profiles a number of C and CPP python extensions determining which is the best for different use cases"
 
 readme = "README.md"
 

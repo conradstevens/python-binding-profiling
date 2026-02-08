@@ -7,7 +7,7 @@ import cpp.pybind11_sand_box.cmake_build_release.pybind11_bindings as pybind11_b
 # noinspection PyUnresolvedReferences
 import cpp.nanobind_sand_box.cmake_build_release.nano_bindings as nano_bindings
 
-NUM_TRIALS = 1_000
+NUM_TRIALS = 10_000
 FIBONACCI_NUMBER = 1_000
 BURNER_TRIALS = 100
 
