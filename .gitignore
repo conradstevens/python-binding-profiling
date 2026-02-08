@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+venv/
+.venv/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python version manager
+.python-version
+
+# C++ build artifacts
+cpp/pybind11_sand_box/build/
+cpp/pybind11_sand_box/cmake_build_debug/
+cpp/pybind11_sand_box/cmake_build_release/
+cpp/pure_cpp/cmake_build_release/
+cpp/pure_cpp/cmake_build_debug/
+cpp/nanobind_sand_box/cmake_build_release/
+cpp/nanobind_sand_box/cmake_build_debug/
+*.o
+*.a
+*.out
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Claude
+.claude/

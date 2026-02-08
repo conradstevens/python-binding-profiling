@@ -1,5 +1,8 @@
 import logging
 import shutil
+import types
+import subprocess
+from pathlib import Path
 from time import time
 from typing import Callable, Type, Protocol
 
@@ -8,7 +11,6 @@ logger = logging.Logger(__name__)
 
 
 class ModuleProtocol(Protocol):
-    __all__: list[str]
 
     @staticmethod
     def addition(x: float, y: float) -> float: pass
@@ -17,7 +19,7 @@ class ModuleProtocol(Protocol):
     def addition_three_times(x: float, y: float) -> float: pass
 
     @staticmethod
-    def fibonacci(n: int) -> list[int]: pass
+    def fibonacci(n: int) -> list[float]: pass
 
     @staticmethod
     def fibonacci_numpy(n: int) -> int: pass
@@ -33,13 +35,13 @@ class Profiler:
     _FIB_NUM: int = None
 
     ## Number of trials to run before profiling
-    _BURNER_TRIALS: int = 100
+    _BURNER_TRIALS: int = None
 
     def __init__(
             self,
-            modulo: ModuleProtocol,
+            modulo: ModuleProtocol | types.ModuleType,
             header: str,
-    ):
+    ) -> None:
         ## Module used to call functions
         self._m: ModuleProtocol = modulo
 
@@ -59,8 +61,8 @@ class Profiler:
         self.profile_func(self._m.MyClass, 99, 100, self._FIB_NUM)
         self.profile_func(self._m_class.class_addition, 99, 100)
         self.profile_func(self._m_class.class_addition_three_times, 99, 100)
-        self.profile_func(self._m_class.class_fibonacci, self._FIB_NUM)
-        self.profile_func(self._m_class.class_fibonacci_numpy, self._FIB_NUM)
+        self.profile_func(self._m_class.class_fibonacci)
+        self.profile_func(self._m_class.class_fibonacci_numpy)
 
     @classmethod
     def profile_func(cls, obj: Callable, *args, **kwargs):
@@ -98,8 +100,30 @@ class Profiler:
         else:
             logger.warning(f"Profiler._FIB_NUM can only be set once, is still: {cls._FIB_NUM}")
 
+    @classmethod
+    def set_burner_num(cls, burner_num: int):
+        if cls._BURNER_TRIALS is None:
+            if isinstance(burner_num, int) and burner_num > 0:
+                cls._BURNER_TRIALS = burner_num
+            else:
+                logger.warning(f"Invalid value for Profiler._BURNER_TRIALS: {burner_num}\n"
+                               f"Value not set.")
+        else:
+            logger.warning(f"Profiler._BURNER_TRIALS can only be set once, is still: {cls._FIB_NUM}")
+
+    @classmethod
+    def run_pure_cpp(cls, rel_path: Path) -> None:
+        result = subprocess.run(
+            [rel_path,
+             "--num-trials", str(cls._NUM_TRIALS),
+             "--fibonacci-number", str(cls._FIB_NUM),
+             "--burner-trials", str(cls._BURNER_TRIALS),],
+            capture_output=True,
+            text=True
+        )
+        print(result.stdout)
+
     def print_heading(self):
-        """Print start heading"""
         # Get terminal width, default to 80 if unable to determine
         try:
             width = shutil.get_terminal_size().columns
