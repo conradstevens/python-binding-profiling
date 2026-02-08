@@ -1,5 +1,5 @@
-[submodule "cpp/binding_sand_box/lib/pybind11"]
-	path = cpp/binding_sand_box/lib/pybind11
+[submodule "cpp/pybind11_sand_box/lib/pybind11"]
+	path = cpp/pybind11_sand_box/lib/pybind11
 	url = https://github.com/pybind/pybind11.git
 [submodule "cpp/nanobind_sand_box/lib/nanobind"]
 	path = cpp/nanobind_sand_box/lib/nanobind

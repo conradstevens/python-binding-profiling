@@ -36,6 +36,10 @@ Thumbs.db
 cpp/pybind11_sand_box/build/
 cpp/pybind11_sand_box/cmake_build_debug/
 cpp/pybind11_sand_box/cmake_build_release/
+cpp/pure_cpp/cmake_build_release/
+cpp/pure_cpp/cmake_build_debug/
+cpp/nanobind_sand_box/cmake_build_release/
+cpp/nanobind_sand_box/cmake_build_debug/
 *.o
 *.a
 *.out
