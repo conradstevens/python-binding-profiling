@@ -1,4 +1,4 @@
-# Profiling Python - C / C++ Extensions
+# Profiling Python C / C++ Extensions
 
 This repo profiles a number of C and CPP python extensions determining which is the best for different use cases. 
 The approaches profiled are:
@@ -22,8 +22,7 @@ cd python-binding-profiling
 C / CPP is compiled with optimization flags to profile release performance. 
 Run the build script to build all compiled repos.  
 ```commandline
-chmod +x build.sh  # Make build executable
-./build.sh
+./build.sh  # potentially requires: chmod +x build.sh 
 ```
 
 ### Build Python Environment
