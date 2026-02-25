@@ -5,10 +5,17 @@ description = "This repo profiles a number of C and CPP python extensions determ
 
 readme = "README.md"
 
-requires-python = ">=3.8.20"
+requires-python = ">=3.12,<3.13"
+
 dependencies = [
     "numpy>=1.24.4",
+    "pure-python-package>=0",
+    "pure-python-package-optimized>=0",
 ]
+
+[tool.uv.sources]
+pure-python-package = { path = "./python/dist/pure_python_package-0.1.0-py3-none-any.whl" }
+pure-python-package-optimized = { path = "./python/dist/pure_python_package_optimized-0.1.0-py3-none-any.whl" }
 
 [tool.uv]
 package = true

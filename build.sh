@@ -28,3 +28,5 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -B cpp/nanobind_sand_box/cmake_build_release/
 cmake --build cpp/nanobind_sand_box/cmake_build_release/
 
+echo -e "\n ### Building Pure Python Wheel ###"
+uv build python/
