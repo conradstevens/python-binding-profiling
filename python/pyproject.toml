@@ -1,0 +1,14 @@
+[project]
+name = "pure-python-package-optimized"
+version = "0.1.0"
+description = "This a toy package for profiling function"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "numpy>=1.24.4",
+]
+
+[tool.hatch.build]
+include = ["pure_python_package"]
+
+[tool.uv]
+package = true
