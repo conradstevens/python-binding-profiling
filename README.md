@@ -32,5 +32,5 @@ uv sync
 
 ### Run Profiler!
 ```commandline
-uv run python/main.py
+uv run main.py
 ```
