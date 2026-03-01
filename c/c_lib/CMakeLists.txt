@@ -5,4 +5,6 @@ project(c_lib C)
 
 find_package(Python3 3.12 COMPONENTS Interpreter Development REQUIRED)
 
-Python3_add_library(c_lib MODULE library.c)
+Python3_add_library(c_lib MODULE src/c_lib.c)
+
+target_include_directories(c_lib PRIVATE include/)

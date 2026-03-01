@@ -1,6 +1,5 @@
-#include <Python.h>
-#include <stdio.h>
-
+#define PY_SSIZE_T_CLEAN
+#include "c_lib.h"
 
 
 PyObject* clib_addition(PyObject* self, PyObject* args, PyObject* kwargs) {
@@ -64,21 +63,6 @@ PyObject* clib_fibonacci(PyObject* self, PyObject* args, PyObject* kwargs) {
 
     return fib;
 }
-
-// def fibonacci(n: int) -> list[float]:
-//     """Generate first n numbers of Fibonacci sequence"""
-//     if n <= 0:
-//         return []
-//     fib: list[float] = list(range(n))
-//     if n == 1:
-//         return [0.0]
-//     elif n == 2:
-//         return [1.0, 2.0]
-//
-//     fib[0:2] = [1,0, 2.0]
-//     for i in range(2, n):
-//         fib.append((fib[i - 1] + fib[i - 2]) / (fib[i - 2] + 1))
-//     return fib
 
 
 static PyMethodDef methods[] = {
