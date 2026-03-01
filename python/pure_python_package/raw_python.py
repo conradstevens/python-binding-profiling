@@ -62,8 +62,6 @@ class MyClass:
         self._fib_n[0] = 1.0
         self._fib_n[1] = 2.0
 
-        self._sum_arr: NDArray[np.float64] = np.zeros(n, dtype=np.float64)
-
     def class_addition(self, x: float, y: float) -> float:
         """Return simple addition between x and y"""
         return self.x + self.y + x + y
