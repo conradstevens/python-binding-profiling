@@ -67,7 +67,7 @@ class MyClass:
         return self.x + self.y + x + y
 
     def class_addition_three_times(self, x: float, y: float) -> float:
-        """Return simple addition between x and y"""
+        """Return simple addition between x and y with some extra steps"""
         var = x + y
         var /= 5
         var *= 7

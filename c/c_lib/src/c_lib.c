@@ -1,4 +1,3 @@
-#define PY_SSIZE_T_CLEAN
 #include "c_lib.h"
 
 
@@ -31,7 +30,7 @@ PyObject* clib_addition_three_times(PyObject* self, PyObject* args,  PyObject* k
 PyObject* clib_fibonacci(PyObject* self, PyObject* args, PyObject* kwargs) {
     // TODO compare speed against using a c list and converting at the end.
     static char* clib_fibonacci_kwlist [] = {"n", NULL};
-    size_t n;
+    Py_ssize_t n;
 
     if (!PyArg_ParseTupleAndKeywords(args, kwargs, "k", clib_fibonacci_kwlist, &n)) {
         return NULL;
@@ -47,7 +46,7 @@ PyObject* clib_fibonacci(PyObject* self, PyObject* args, PyObject* kwargs) {
         PyList_SetItem(fib, 1, PyFloat_FromDouble(2.0));
 
         if (n > 2) {
-            for (size_t i = 2; i < n; i++) {
+            for (Py_ssize_t i = 2; i < n; i++) {
                 const double prev_1 = PyFloat_AsDouble(PyList_GET_ITEM(fib, i - 1));
                 const double prev_2 = PyFloat_AsDouble(PyList_GET_ITEM(fib, i - 2));
                 PyList_SetItem(
@@ -63,7 +62,6 @@ PyObject* clib_fibonacci(PyObject* self, PyObject* args, PyObject* kwargs) {
 
     return fib;
 }
-
 
 static PyMethodDef methods[] = {
 {
@@ -92,7 +90,6 @@ static PyMethodDef methods[] = {
     }
 };
 
-
 static struct PyModuleDef c_lib = {
     PyModuleDef_HEAD_INIT,
     "c_lib",
@@ -101,7 +98,20 @@ static struct PyModuleDef c_lib = {
     methods
 };
 
+PyMODINIT_FUNC PyInit_c_lib(void) {
+    if (PyType_Ready(&MyClass_Type) < 0)
+        return NULL;
 
-PyMODINIT_FUNC PyInit_c_lib() {
-    return PyModule_Create(&c_lib);
+    PyObject* m = PyModule_Create(&c_lib);
+    if (m == NULL)
+        return NULL;
+
+    Py_INCREF(&MyClass_Type);
+    if (PyModule_AddObject(m, "MyClass", (PyObject*)&MyClass_Type) < 0) {
+        Py_DECREF(&MyClass_Type);
+        Py_DECREF(m);
+        return NULL;
+    }
+
+    return m;
 }

@@ -3,6 +3,9 @@
 
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
+#include <numpy/arrayobject.h>
+
+#include "my_class.h"
 
 PyObject* clib_addition(PyObject* self, PyObject* args, PyObject* kwargs);
 PyObject* clib_addition_three_times(PyObject* self, PyObject* args, PyObject* kwargs);
