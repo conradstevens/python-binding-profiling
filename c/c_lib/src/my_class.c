@@ -8,6 +8,9 @@ static int MyClass_init(MyClassObject* self, PyObject* args, PyObject* kwargs) {
         return -1;
     }
 
+    npy_intp dims[1] = {self->n};
+    self->fib = PyArray_SimpleNew(1, dims, NPY_DOUBLE);
+
     return 0;
 }
 
@@ -70,6 +73,27 @@ static PyObject* MyClass_class_fibonacci(MyClassObject* self, PyObject* Py_UNUSE
     return fib;
 }
 
+static PyObject* MyClass_fibonacci_numpy(MyClassObject* self, PyObject* Py_UNUSED(ignored)) {
+
+    double* data = (double*)PyArray_DATA((PyArrayObject*)self->fib);
+
+    if (self->n == 1) {
+        data[0] = 1.0;
+    } else if (self->n > 1) {
+        data[0] = 1.0;
+        data[1] = 2.0;
+
+        if (self->n > 2) {
+            for (Py_ssize_t i = 2; i < self->n; i ++) {
+                const double prev_1 = data[i - 1];
+                const double prev_2 = data[i - 2];
+                data[i] = (prev_2 + prev_1) / (prev_2 + 1);
+            }
+        }
+    }
+    return (PyObject*)PyArray_NewCopy((PyArrayObject*)self->fib, NPY_CORDER);
+}
+
 static PyMethodDef MyClass_methods[] = {
     {
         "class_addition",
@@ -88,6 +112,12 @@ static PyMethodDef MyClass_methods[] = {
     (PyCFunction)MyClass_class_fibonacci,
     METH_VARARGS | METH_KEYWORDS,
     "Generate first n numbers of Fibonacci sequence with some extra steps"
+    },
+{
+    "class_fibonacci_numpy",
+    (PyCFunction)MyClass_fibonacci_numpy,
+    METH_VARARGS | METH_KEYWORDS,
+    "Generate first n numbers of Fibonacci sequence using numpy with some extra steps"
     },
     {
         NULL

@@ -32,7 +32,7 @@ PyObject* clib_fibonacci(PyObject* self, PyObject* args, PyObject* kwargs) {
     static char* clib_fibonacci_kwlist [] = {"n", NULL};
     Py_ssize_t n;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "k", clib_fibonacci_kwlist, &n)) {
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "n", clib_fibonacci_kwlist, &n)) {
         return NULL;
     }
 
@@ -63,6 +63,36 @@ PyObject* clib_fibonacci(PyObject* self, PyObject* args, PyObject* kwargs) {
     return fib;
 }
 
+static PyObject* fibonacci_numpy(PyObject* self, PyObject* args, PyObject* kwargs) {
+    static char* clib_fibonacci_numpy_kwlist[] = {"n", NULL};
+    Py_ssize_t n;
+
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "n", clib_fibonacci_numpy_kwlist, &n)) {
+        return NULL;
+    }
+
+    npy_intp dims[1] = {n};
+    PyObject* fib = PyArray_SimpleNew(1, dims, NPY_DOUBLE);
+
+    double* data = (double*)PyArray_DATA((PyArrayObject*)fib);
+
+    if (n == 1) {
+        data[0] = 1.0;
+    } else if (n > 1) {
+        data[0] = 1.0;
+        data[1] = 2.0;
+
+        if (n > 2) {
+            for (Py_ssize_t i = 2; i < n; i ++) {
+                const double prev_1 = data[i - 1];
+                const double prev_2 = data[i - 2];
+                data[i] = (prev_2 + prev_1) / (prev_2 + 1);
+            }
+        }
+    }
+    return fib;
+}
+
 static PyMethodDef methods[] = {
 {
         "addition",
@@ -82,6 +112,12 @@ static PyMethodDef methods[] = {
     METH_VARARGS,
     "custom fibbonaci function for profiling"
 },
+{
+    "fibonacci_numpy",
+    (PyCFunction)fibonacci_numpy,
+    METH_VARARGS | METH_KEYWORDS,
+    "custom fibbonaci function using numpy for profiling"
+},
     {
         NULL,
         NULL,
@@ -99,6 +135,8 @@ static struct PyModuleDef c_lib = {
 };
 
 PyMODINIT_FUNC PyInit_c_lib(void) {
+    import_array();
+
     if (PyType_Ready(&MyClass_Type) < 0)
         return NULL;
 

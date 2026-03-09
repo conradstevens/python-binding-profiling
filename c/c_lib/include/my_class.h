@@ -3,6 +3,9 @@
 
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
+#define NO_IMPORT_ARRAY
+#define PY_ARRAY_UNIQUE_SYMBOL MY_ARRAY_API
+#include <numpy/arrayobject.h>
 
 typedef struct {
     PyObject_HEAD
