@@ -5,6 +5,8 @@ import subprocess
 from pathlib import Path
 from time import time
 from typing import Callable, Type, Protocol
+import numpy as np
+from numpy.typing import NDArray
 
 
 logger = logging.Logger(__name__)
@@ -22,7 +24,7 @@ class ModuleProtocol(Protocol):
     def fibonacci(n: int) -> list[float]: pass
 
     @staticmethod
-    def fibonacci_numpy(n: int) -> int: pass
+    def fibonacci_numpy(n: int) -> NDArray[np.float64]: pass
 
     MyClass: Type
 
