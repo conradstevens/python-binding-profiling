@@ -34,7 +34,7 @@ def fibonacci(n: int) -> list[float]:
 
 def fibonacci_numpy(n: int) -> NDArray[np.float64]:
     """Generate first n numbers of Fibonacci sequence"""
-    if n <= 0:
+    if n == 0:
         return np.array([], dtype=np.float64)
     elif n == 1:
         return np.array([1], dtype=np.float64)
@@ -59,8 +59,10 @@ class MyClass:
         self._fib_1 = np.array([1], dtype=np.float64)
         self._fib_2 = np.array([1, 2], dtype=np.float64)
         self._fib_n: NDArray[np.float64] = np.zeros(n, dtype=np.float64)
-        self._fib_n[0] = 1.0
-        self._fib_n[1] = 2.0
+        if n > 0:
+            self._fib_n[0] = 1.0
+        if n > 1:
+            self._fib_n[1] = 2.0
 
     def class_addition(self, x: float, y: float) -> float:
         """Return simple addition between x and y"""
