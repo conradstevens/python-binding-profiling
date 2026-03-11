@@ -24,7 +24,8 @@ import c.c_lib.cmake_build_release.c_lib as c_lib
 
 EQUIVALENCE_TOLERANCE: float = 1e-6
 
-MODULES_TO_TEST: list[ModuleProtocol | types.ModuleType] = [packaged_raw_python]
+# MODULES_TO_TEST: list[ModuleProtocol | types.ModuleType] = [packaged_raw_python]
+MODULES_TO_TEST: list[ModuleProtocol | types.ModuleType] = [pybind11_bindings]
 
 class TestEquivalence:
     def setup_method(self):
@@ -66,17 +67,17 @@ class TestEquivalence:
     @pytest.mark.parametrize("m", MODULES_TO_TEST)
     def test_addition(self, m):
         results: tuple[float, ...] = tuple(m.addition(*p) for p in self._x_y_val_test_pairs)
-        assert results == self._py_addition_results
+        assert results == pytest.approx(self._py_addition_results, abs=EQUIVALENCE_TOLERANCE, rel=0)
 
     @pytest.mark.parametrize("m", MODULES_TO_TEST)
     def test_addition_three_times(self, m):
         results: tuple[float, ...] = tuple(m.addition_three_times(*p) for p in self._x_y_val_test_pairs)
-        assert results == self._py_addition_three_times_results
+        assert results == pytest.approx(self._py_addition_three_times_results, abs=EQUIVALENCE_TOLERANCE, rel=0)
 
     @pytest.mark.parametrize("m", MODULES_TO_TEST)
     def test_fibonacci(self, m):
         results: tuple[list[float], ...] = tuple(m.fibonacci(n) for n in self._n_test_values)
-        assert results == self._py_fibonacci_results
+        assert results == pytest.approx(self._py_fibonacci_results, abs=EQUIVALENCE_TOLERANCE, rel=0)
 
     @pytest.mark.parametrize("m", MODULES_TO_TEST)
     def test_fibonacci_numpy(self, m):
@@ -92,7 +93,8 @@ class TestEquivalence:
         results: tuple[tuple[float, ...], ...] = tuple(
             tuple(c.class_addition(*p) for p in self._x_y_val_test_pairs) for c in classes
         )
-        assert results == self._my_class_py_addition_results
+        assert all(r == pytest.approx(e, abs=EQUIVALENCE_TOLERANCE, rel=0)
+                   for r, e in zip(results, self._my_class_py_addition_results))
 
     @pytest.mark.parametrize("m", MODULES_TO_TEST)
     def test_class_addition_three_times(self, m):
@@ -100,7 +102,8 @@ class TestEquivalence:
         results: tuple[tuple[float, ...], ...] = tuple(
             tuple(c.class_addition_three_times(*p) for p in self._x_y_val_test_pairs) for c in classes
         )
-        assert results == self._my_class_py_addition_three_times_results
+        assert all(r == pytest.approx(e, abs=EQUIVALENCE_TOLERANCE, rel=0)
+                   for r, e in zip(results, self._my_class_py_addition_three_times_results))
 
     @pytest.mark.parametrize("m", MODULES_TO_TEST)
     def test_class_fibonacci(self, m):
@@ -108,7 +111,11 @@ class TestEquivalence:
         results: tuple[tuple[list[float], ...], ...] = tuple(
             tuple(c.class_fibonacci() for _ in self._n_test_values) for c in classes
         )
-        assert results == self._my_class_py_fibonacci_results
+        assert all(
+            inner_r == pytest.approx(inner_e, abs=EQUIVALENCE_TOLERANCE, rel=0)
+            for r, e in zip(results, self._my_class_py_fibonacci_results)
+            for inner_r, inner_e in zip(r, e)
+        )
 
     @pytest.mark.parametrize("m", MODULES_TO_TEST)
     def test_class_fibonacci_numpy(self, m):

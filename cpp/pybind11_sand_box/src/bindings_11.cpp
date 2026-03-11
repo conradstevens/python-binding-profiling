@@ -10,8 +10,8 @@ float addition(const float x, const float y) {
 float addition_three_times(const float x, const float y) {
     /** Addition function in cpp */
     float var = x + y;
-    var /= x + 5;
-    var *= y + 7;
+    var /= 5;
+    var *= 7;
     return var;
 }
 
@@ -98,8 +98,8 @@ MyClass::MyClass(const float x_, const float y_, const size_t n_) {
 [[nodiscard]] float MyClass::class_addition_three_times(const float x_, const float y_) const {
     /** Addition function in cpp */
     float var = x_ + y_;
-    var /= x_ + 5;
-    var *= y_ + 7;
+    var /= 5;
+    var *= 7;
     return var;
 }
 
