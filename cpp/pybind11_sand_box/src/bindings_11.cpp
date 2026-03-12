@@ -16,7 +16,7 @@ float addition_three_times(const float x, const float y) {
 }
 
 
-std::vector<float> fibonacci(const size_t n) {
+std::vector<double> fibonacci(const size_t n) {
     /** Return std::move fibonacci sequence n long as vector
      * (deviding by index - 1 to limit number size) */
     if (n <= 0) {
@@ -28,25 +28,25 @@ std::vector<float> fibonacci(const size_t n) {
     if (n == 2) {
         return {1, 2};
     }
-    auto fib = std::vector<float>(n);
+    auto fib = std::vector<double>(n);
     fib[0] = 1;
     fib[1] = 2;
     for (size_t i = 2; i < n; ++i) {
-        fib[i] = (fib[i - 2] + fib[i - 1]) / (fib[i - 2] + 1);
+        fib[i] = (fib[i - 1] + fib[i - 2]) / static_cast<double>(n) * static_cast<double>(i);
     }
     return fib;
 }
 
 
-py::array_t<float> fibonacci_numpy(const size_t n) {
+py::array_t<double> fibonacci_numpy(const size_t n) {
     /** Return std::move fibonacci sequence n long as nanobind
      * numpy array type (deviding by index - 1 to limit number
      * size) */
     if (n == 0) {
-        return py::array_t<float>(0);
+        return py::array_t<double>(0);
     }
 
-    auto fib = py::array_t<float>(n);
+    auto fib = py::array_t<double>(n);
     if (n == 1) {
         fib.mutable_at(0) = 1;
         return fib;
@@ -61,8 +61,8 @@ py::array_t<float> fibonacci_numpy(const size_t n) {
     auto buf = fib.mutable_unchecked<1>();
     buf(0) = 1;
     buf(1) = 2;
-    for (size_t i = 2; i < n; ++i) {
-        buf(i) = (buf(i - 1) + buf(i - 2)) / (buf(i - 2) + 1);
+    for (ssize_t i = 2; i < n; ++i) {
+        buf[i] = (buf[i - 1] + buf[i - 2]) / static_cast<double>(n) * static_cast<double>(i);
     }
 
     return fib;
@@ -76,19 +76,8 @@ MyClass::MyClass(const float x_, const float y_, const size_t n_) {
     n = n_;
 
     /** Allocate memory and fixed values for fibonacci arrays */
-    fib_vec = std::vector<float>(n);
-    fib_vec_0 = std::vector<float>();
-    fib_vec_1 = std::vector<float>{1};
-    fib_vec_2 = std::vector<float>{1, 2};
-
-    fib = py::array_t<float>(n);
-    fib_0 = py::array_t<float>(0);
-    fib_1 = py::array_t<float>(1);
-    fib_2 = py::array_t<float>(2);
-
-    fib_1.mutable_at(0) = 1;
-    fib_2.mutable_at(0) = 1;
-    fib_2.mutable_at(0) = 2;
+    fib_l = std::vector<double>(n);
+    fib_arr = py::array_t<double>(n);
 }
 
 [[nodiscard]] float MyClass::class_addition(const float x_, const float y_) const {
@@ -103,43 +92,38 @@ MyClass::MyClass(const float x_, const float y_, const size_t n_) {
     return var;
 }
 
-[[nodiscard]] std::vector<float> MyClass::class_fibonacci() {
-    if (n == 0) {
-        return fib_vec_0;
+[[nodiscard]] std::vector<double> MyClass::class_fibonacci() {
+    if (n <= 0) {
+        return fib_l;
     }
-    if (n == 1) {
-        return fib_vec_1;
+
+    fib_l[0] = 1.0;
+
+    if (n > 1) {
+        fib_l[1] = 2.0;
+        for (ssize_t i = 2; i < n; ++i) {
+            fib_l[i] = (fib_l[i - 1] + fib_l[i - 2]) / static_cast<double>(n) * static_cast<double>(i);
+        }
     }
-    if (n == 2) {
-        return fib_vec_2;
-    }
-    fib_vec[0] = 1;
-    fib_vec[1] = 2;
-    for (size_t i = 2; i < n; ++i) {
-        fib_vec[i] = (fib_vec[i - 2] + fib_vec[i - 1]) / (fib_vec[i - 2] + 1);
-    }
-    return fib_vec;
+
+    return fib_l;
 }
 
-[[nodiscard]] py::array_t<float> MyClass::class_fibonacci_numpy() {
-    if (n == 0) {
-        return fib_0;
-    }
-    if (n == 1) {
-        return fib_1;
-    }
-    if (n == 2) {
-        return fib_2;
+[[nodiscard]] py::array_t<double> MyClass::class_fibonacci_numpy() {
+    if (n <= 0) {
+        return fib_arr;
     }
 
-    auto buf = fib.mutable_unchecked<1>();
-
+    auto buf = fib_arr.mutable_unchecked<1>();
     buf(0) = 1;
-    buf(1) = 2;
-    for (size_t i = 2; i < n; ++i) {
-        buf(i) = (buf(i - 1) + buf(i - 2)) / (buf(i - 2) + 1);
+
+    if (n > 1) {
+        buf(1) = 2;
+        for (ssize_t i = 2; i < n; ++i) {
+            buf[i] = (buf[i - 1] + buf[i - 2]) / static_cast<double>(n) * static_cast<double>(i);
+        }
     }
-    return fib;
+    return fib_arr;
 }
 
 

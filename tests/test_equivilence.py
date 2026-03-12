@@ -24,8 +24,7 @@ import c.c_lib.cmake_build_release.c_lib as c_lib
 
 EQUIVALENCE_TOLERANCE: float = 1e-6
 
-# MODULES_TO_TEST: list[ModuleProtocol | types.ModuleType] = [packaged_raw_python]
-MODULES_TO_TEST: list[ModuleProtocol | types.ModuleType] = [pybind11_bindings]
+MODULES_TO_TEST: list[ModuleProtocol | types.ModuleType] = [packaged_raw_python, pybind11_bindings]
 
 class TestEquivalence:
     def setup_method(self):
