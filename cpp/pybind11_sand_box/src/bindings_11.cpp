@@ -76,8 +76,8 @@ MyClass::MyClass(const float x_, const float y_, const size_t n_) {
     n = n_;
 
     /** Allocate memory and fixed values for fibonacci arrays */
-    fib_l = std::vector<double>(n);
-    fib_arr = py::array_t<double>(n);
+    _fib_l = py::list(n);
+    _fib_arr = py::array_t<double>(n);
 }
 
 [[nodiscard]] float MyClass::class_addition(const float x_, const float y_) const {
@@ -92,29 +92,30 @@ MyClass::MyClass(const float x_, const float y_, const size_t n_) {
     return var;
 }
 
-[[nodiscard]] std::vector<double> MyClass::class_fibonacci() {
+[[nodiscard]] py::list& MyClass::class_fibonacci() {
     if (n <= 0) {
-        return fib_l;
+        return _fib_l;
     }
 
-    fib_l[0] = 1.0;
+    _fib_l[0] = 1.0;
 
     if (n > 1) {
-        fib_l[1] = 2.0;
+        _fib_l[1] = 2.0;
         for (ssize_t i = 2; i < n; ++i) {
-            fib_l[i] = (fib_l[i - 1] + fib_l[i - 2]) / static_cast<double>(n) * static_cast<double>(i);
+            _fib_l[i] = (py::cast<double>(_fib_l[i - 1]) + py::cast<double>(_fib_l[i - 2])) /
+                static_cast<double>(n) * static_cast<double>(i);
         }
     }
 
-    return fib_l;
+    return _fib_l;
 }
 
-[[nodiscard]] py::array_t<double> MyClass::class_fibonacci_numpy() {
+[[nodiscard]] py::array_t<double>& MyClass::class_fibonacci_numpy() {
     if (n <= 0) {
-        return fib_arr;
+        return _fib_arr;
     }
 
-    auto buf = fib_arr.mutable_unchecked<1>();
+    auto buf = _fib_arr.mutable_unchecked<1>();
     buf(0) = 1;
 
     if (n > 1) {
@@ -123,7 +124,7 @@ MyClass::MyClass(const float x_, const float y_, const size_t n_) {
             buf[i] = (buf[i - 1] + buf[i - 2]) / static_cast<double>(n) * static_cast<double>(i);
         }
     }
-    return fib_arr;
+    return _fib_arr;
 }
 
 
@@ -136,8 +137,12 @@ PYBIND11_MODULE(pybind11_bindings, m) {
 
     py::class_<MyClass>(m, "MyClass")
         .def(py::init<const float &, const float &, const size_t &>())
+        .def_readwrite("x", &MyClass::x)
+        .def_readwrite("y", &MyClass::y)
+        .def_readwrite("_fib_l", &MyClass::_fib_l)
+        .def_readwrite("_fib_arr", &MyClass::_fib_arr)
         .def("class_addition", &MyClass::class_addition)
         .def("class_addition_three_times", &MyClass::class_addition_three_times)
-        .def("class_fibonacci", &MyClass::class_fibonacci)
-        .def("class_fibonacci_numpy", &MyClass::class_fibonacci_numpy);
+        .def("class_fibonacci", &MyClass::class_fibonacci, py::return_value_policy::reference_internal)
+        .def("class_fibonacci_numpy", &MyClass::class_fibonacci_numpy, py::return_value_policy::reference_internal);
 }

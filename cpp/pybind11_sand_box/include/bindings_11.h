@@ -19,13 +19,13 @@ py::array_t<double> fibonacci_numpy(size_t n);
 
 // Class declaration
 class PYBIND11_EXPORT MyClass {
-    std::vector<double> fib_l;
-    py::array_t<double> fib_arr;
 
 public:
     float x;
     float y;
     ssize_t n;
+    py::list _fib_l;
+    py::array_t<double> _fib_arr;
 
     // Constructor
     MyClass(float x_, float y_, size_t n_);
@@ -35,9 +35,9 @@ public:
 
     [[nodiscard]] float class_addition_three_times(float x_, float y_) const;
 
-    [[nodiscard]] std::vector<double> class_fibonacci();
+    [[nodiscard]] py::list& class_fibonacci();
 
-    [[nodiscard]] py::array_t<double> class_fibonacci_numpy();
+    [[nodiscard]] py::array_t<double>& class_fibonacci_numpy();
 
 };
 
