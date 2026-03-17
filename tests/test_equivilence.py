@@ -2,6 +2,7 @@ import types
 import numpy as np
 import pytest
 from numpy.typing import NDArray
+
 from profiler import ModuleProtocol
 
 ### Modules
@@ -23,8 +24,10 @@ import c.c_lib.cmake_build_release.c_lib as c_lib
 
 
 EQUIVALENCE_TOLERANCE: float = 1e-6
+TEST_VAL: int = -999
 
 MODULES_TO_TEST: list[ModuleProtocol | types.ModuleType] = [packaged_raw_python, pybind11_bindings]
+# MODULES_TO_TEST: list[ModuleProtocol | types.ModuleType] = [nano_bindings]
 
 class TestEquivalence:
     def setup_method(self):
@@ -126,6 +129,19 @@ class TestEquivalence:
             np.allclose(a, b, atol=EQUIVALENCE_TOLERANCE)
             for a, b in zip(results, self._my_class_py_fibonacci_numpy_results)
         )
+
+    @pytest.mark.parametrize("m", MODULES_TO_TEST)
+    def test_mutability_of_my_class_members(self, m):
+        my_class: MyClass = m.MyClass(*(self._my_class_test_init_args[0]))
+
+        fib_l_ref = my_class.class_fibonacci()
+        fib_l_ref[0] = TEST_VAL
+        assert fib_l_ref == my_class._fib_l
+
+        fib_arr_ref = my_class.class_fibonacci_numpy()
+        fib_arr_ref[0] = TEST_VAL
+        assert all(fib_arr_ref == my_class._fib_arr)
+
 
     def _get_classes_module(self, m: ModuleProtocol | types.ModuleType) -> tuple:
         return tuple(m.MyClass(*args) for args in self._my_class_test_init_args)

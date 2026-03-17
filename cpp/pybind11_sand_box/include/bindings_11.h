@@ -9,9 +9,9 @@
 namespace py = pybind11;
 
 // Function declarations
-float addition(float x, float y);
+double addition(double x, double y);
 
-float addition_three_times(float x, float y);
+double addition_three_times(double x, double y);
 
 std::vector<double> fibonacci(size_t n);
 
@@ -21,19 +21,19 @@ py::array_t<double> fibonacci_numpy(size_t n);
 class PYBIND11_EXPORT MyClass {
 
 public:
-    float x;
-    float y;
-    ssize_t n;
+    double x;
+    double y;
+    size_t n;
     py::list _fib_l;
     py::array_t<double> _fib_arr;
 
     // Constructor
-    MyClass(float x_, float y_, size_t n_);
+    MyClass(double x_, double y_, size_t n_);
 
     // Member functions
-    [[nodiscard]] float class_addition(float x_, float y_) const;
+    [[nodiscard]] double class_addition(double x_, double y_) const;
 
-    [[nodiscard]] float class_addition_three_times(float x_, float y_) const;
+    [[nodiscard]] double class_addition_three_times(double x_, double y_) const;
 
     [[nodiscard]] py::list& class_fibonacci();
 

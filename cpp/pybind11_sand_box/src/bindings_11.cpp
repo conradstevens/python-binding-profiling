@@ -1,15 +1,15 @@
 #include "bindings_11.h"
 
 
-float addition(const float x, const float y) {
+double addition(const double x, const double y) {
     /** Addition function in cpp */
     return x + y;
 }
 
 
-float addition_three_times(const float x, const float y) {
+double addition_three_times(const double x, const double y) {
     /** Addition function in cpp */
-    float var = x + y;
+    double var = x + y;
     var /= 5;
     var *= 7;
     return var;
@@ -61,7 +61,7 @@ py::array_t<double> fibonacci_numpy(const size_t n) {
     auto buf = fib.mutable_unchecked<1>();
     buf(0) = 1;
     buf(1) = 2;
-    for (ssize_t i = 2; i < n; ++i) {
+    for (size_t i = 2; i < n; ++i) {
         buf[i] = (buf[i - 1] + buf[i - 2]) / static_cast<double>(n) * static_cast<double>(i);
     }
 
@@ -69,7 +69,7 @@ py::array_t<double> fibonacci_numpy(const size_t n) {
 }
 
 
-MyClass::MyClass(const float x_, const float y_, const size_t n_) {
+MyClass::MyClass(const double x_, const double y_, const size_t n_) {
     /** Initialization of addition variables */
     x = x_;
     y = y_;
@@ -80,13 +80,13 @@ MyClass::MyClass(const float x_, const float y_, const size_t n_) {
     _fib_arr = py::array_t<double>(n);
 }
 
-[[nodiscard]] float MyClass::class_addition(const float x_, const float y_) const {
+[[nodiscard]] double MyClass::class_addition(const double x_, const double y_) const {
     return x + y + x_ + y_;
 }
 
-[[nodiscard]] float MyClass::class_addition_three_times(const float x_, const float y_) const {
+[[nodiscard]] double MyClass::class_addition_three_times(const double x_, const double y_) const {
     /** Addition function in cpp */
-    float var = x_ + y_;
+    double var = x_ + y_;
     var /= 5;
     var *= 7;
     return var;
@@ -101,7 +101,7 @@ MyClass::MyClass(const float x_, const float y_, const size_t n_) {
 
     if (n > 1) {
         _fib_l[1] = 2.0;
-        for (ssize_t i = 2; i < n; ++i) {
+        for (size_t i = 2; i < n; ++i) {
             _fib_l[i] = (py::cast<double>(_fib_l[i - 1]) + py::cast<double>(_fib_l[i - 2])) /
                 static_cast<double>(n) * static_cast<double>(i);
         }
@@ -120,7 +120,7 @@ MyClass::MyClass(const float x_, const float y_, const size_t n_) {
 
     if (n > 1) {
         buf(1) = 2;
-        for (ssize_t i = 2; i < n; ++i) {
+        for (size_t i = 2; i < n; ++i) {
             buf[i] = (buf[i - 1] + buf[i - 2]) / static_cast<double>(n) * static_cast<double>(i);
         }
     }
@@ -136,7 +136,7 @@ PYBIND11_MODULE(pybind11_bindings, m) {
     m.def("fibonacci_numpy", &fibonacci_numpy, "Pybind11, returns list of fibonacci numbers");
 
     py::class_<MyClass>(m, "MyClass")
-        .def(py::init<const float &, const float &, const size_t &>())
+        .def(py::init<const double &, const double &, const size_t &>())
         .def_readwrite("x", &MyClass::x)
         .def_readwrite("y", &MyClass::y)
         .def_readwrite("_fib_l", &MyClass::_fib_l)
