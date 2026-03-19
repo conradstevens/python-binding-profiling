@@ -1,70 +1,67 @@
 #include <raw_cpp.h>
 
-float addition(const float x, const float y) {
+double addition(const double x, const double y) {
     return x + y;
 }
 
-float addition_three_times(const float x, const float y) {
-    float var = x + y;
+double addition_three_times(const double x, const double y) {
+    double var = x + y;
     var /= 5;
     var *= 7;
     return var;
 }
 
-std::vector<unsigned long> fibonacci(const size_t n) {
+std::vector<size_t> fibonacci(const size_t n) {
     if (n == 0) {
         return {};
     }
-    if (n == 1) {
-        return {1};
-    }
-    auto fib = std::vector<unsigned long>(n);
+    auto fib = std::vector<size_t>(n);
     fib[0] = 1;
-    fib[1] = 2;
-    for (int i = 2; i < n; i++) {
-        fib[i] = fib[i-2] + fib[i - 1] / fib[i - 2];
+
+    if (n > 1) {
+        fib[1] = 2;
+        if (n > 2) {
+            for (int i = 2; i < n; i++) {
+                fib[i] = (fib[i-1] + fib[i - 2]) / n * i;
+            }
+        }
     }
     return fib;
 }
 
-MyClass::MyClass(const float x_, const float y_, const size_t n_) {
+MyClass::MyClass(const double x_, const double y_, const size_t n_) {
     x = x_;
     y = y_;
     n = n_;
 
-    fib = std::vector<unsigned long>(n);
-    fib_0 = std::vector<unsigned long>(0);
-    fib_1 = std::vector<unsigned long>{1};
-    fib_2 = std::vector<unsigned long>{1, 2};
-
-    sum_arr = std::vector<unsigned long>(n);
+    _fib_arr = std::vector<size_t>(n);
 }
 
-float MyClass::class_addition(const float x_, const float y_) const {
+double MyClass::class_addition(const double x_, const double y_) const {
     return x + y + x_ + y_;
 }
 
-float MyClass::class_addition_three_times(const float x_, const float y_) const {
+double MyClass::class_addition_three_times(const double x_, const double y_) const {
     /** Addition function in cpp */
-    float var = x_ + y_;
+    double var = x_ + y_;
     var /= 5;
     var *= 7;
     return var;
 }
 
-std::vector<unsigned long> MyClass::class_fibonacci(const size_t n_) const {
-    const int n_var = n;
-    if (n_var == 0) {
-        return {};
+std::vector<size_t>* MyClass::class_fibonacci() {
+    if (n == 0) {
+        return &_fib_arr;
     }
-    if (n_var == 1) {
-        return {0};
+    _fib_arr[0] = 1;
+
+    if (n > 1) {
+        _fib_arr[1] = 2;
+        if (n > 2) {
+            for (int i = 2; i < n; i++) {
+                _fib_arr[i] = (_fib_arr[i-1] + _fib_arr[i - 2]) / n * i;
+            }
+        }
     }
-    auto fib = std::vector<unsigned long>(n_var);
-    fib[0] = 1;
-    fib[1] = 2;
-    for (int i = 2; i < n_var; ++i) {
-        fib[i] = (fib[i - 2] + fib[i - 1]) / fib[i - 2];
-    }
-    return fib;
+    return &_fib_arr;
 }
