@@ -1,23 +1,23 @@
 #define PY_ARRAY_UNIQUE_SYMBOL MY_ARRAY_API
-#include "c_lib.h"
+#include "c_package.h"
 
 
-PyObject* clib_addition(PyObject* self, PyObject* args, PyObject* kwargs) {
-    static char* clib_addition_kwlist[] = {"x", "y", NULL};
+PyObject* c_package_addition(PyObject* self, PyObject* args, PyObject* kwargs) {
+    static char* c_package_addition_kwlist[] = {"x", "y", NULL};
     double x, y;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "dd", clib_addition_kwlist, &x, &y))
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "dd", c_package_addition_kwlist, &x, &y))
         return NULL;
 
     double result = x + y;
     return PyFloat_FromDouble(result);
 }
 
-PyObject* clib_addition_three_times(PyObject* self, PyObject* args,  PyObject* kwargs) {
-    static char* clib_addition_three_times_kwlist[] = {"x", "y", NULL};
+PyObject* c_package_addition_three_times(PyObject* self, PyObject* args,  PyObject* kwargs) {
+    static char* c_package_addition_three_times_kwlist[] = {"x", "y", NULL};
     double x, y;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "dd", clib_addition_three_times_kwlist, &x, &y)) {
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "dd", c_package_addition_three_times_kwlist, &x, &y)) {
         return NULL;
     }
 
@@ -28,11 +28,11 @@ PyObject* clib_addition_three_times(PyObject* self, PyObject* args,  PyObject* k
     return PyFloat_FromDouble(result);
 }
 
-PyObject* clib_fibonacci(PyObject* self, PyObject* args, PyObject* kwargs) {
-    static char* clib_fibonacci_kwlist [] = {"n", NULL};
+PyObject* c_package_fibonacci(PyObject* self, PyObject* args, PyObject* kwargs) {
+    static char* c_package_fibonacci_kwlist [] = {"n", NULL};
     Py_ssize_t n;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "n", clib_fibonacci_kwlist, &n)) {
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "n", c_package_fibonacci_kwlist, &n)) {
         return NULL;
     }
 
@@ -64,10 +64,10 @@ PyObject* clib_fibonacci(PyObject* self, PyObject* args, PyObject* kwargs) {
 }
 
 static PyObject* fibonacci_numpy(PyObject* self, PyObject* args, PyObject* kwargs) {
-    static char* clib_fibonacci_numpy_kwlist[] = {"n", NULL};
+    static char* c_package_fibonacci_numpy_kwlist[] = {"n", NULL};
     Py_ssize_t n;
 
-    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "n", clib_fibonacci_numpy_kwlist, &n)) {
+    if (!PyArg_ParseTupleAndKeywords(args, kwargs, "n", c_package_fibonacci_numpy_kwlist, &n)) {
         return NULL;
     }
 
@@ -166,7 +166,7 @@ static PyObject* MyClass_class_fibonacci(MyClassObject* self, PyObject* Py_UNUSE
         }
     }
 
-    Py_INCREF(self->_fib_arr);
+    Py_INCREF(self->_fib_l);
     return self->_fib_l;
 }
 
@@ -228,19 +228,19 @@ static PyMethodDef MyClass_methods[] = {
 static PyMethodDef methods[] = {
 {
         "addition",
-        (PyCFunction)clib_addition,
+        (PyCFunction)c_package_addition,
         METH_VARARGS | METH_KEYWORDS,
         "Add two numbers together"
     },
     {
         "addition_three_times",
-        (PyCFunction)clib_addition_three_times,
+        (PyCFunction)c_package_addition_three_times,
         METH_VARARGS,
         "Add two numbers together followed by some extra computations"
     },
     {
     "fibonacci",
-    (PyCFunction)clib_fibonacci,
+    (PyCFunction)c_package_fibonacci,
     METH_VARARGS,
     "custom fibbonaci function for profiling"
 },
@@ -269,7 +269,7 @@ static PyMemberDef MyClass_members[] = {
 
 PyTypeObject MyClass_Type = {
     PyVarObject_HEAD_INIT(NULL, 0)
-    .tp_name      = "c_lib.MyClass",
+    .tp_name      = "c_package.MyClass",
     .tp_basicsize = sizeof(MyClassObject),
     .tp_itemsize  = 0,
     .tp_flags     = Py_TPFLAGS_DEFAULT,
@@ -280,21 +280,21 @@ PyTypeObject MyClass_Type = {
     .tp_methods   = MyClass_methods,
 };
 
-static struct PyModuleDef c_lib = {
+static struct PyModuleDef c_package = {
     PyModuleDef_HEAD_INIT,
-    "c_lib",
+    "c_package",
     "simple python C library for profiling",
     -1,
     methods
 };
 
-PyMODINIT_FUNC PyInit_c_lib(void) {
+PyMODINIT_FUNC PyInit_c_package(void) {
     import_array();
 
     if (PyType_Ready(&MyClass_Type) < 0)
         return NULL;
 
-    PyObject* m = PyModule_Create(&c_lib);
+    PyObject* m = PyModule_Create(&c_package);
     if (m == NULL)
         return NULL;
 

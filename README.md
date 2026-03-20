@@ -1,11 +1,12 @@
 # Profiling Python C / C++ Extensions
 
-This repo profiles a number of C and CPP python extensions determining which is the best for different use cases. 
+This repo profiles tools used to improve the performance of python, determining which is the best for different use cases. 
 The approaches profiled are:
 1. Pure python
 2. Pure CPP
 3. Pybind11
 4. Nanobind
+5. C Python Package
 5. Cython _TODO_
 6. Nanobind _TODO_
 
@@ -22,14 +23,9 @@ cd python-binding-profiling
 
 ### Building Compiled Packages
 C / CPP is compiled with optimization flags to profile release performance. 
-Run the build script to build all compiled repos.  
+Run the build script to build all compiled repos.
 ```commandline
 ./build.sh  # potentially requires: chmod +x build.sh 
-```
-
-### Build Python Environment
-```commandline
-uv sync
 ```
 
 ### Run Profiler!
