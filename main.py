@@ -30,8 +30,8 @@ if __name__ == '__main__':
     Profiler.set_fib_num(FIBONACCI_NUMBER)
     Profiler.set_burner_num(BURNER_TRIALS)
 
-    # Profiler(modulo=packaged_raw_python, header="PYTHON").profile()
-    # Profiler(modulo=pybind11_bindings, header="PYBIND11 PACKAGE").profile()
-    # Profiler(modulo=nano_bindings, header="NANOBIND PACKAGE").profile()
+    Profiler(modulo=packaged_raw_python, header="PYTHON").profile()
+    Profiler(modulo=pybind11_bindings, header="PYBIND11 PACKAGE").profile()
+    Profiler(modulo=nano_bindings, header="NANOBIND PACKAGE").profile()
     Profiler(modulo=c_package, header="C PACKAGE").profile()
     Profiler.run_pure_cpp(rel_path=Path("./cpp/pure_cpp/cmake_build_release/pure_cpp"))

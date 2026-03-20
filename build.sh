@@ -1,5 +1,10 @@
 #!/bin/bash
 
+echo -e "\n ### Pure Python ### \n"
+uv build --wheel --project python/pure_python/
+
+echo -e "\n ### Making Virtual Environment ### \n"
+uv sync
 
 echo -e "\n ### Building Pure CPP Executable ### \n"
 mkdir -p cpp/pure_cpp/cmake_build_release
@@ -31,11 +36,7 @@ cmake --build cpp/nanobind_package/cmake_build_release/
 echo -e "\n ### C Package ### \n"
 mkdir -p c/c_package/cmake_build_release
 cmake -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_CXX_FLAGS_RELEASE="-O3 -march=native -DNDEBUG" \
       -DCMAKE_C_FLAGS_RELEASE="-O3 -march=native -DNDEBUG" \
       -S c/c_package/ \
       -B c/c_package/cmake_build_release
 cmake --build c/c_package/cmake_build_release
-
-echo -e "\n ### Pure Python ### \n"
-uv build --wheel --project python/pure_python/
