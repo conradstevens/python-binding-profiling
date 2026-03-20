@@ -1,5 +1,5 @@
-#ifndef CLIB_H
-#define CLIB_H
+#ifndef C_PACKAGE_H
+#define C_PACKAGE_H
 #include <structmember.h>
 
 #define PY_SSIZE_T_CLEAN

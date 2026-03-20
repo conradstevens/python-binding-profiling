@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-echo -e "\n ### Building Pure CPP ### \n"
+echo -e "\n ### Building Pure CPP Executable ### \n"
 mkdir -p cpp/pure_cpp/cmake_build_release
 cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_CXX_FLAGS_RELEASE="-O3 -march=native -DNDEBUG" \
@@ -10,23 +10,32 @@ cmake -DCMAKE_BUILD_TYPE=Release \
       -B cpp/pure_cpp/cmake_build_release/
 cmake --build cpp/pure_cpp/cmake_build_release/
 
-echo -e "\n ### Building Pybind11 library ### \n"
-mkdir -p cpp/pybind11_sand_box/cmake_build_release
+echo -e "\n ### Building Pybind11 Package ### \n"
+mkdir -p cpp/pybind11_package/cmake_build_release
 cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_CXX_FLAGS_RELEASE="-O3 -march=native -DNDEBUG" \
       -DCMAKE_C_FLAGS_RELEASE="-O3 -march=native -DNDEBUG" \
-      -S cpp/pybind11_sand_box/ \
-      -B cpp/pybind11_sand_box/cmake_build_release/
-cmake --build cpp/pybind11_sand_box/cmake_build_release/
+      -S cpp/pybind11_package/ \
+      -B cpp/pybind11_package/cmake_build_release/
+cmake --build cpp/pybind11_package/cmake_build_release/
 
-echo -e "\n ### Building nanobind library ### \n"
-mkdir -p cpp/nanobind_sand_box/cmake_build_release
+echo -e "\n ### Building Nanobind Package ### \n"
+mkdir -p cpp/nanobind_package/cmake_build_release
 cmake -DCMAKE_BUILD_TYPE=Release \
       -DCMAKE_CXX_FLAGS_RELEASE="-O3 -march=native -DNDEBUG" \
       -DCMAKE_C_FLAGS_RELEASE="-O3 -march=native -DNDEBUG" \
-      -S cpp/nanobind_sand_box/ \
-      -B cpp/nanobind_sand_box/cmake_build_release/
-cmake --build cpp/nanobind_sand_box/cmake_build_release/
+      -S cpp/nanobind_package/ \
+      -B cpp/nanobind_package/cmake_build_release/
+cmake --build cpp/nanobind_package/cmake_build_release/
 
-echo -e "\n ### Building Pure Python Wheel ###"
-uv build python/
+echo -e "\n ### C Package ### \n"
+mkdir -p c/c_package/cmake_build_release
+cmake -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_CXX_FLAGS_RELEASE="-O3 -march=native -DNDEBUG" \
+      -DCMAKE_C_FLAGS_RELEASE="-O3 -march=native -DNDEBUG" \
+      -S c/c_package/ \
+      -B c/c_package/cmake_build_release
+cmake --build c/c_package/cmake_build_release
+
+echo -e "\n ### Pure Python ### \n"
+uv build --wheel --project python/pure_python/

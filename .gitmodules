@@ -1,8 +1,8 @@
-[submodule "cpp/pybind11_sand_box/lib/pybind11"]
-	path = cpp/pybind11_sand_box/lib/pybind11
+[submodule "cpp/pybind11_package/lib/pybind11"]
+	path = cpp/pybind11_package/lib/pybind11
 	url = https://github.com/pybind/pybind11.git
 	ignore = dirty
-[submodule "cpp/nanobind_sand_box/lib/nanobind"]
-	path = cpp/nanobind_sand_box/lib/nanobind
+[submodule "cpp/nanobind_package/lib/nanobind"]
+	path = cpp/nanobind_package/lib/nanobind
 	url = https://github.com/wjakob/nanobind.git
 	ignore = dirty
