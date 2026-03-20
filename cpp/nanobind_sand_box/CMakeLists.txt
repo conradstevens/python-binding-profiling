@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.15)
 project(nanobind_sand_box)
 set(CMAKE_CXX_STANDARD 20)
 
+set(Python3_ROOT_DIR "../../.venv")
 
 if (CMAKE_VERSION VERSION_LESS 3.18)
     set(DEV_MODULE Development)

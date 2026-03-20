@@ -1,13 +1,14 @@
 #include "profiler.h"
 #include <chrono>
+#include <type_traits>
 
 
 Profiler::Profiler(
     const size_t num_trials_,
     const size_t fib_num_,
     const size_t burner_trials_,
-    const float x_,
-    const float y_,
+    const double x_,
+    const double y_,
     const size_t n_,
     std::string heading_
     ) {
@@ -62,7 +63,7 @@ void Profiler::profile_funcs() {
     profile_function<MyClass>("MyClass", x, y, n);
     profile_function("class_addition", my_class, &MyClass::class_addition, x, y);
     profile_function("class_addition_three_times", my_class, &MyClass::class_addition_three_times, x, y);
-    profile_function("class_addition_three_times", my_class, &MyClass::class_fibonacci, n);
+    profile_function("class_fibonacci", my_class, &MyClass::class_fibonacci);
 }
 
 template<typename ReturnType, typename... Args>
@@ -102,6 +103,29 @@ void Profiler::profile_function(const std::string &func_name, const MyClass& my_
     for (size_t i = 0; i < num_trials; i++) {
         auto start = std::chrono::high_resolution_clock::now();
         ReturnType dummy_var = std::move((my_class.*func)(args...));
+        auto end = std::chrono::high_resolution_clock::now();
+        dummy_var_p = &dummy_var;
+        duration += std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    }
+
+    std::cout << std::fixed << std::setprecision(5) << func_name << ": " << duration.count() * 1e-9 << std::endl;
+}
+
+template<typename ReturnType>
+void Profiler::profile_function(const std::string &func_name, MyClass& my_class,
+    ReturnType (MyClass::*func)()) {
+    volatile ReturnType* dummy_var_p = nullptr;
+
+    for (size_t i = 0; i < burner_trials; i++) {
+        ReturnType dummy_var = (my_class.*func)();
+        dummy_var_p = &dummy_var;
+    }
+
+    auto duration = std::chrono::nanoseconds(0);
+
+    for (size_t i = 0; i < num_trials; i++) {
+        auto start = std::chrono::high_resolution_clock::now();
+        ReturnType dummy_var = (my_class.*func)();
         auto end = std::chrono::high_resolution_clock::now();
         dummy_var_p = &dummy_var;
         duration += std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);

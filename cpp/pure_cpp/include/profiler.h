@@ -11,8 +11,8 @@ class Profiler {
     size_t fib_num;
     size_t burner_trials;
 
-    float x;
-    float y;
+    double x;
+    double y;
     size_t n;
 
     std::string heading;
@@ -29,13 +29,17 @@ class Profiler {
     template<typename T, typename... Args>
         void profile_function(std::string const& func_name, Args... args);
 
+    template<typename ReturnType>
+        void profile_function(const std::string &func_name, MyClass& my_class,
+            ReturnType (MyClass::*func)());
+
 public:
     Profiler(
         size_t num_trials_,
         size_t fib_num_,
         size_t burner_trials_,
-        float x_,
-        float y_,
+        double x_,
+        double y_,
         size_t n_,
         std::string heading_
         );
