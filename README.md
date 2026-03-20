@@ -5,7 +5,9 @@ The approaches profiled are:
 1. Pure python
 2. Pure CPP
 3. Pybind11
-4. Nanobind 
+4. Nanobind
+5. Cython _TODO_
+6. Nanobind _TODO_
 
 _Pull requests profiling others are allways welcome :)_
 
