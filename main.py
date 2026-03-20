@@ -4,6 +4,8 @@ from pathlib import Path
 ## Python imported by wheel
 import pure_python.raw_python as packaged_raw_python
 
+import numba_package.numba_python as numba_python
+
 ## CPP pybind11 package
 # noinspection PyUnresolvedReferences
 import cpp.pybind11_package.cmake_build_release.pybind11_bindings as pybind11_bindings
@@ -31,6 +33,7 @@ if __name__ == '__main__':
     Profiler.set_burner_num(BURNER_TRIALS)
 
     Profiler(modulo=packaged_raw_python, header="PYTHON").profile()
+    Profiler(modulo=numba_python, header="NUMBA").profile()
     Profiler(modulo=pybind11_bindings, header="PYBIND11 PACKAGE").profile()
     Profiler(modulo=nano_bindings, header="NANOBIND PACKAGE").profile()
     Profiler(modulo=c_package, header="C PACKAGE").profile()

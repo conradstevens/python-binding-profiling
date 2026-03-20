@@ -3,6 +3,9 @@
 echo -e "\n ### Pure Python ### \n"
 uv build --wheel --project python/pure_python/
 
+echo -e "\n ### Numba Python ### \n"
+uv build --wheel --project python/numba_package/
+
 echo -e "\n ### Making Virtual Environment ### \n"
 uv sync
 

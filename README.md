@@ -7,8 +7,8 @@ The approaches profiled are:
 3. Pybind11
 4. Nanobind
 5. C Python Package
+6. Numba
 5. Cython _TODO_
-6. Nanobind _TODO_
 
 _Pull requests profiling others are allways welcome :)_
 
