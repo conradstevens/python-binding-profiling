@@ -1,12 +1,19 @@
 #!/bin/bash
 
-echo -e "\n ### Pure Python ### \n"
+echo -e "\n ### Building Pure Python Package ### \n"
 uv build --wheel --project python/pure_python/
 
-echo -e "\n ### Numba Python ### \n"
+echo -e "\n ### Building Numba Python Package ### \n"
 uv build --wheel --project python/numba_package/
 
+echo -e "\n ### Building Cython Package ### \n"
+uv build --wheel --project python/cython_package/
+
 echo -e "\n ### Making Virtual Environment ### \n"
+# Supress error of removing if it is not there
+uv remove cython-package 2>/dev/null || true
+# Wheel name will change depending on system
+uv add "python/cython_package/dist/"$(ls python/cython_package/dist/)
 uv sync
 
 echo -e "\n ### Building Pure CPP Executable ### \n"

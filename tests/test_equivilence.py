@@ -3,30 +3,43 @@ import numpy as np
 import pytest
 from numpy.typing import NDArray
 
-from profiler import ModuleProtocol
+from python_binding_profiling.profiler import ModuleProtocol
 
 ### Modules
 
 ## Python imported by wheel
-import pure_python_package.raw_python as packaged_raw_python
+import pure_python.raw_python as packaged_raw_python
+
+## Python pacakge optimized with numba
+import numba_package.numba_python as numba_python
+
+## Cython package
+import cython_package.cython_module as cython_module
 
 ## CPP pybind11 package
 # noinspection PyUnresolvedReferences
-import cpp.pybind11_sand_box.cmake_build_release.pybind11_bindings as pybind11_bindings
+import cpp.pybind11_package.cmake_build_release.pybind11_bindings as pybind11_bindings
 
 ## CPP Nanobind package
 # noinspection PyUnresolvedReferences
-import cpp.nanobind_sand_box.cmake_build_release.nano_bindings as nano_bindings
+import cpp.nanobind_package.cmake_build_release.nano_bindings as nano_bindings
 
 ## C Library
 # noinspection PyUnresolvedReferences
-import c.c_lib.cmake_build_release.c_lib as c_lib
+import c.c_package.cmake_build_release.c_package as c_lib
 
 
 EQUIVALENCE_TOLERANCE: float = 1e-6
 TEST_VAL: int = -999
 
-MODULES_TO_TEST: list[ModuleProtocol | types.ModuleType] = [packaged_raw_python, pybind11_bindings, nano_bindings]
+MODULES_TO_TEST: list[ModuleProtocol] = [
+    packaged_raw_python,
+    pybind11_bindings,
+    nano_bindings,
+    numba_python,
+    cython_module
+]
+
 
 class TestEquivalence:
     def setup_method(self):
