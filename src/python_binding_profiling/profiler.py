@@ -4,7 +4,7 @@ import types
 import subprocess
 from pathlib import Path
 from time import time
-from typing import Callable, Type, Protocol
+from typing import Callable, Type, Protocol, Dict
 import numpy as np
 from numpy.typing import NDArray
 
@@ -53,6 +53,9 @@ class Profiler:
         ## Make class to call functions for
         self._m_class = self._m.MyClass(99, 100, self._FIB_NUM)
 
+        ## Store Profile results
+        self.profile_results: dict[str, NDArray[float]] = dict()
+
     def profile(self):
         """Profile all elements being tested and prints their results"""
         self.print_heading()
@@ -66,19 +69,22 @@ class Profiler:
         self.profile_func(self._m_class.class_fibonacci)
         self.profile_func(self._m_class.class_fibonacci_numpy)
 
-    @classmethod
-    def profile_func(cls, obj: Callable, *args, **kwargs):
+    def profile_func(self, obj: Callable, *args, **kwargs):
         # Setting cache
-        for i in range(cls._BURNER_TRIALS):
+        for i in range(self._BURNER_TRIALS):
             _ = obj(*args, **kwargs)
 
-        lapsed_time = 0
-        for i in range(cls._NUM_TRIALS):
+        lapsed_time_arr = np.zeros(self._NUM_TRIALS)
+        for i in range(self._NUM_TRIALS):
             start_time = time()
             _ = obj(*args, **kwargs)
             end_time = time()
-            lapsed_time += (end_time - start_time)
-        print(f"{obj.__name__}: {round(lapsed_time, 4)}")
+            time_passed = (end_time - start_time)
+            lapsed_time_arr[i] = time_passed
+
+        print(f"{obj.__name__}: {round(lapsed_time_arr.sum(), 4)}")
+        self.profile_results[obj.__name__] = lapsed_time_arr
+
 
     @classmethod
     def set_num_trials(cls, num_trials: int):
@@ -152,3 +158,7 @@ class Profiler:
         # Print bottom border
         print('#' * width)
         print()
+
+    @property
+    def header(self) -> str:
+        return self._header
