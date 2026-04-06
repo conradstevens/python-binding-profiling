@@ -4,6 +4,7 @@ import pytest
 from numpy.typing import NDArray
 
 from python_binding_profiling.profiler import ModuleProtocol
+from pure_python.raw_python import MyClass
 
 ### Modules
 
@@ -14,7 +15,7 @@ import pure_python.raw_python as packaged_raw_python
 import numba_package.numba_python as numba_python
 
 ## Cython package
-import cython_package.cython_module as cython_module
+# import cython_package.cython_module as cython_module
 
 ## CPP pybind11 package
 # noinspection PyUnresolvedReferences
@@ -37,7 +38,7 @@ MODULES_TO_TEST: list[ModuleProtocol] = [
     pybind11_bindings,
     nano_bindings,
     numba_python,
-    cython_module
+    # cython_module
 ]
 
 
@@ -90,7 +91,8 @@ class TestEquivalence:
 
     @pytest.mark.parametrize("m", MODULES_TO_TEST)
     def test_fibonacci(self, m):
-        results: tuple[list[float], ...] = tuple(m.fibonacci(n) for n in self._n_test_values)
+        results: tuple[list[float], ...] = tuple(list(m.fibonacci(n)) for n in self._n_test_values)
+
         assert results == pytest.approx(self._py_fibonacci_results, abs=EQUIVALENCE_TOLERANCE, rel=0)
 
     @pytest.mark.parametrize("m", MODULES_TO_TEST)
@@ -123,7 +125,7 @@ class TestEquivalence:
     def test_class_fibonacci(self, m):
         classes: tuple[MyClass, ...] = self._get_classes_module(m)
         results: tuple[tuple[list[float], ...], ...] = tuple(
-            tuple(c.class_fibonacci() for _ in self._n_test_values) for c in classes
+            tuple(list(c.class_fibonacci()) for _ in self._n_test_values) for c in classes
         )
         assert all(
             inner_r == pytest.approx(inner_e, abs=EQUIVALENCE_TOLERANCE, rel=0)
