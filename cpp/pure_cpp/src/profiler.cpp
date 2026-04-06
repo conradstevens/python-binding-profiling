@@ -1,6 +1,4 @@
 #include "profiler.h"
-#include <chrono>
-#include <type_traits>
 
 
 Profiler::Profiler(
@@ -9,8 +7,7 @@ Profiler::Profiler(
     const size_t burner_trials_,
     const double x_,
     const double y_,
-    const size_t n_,
-    std::string heading_
+    std::string header_
     ) {
     num_trials = num_trials_;
     fib_num = fib_num_;
@@ -18,9 +15,8 @@ Profiler::Profiler(
 
     x = x_;
     y = y_;
-    n = n_;
 
-    heading = heading_;
+    header = header_;
 }
 
 void Profiler::print_heading() {
@@ -39,13 +35,13 @@ void Profiler::print_heading() {
     print_hashes();
 
     // Print middle line
-    size_t hash_len_pad = width - heading.length();  // deducting word length
+    size_t hash_len_pad = width - header.length();  // deducting word length
     hash_len_pad = hash_len_pad - 2;         // adding padding
     hash_len_pad = hash_len_pad / 2;
 
-    std::cout << std::string(hash_len_pad, '-') << ' ' << heading << ' ';
+    std::cout << std::string(hash_len_pad, '-') << ' ' << header << ' ';
 
-    if (hash_len_pad * 2 + heading.length() + 2 < width) {
+    if (hash_len_pad * 2 + header.length() + 2 < width) {
          std::cout << std::string(hash_len_pad + 1, '-') << std::endl;
     } else {
         std::cout << std::string(hash_len_pad, '-') << std::endl;
@@ -54,20 +50,23 @@ void Profiler::print_heading() {
     print_hashes();
 }
 
-void Profiler::profile_funcs() {
+void Profiler::profile() {
     print_heading();
-    MyClass my_class(x, y, n);
-    profile_function("addition", addition, x, y);
-    profile_function("addition_three_times", addition_three_times, x, y);
-    profile_function("fibonacci", fibonacci, n);
-    profile_function<MyClass>("MyClass", x, y, n);
-    profile_function("class_addition", my_class, &MyClass::class_addition, x, y);
-    profile_function("class_addition_three_times", my_class, &MyClass::class_addition_three_times, x, y);
-    profile_function("class_fibonacci", my_class, &MyClass::class_fibonacci);
+    MyClass my_class(x, y, fib_num);
+
+    profile_results["addition"] = profile_function("addition", addition, x, y);
+    profile_results["addition_three_times"] = profile_function("addition_three_times", addition_three_times, x, y);
+    profile_results["fibonacci"] = profile_function("fibonacci", fibonacci, fib_num);
+    profile_results["fibonacci_numpy"] = profile_results["fibonacci"];
+    profile_results["MyClass"] = profile_function<MyClass>("MyClass", x, y, fib_num);
+    profile_results["class_addition"] = profile_function("class_addition", my_class, &MyClass::class_addition, x, y);
+    profile_results["class_addition_three_times"] = profile_function("class_addition_three_times", my_class, &MyClass::class_addition_three_times, x, y);
+    profile_results["class_fibonacci"] = profile_function("class_fibonacci", my_class, &MyClass::class_fibonacci);
+    profile_results["class_fibonacci_numpy"] = profile_results["class_fibonacci"];
 }
 
 template<typename ReturnType, typename... Args>
-void Profiler::profile_function(std::string const& func_name, ReturnType (*func)(Args...), Args... args) {
+double Profiler::profile_function(std::string const& func_name, ReturnType (*func)(Args...), Args... args) {
     volatile ReturnType* dummy_var_p = nullptr;
 
     for (size_t i = 0; i < burner_trials; i++) {
@@ -85,11 +84,12 @@ void Profiler::profile_function(std::string const& func_name, ReturnType (*func)
         duration += std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
     }
 
-    std::cout << std::fixed << std::setprecision(5) << func_name << ": " << duration.count() * 1e-9 << std::endl;
+    std::cout << std::fixed << func_name << ": " << duration.count() * 1e-9 << std::endl;
+    return (double) duration.count() * 1e-9 / num_trials;  // Ns -> S o seconds
 }
 
 template<typename ReturnType, typename... Args>
-void Profiler::profile_function(const std::string &func_name, const MyClass& my_class,
+double Profiler::profile_function(const std::string &func_name, const MyClass& my_class,
     ReturnType (MyClass::*func)(Args...) const, Args... args) {
     volatile ReturnType* dummy_var_p = nullptr;
 
@@ -108,11 +108,12 @@ void Profiler::profile_function(const std::string &func_name, const MyClass& my_
         duration += std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
     }
 
-    std::cout << std::fixed << std::setprecision(5) << func_name << ": " << duration.count() * 1e-9 << std::endl;
+    std::cout << std::fixed << func_name << ": " << duration.count() * 1e-9 << std::endl;
+    return (double) duration.count() * 1e-9 / num_trials;  // Ns -> S o seconds
 }
 
 template<typename ReturnType>
-void Profiler::profile_function(const std::string &func_name, MyClass& my_class,
+double Profiler::profile_function(const std::string &func_name, MyClass& my_class,
     ReturnType (MyClass::*func)()) {
     volatile ReturnType* dummy_var_p = nullptr;
 
@@ -131,11 +132,12 @@ void Profiler::profile_function(const std::string &func_name, MyClass& my_class,
         duration += std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
     }
 
-    std::cout << std::fixed << std::setprecision(5) << func_name << ": " << duration.count() * 1e-9 << std::endl;
+    std::cout << std::fixed << func_name << ": " << duration.count() * 1e-9 << std::endl;
+    return (double) duration.count() * 1e-9 / num_trials;  // Ns -> S o seconds
 }
 
 template<typename T, typename... Args>
-void Profiler::profile_function(std::string const& func_name, Args... args) {
+double Profiler::profile_function(std::string const& func_name, Args... args) {
     volatile T* dummy_var_p = nullptr;
     for (size_t i = 0; i < burner_trials; i++) {
         T dummy_var = T(args...);
@@ -152,5 +154,25 @@ void Profiler::profile_function(std::string const& func_name, Args... args) {
         duration += std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
     }
 
-    std::cout << std::fixed << std::setprecision(5) << func_name << ": " << duration.count() * 1e-9 << std::endl;
+    std::cout << std::fixed << func_name << ": " << duration.count() * 1e-9 << std::endl;
+    return (double) duration.count() * 1e-9 / num_trials; // Ns -> S o seconds
+}
+
+
+PYBIND11_MODULE(python_cpp_profiler, m) {
+    m.doc() = "Python class call and read cpp profiles";
+
+    py::class_<Profiler>(m, "CppProfiler")
+        .def(py::init<
+            const size_t,
+            const size_t,
+            const size_t,
+            const double,
+            const double,
+            const std::string
+            >())
+        .def_readonly("profile_results", &Profiler::profile_results)
+        .def_readonly("header", &Profiler::header)
+        .def("print_heading", &Profiler::print_heading)
+        .def("profile", &Profiler::profile);
 }
