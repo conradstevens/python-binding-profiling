@@ -54,7 +54,7 @@ class Profiler:
         self._m_class = self._m.MyClass(99, 100, self._FIB_NUM)
 
         ## Store Profile results
-        self.profile_results: dict[str, NDArray[float]] = dict()
+        self.profile_results: dict[str, float] = dict()
 
     def profile(self):
         """Profile all elements being tested and prints their results"""
@@ -74,16 +74,15 @@ class Profiler:
         for i in range(self._BURNER_TRIALS):
             _ = obj(*args, **kwargs)
 
-        lapsed_time_arr = np.zeros(self._NUM_TRIALS)
+        time_passed = 0
         for i in range(self._NUM_TRIALS):
             start_time = time()
             _ = obj(*args, **kwargs)
             end_time = time()
-            time_passed = (end_time - start_time)
-            lapsed_time_arr[i] = time_passed
+            time_passed += (end_time - start_time)
 
-        print(f"{obj.__name__}: {round(lapsed_time_arr.sum(), 4)}")
-        self.profile_results[obj.__name__] = lapsed_time_arr
+        print(f"{obj.__name__}: {round(time_passed, 4)}")
+        self.profile_results[obj.__name__] = time_passed / self._NUM_TRIALS
 
 
     @classmethod

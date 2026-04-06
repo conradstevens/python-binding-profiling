@@ -7,10 +7,9 @@ class ProfilePlotter:
 
     def __init__(self, profilers: list[Profiler]):
         self._profilers: list[Profiler] = profilers
-        self._num_profiles: int = len(self._profilers)
         self._headers: list[str] = [p.header for p in self._profilers]
 
-    def profile(self) -> None:
+    def profile_all(self) -> None:
         """Profile all the profilers"""
         for profiler in self._profilers:
             profiler.profile()
@@ -20,7 +19,7 @@ class ProfilePlotter:
         fig, ax = plt.subplots(figsize=(10, 3), layout='constrained')
 
         avg_func_profile_time: list[float] = [
-            np.average(p.profile_results[func_name]) / 1e-9  # nano seconds
+            p.profile_results[func_name] * 1e9  # nano seconds
             for p in self._profilers
         ]
 
