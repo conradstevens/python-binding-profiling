@@ -15,7 +15,7 @@ import pure_python.raw_python as packaged_raw_python
 import numba_package.numba_python as numba_python
 
 ## Cython package
-# import cython_package.cython_module as cython_module
+import cython_package.cython_module as cython_module
 
 ## CPP pybind11 package
 # noinspection PyUnresolvedReferences
@@ -38,7 +38,7 @@ MODULES_TO_TEST: list[ModuleProtocol] = [
     pybind11_bindings,
     nano_bindings,
     numba_python,
-    # cython_module
+    cython_module
 ]
 
 
