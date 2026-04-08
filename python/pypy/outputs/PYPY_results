@@ -1,0 +1,11 @@
+{
+  "addition": 1.8620491027832032e-07,
+  "addition_three_times": 1.4543533325195312e-07,
+  "fibonacci": 1.4802217483520508e-05,
+  "fibonacci_numpy": 0.0008861758708953858,
+  "MyClass": 5.752801895141602e-06,
+  "class_addition": 2.660751342773438e-07,
+  "class_addition_three_times": 2.6917457580566406e-07,
+  "class_fibonacci": 1.1119604110717774e-05,
+  "class_fibonacci_numpy": 0.0009560387134552002
+}

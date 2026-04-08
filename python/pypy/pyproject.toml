@@ -1,0 +1,16 @@
+[project]
+name = "pypy-python-package"
+version = "0.1.0"
+description = "This a toy package for profiling function"
+requires-python = ">=3.10,<3.13"  # Note pypy is only suported up to python3.10
+
+dependencies = [
+    "numpy>=1.24.4",
+    "pure-python-package",
+]
+
+[tool.uv.sources]
+pure-python-package = { path = "../pure_python/dist/pure_python_package-0.1.0-py3-none-any.whl" }
+
+[tool.uv]
+package = true

@@ -1,4 +1,5 @@
 import logging
+import json
 import shutil
 import types
 import subprocess
@@ -58,6 +59,8 @@ class Profiler:
 
     def profile(self):
         """Profile all elements being tested and prints their results"""
+        if self._NUM_TRIALS is None or self._FIB_NUM is None or self._BURNER_TRIALS is None:
+            raise RuntimeError("Static Profiler variables not set")
         self.print_heading()
         self.profile_func(self._m.addition, 99, 100)
         self.profile_func(self._m.addition_three_times, 99, 100)
@@ -157,6 +160,13 @@ class Profiler:
         # Print bottom border
         print('#' * width)
         print()
+
+    def save_results_to_json(self, save_path: Path):
+        """Save the json file to outputs"""
+        save_file: Path = save_path / f"{self.header}_results"
+        with open(save_file, "w") as f:
+            json.dump(self.profile_results, f, indent=2)
+
 
     @property
     def header(self) -> str:
