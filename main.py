@@ -1,5 +1,8 @@
-from python_binding_profiling.profiler import Profiler
 from pathlib import Path
+
+from python_binding_profiling.profiler import Profiler
+from python_binding_profiling.profiler import ProfilerJson
+from python_binding_profiling.plotter import ProfilePlotter
 
 ## Python raw
 import pure_python.raw_python as packaged_raw_python
@@ -22,10 +25,14 @@ import cpp.nanobind_package.cmake_build_release.nano_bindings as nano_bindings
 # noinspection PyUnresolvedReferences
 import c.c_package.cmake_build_release.c_package as c_package
 
-NUM_TRIALS = 10_000
-FIBONACCI_NUMBER = 1_000
-BURNER_TRIALS = 100
+## CPP Profiler
+# noinspection PyUnresolvedReferences
+import cpp.pure_cpp.cmake_build_release.python_cpp_profiler as cpp_profiler
 
+
+NUM_TRIALS: int = 1_000
+FIBONACCI_NUMBER: int = 10_000
+BURNER_TRIALS: int = 200
 
 if __name__ == '__main__':
     print()
@@ -36,10 +43,24 @@ if __name__ == '__main__':
     Profiler.set_fib_num(FIBONACCI_NUMBER)
     Profiler.set_burner_num(BURNER_TRIALS)
 
-    Profiler(modulo=packaged_raw_python, header="PYTHON").profile()
-    Profiler(modulo=numba_python, header="NUMBA").profile()
-    Profiler(modulo=cython_module, header="CYTHON").profile()
-    Profiler(modulo=pybind11_bindings, header="PYBIND11 PACKAGE").profile()
-    Profiler(modulo=nano_bindings, header="NANOBIND PACKAGE").profile()
-    Profiler(modulo=c_package, header="C PACKAGE").profile()
-    Profiler.run_pure_cpp(rel_path=Path("./cpp/pure_cpp/cmake_build_release/pure_cpp"))
+    profile_plotter = ProfilePlotter([
+        Profiler(header="PYTHON", modulo=packaged_raw_python),
+        Profiler(header="PYTHON-NUMBA", modulo=numba_python),
+        Profiler(header="CYTHON", modulo=cython_module),
+        ProfilerJson(header="PYPY", json_path=Path("python/pypy/outputs/PYPY_results.json")),
+        Profiler(header="PYBIND11-PACKAGE", modulo=pybind11_bindings),
+        Profiler(header="NANOBIND-PACKAGE", modulo=nano_bindings),
+        Profiler(header="C-PACKAGE", modulo=c_package),
+        cpp_profiler.CppProfiler(NUM_TRIALS, FIBONACCI_NUMBER, BURNER_TRIALS, 99, 100, "CPP"),
+    ])
+
+    profile_plotter.profile_all()
+    profile_plotter.plot_time_averages("addition")
+    profile_plotter.plot_time_averages("addition_three_times")
+    profile_plotter.plot_time_averages("fibonacci")
+    profile_plotter.plot_time_averages("fibonacci_numpy")
+    profile_plotter.plot_time_averages("MyClass")
+    profile_plotter.plot_time_averages("class_addition")
+    profile_plotter.plot_time_averages("class_addition_three_times")
+    profile_plotter.plot_time_averages("class_fibonacci")
+    profile_plotter.plot_time_averages("class_fibonacci_numpy")

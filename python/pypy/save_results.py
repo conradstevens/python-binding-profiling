@@ -8,11 +8,11 @@ sys.path.insert(0, "../../src")
 # noinspection PyUnresolvedReferences
 from python_binding_profiling.profiler import Profiler
 
-if __name__ == '__main__':
-    NUM_TRIALS = 1_000
-    FIBONACCI_NUMBER = 1_000
-    BURNER_TRIALS = 200
+NUM_TRIALS: int = 1_000
+FIBONACCI_NUMBER: int = 10_000
+BURNER_TRIALS: int = 200
 
+if __name__ == '__main__':
     Profiler.set_num_trials(NUM_TRIALS)
     Profiler.set_fib_num(FIBONACCI_NUMBER)
     Profiler.set_burner_num(BURNER_TRIALS)

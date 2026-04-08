@@ -42,8 +42,8 @@ class Profiler:
 
     def __init__(
             self,
-            modulo: ModuleProtocol | types.ModuleType,
             header: str,
+            modulo: ModuleProtocol | types.ModuleType,
     ) -> None:
         ## Module used to call functions
         self._m: ModuleProtocol = modulo
@@ -52,7 +52,7 @@ class Profiler:
         self._header: str = header
 
         ## Make class to call functions for
-        self._m_class = self._m.MyClass(99, 100, self._FIB_NUM)
+        self._m_class = None if self._m is None else self._m.MyClass(99, 100, self._FIB_NUM)
 
         ## Store Profile results
         self.profile_results: dict[str, float] = dict()
@@ -163,7 +163,7 @@ class Profiler:
 
     def save_results_to_json(self, save_path: Path):
         """Save the json file to outputs"""
-        save_file: Path = save_path / f"{self.header}_results"
+        save_file: Path = save_path / f"{self.header}_results.json"
         with open(save_file, "w") as f:
             json.dump(self.profile_results, f, indent=2)
 
@@ -171,3 +171,17 @@ class Profiler:
     @property
     def header(self) -> str:
         return self._header
+
+
+class ProfilerJson(Profiler):
+    def __init__(self, header: str, json_path: Path):
+        super().__init__(header=header, modulo=None)
+        self.results_path: Path = json_path
+
+    def profile(self):
+        self.print_heading()
+        with open(self.results_path, "r") as f:
+            self.profile_results: dict[str, float] = json.load(f)
+
+        for key, val in self.profile_results.items():
+            print(f"{key}: {round(val, 4)}")

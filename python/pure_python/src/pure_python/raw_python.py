@@ -1,6 +1,5 @@
 import numpy as np
 from numpy.typing import NDArray
-from copy import copy
 
 
 def addition(x: float, y: float) -> float:

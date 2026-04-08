@@ -16,15 +16,15 @@ class ProfilePlotter:
 
     def plot_time_averages(self, func_name: str):
         """Plot average time spent on `func_name` for each profiler"""
-        fig, ax = plt.subplots(figsize=(10, 3), layout='constrained')
+        fig, ax = plt.subplots(figsize=(15, 3), layout='constrained')
 
         avg_func_profile_time: list[float] = [
-            p.profile_results[func_name] * 1e9  # nano seconds
+            p.profile_results[func_name] * 1e6  # micro seconds
             for p in self._profilers
         ]
 
         ax.set_title(func_name)
-        ax.set_ylabel('Function time (ns)')
+        ax.set_ylabel('Function time (μs)')
         ax.grid(True, alpha=0.2, axis='y')
         ax.bar(self._headers, avg_func_profile_time)
 
