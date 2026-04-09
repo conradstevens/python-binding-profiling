@@ -34,7 +34,7 @@ import cpp.pure_cpp.cmake_build_release.python_cpp_profiler as cpp_profiler
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--num-trials", type=int, default=1_000)
-    parser.add_argument("--fibonacci-number", type=int, default=10_000)
+    parser.add_argument("--fibonacci-number", type=int, default=1_000)
     parser.add_argument("--burner-trials", type=int, default=200)
     args = parser.parse_args()
 
@@ -53,22 +53,22 @@ if __name__ == '__main__':
 
     profile_plotter = ProfilePlotter([
         Profiler(header="PYTHON", modulo=packaged_raw_python),
-        Profiler(header="PYTHON-NUMBA", modulo=numba_python),
+        Profiler(header="NUMBA", modulo=numba_python),
         Profiler(header="CYTHON", modulo=cython_module),
         ProfilerJson(header="PYPY", json_path=Path("python/pypy/outputs/PYPY_results.json")),
-        Profiler(header="PYBIND11-PACKAGE", modulo=pybind11_bindings),
-        Profiler(header="NANOBIND-PACKAGE", modulo=nano_bindings),
-        Profiler(header="C-PACKAGE", modulo=c_package),
+        Profiler(header="PYBIND11", modulo=pybind11_bindings),
+        Profiler(header="NANOBIND", modulo=nano_bindings),
+        Profiler(header="C", modulo=c_package),
         cpp_profiler.CppProfiler(NUM_TRIALS, FIBONACCI_NUMBER, BURNER_TRIALS, 99, 100, "CPP"),
     ])
 
     profile_plotter.profile_all()
-    profile_plotter.plot_time_averages("addition")
-    profile_plotter.plot_time_averages("addition_three_times")
-    profile_plotter.plot_time_averages("fibonacci")
-    profile_plotter.plot_time_averages("fibonacci_numpy")
-    profile_plotter.plot_time_averages("MyClass")
-    profile_plotter.plot_time_averages("class_addition")
-    profile_plotter.plot_time_averages("class_addition_three_times")
-    profile_plotter.plot_time_averages("class_fibonacci")
-    profile_plotter.plot_time_averages("class_fibonacci_numpy")
+    profile_plotter.plot("addition")
+    profile_plotter.plot("addition_three_times")
+    profile_plotter.plot("fibonacci")
+    profile_plotter.plot("fibonacci_numpy")
+    profile_plotter.plot("MyClass")
+    profile_plotter.plot("class_addition")
+    profile_plotter.plot("class_addition_three_times")
+    profile_plotter.plot("class_fibonacci")
+    profile_plotter.plot("class_fibonacci_numpy")
