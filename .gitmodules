@@ -2,7 +2,7 @@
 	path = cpp/pybind11_package/lib/pybind11
 	url = https://github.com/pybind/pybind11.git
 	ignore = dirty
-[submodule "cpp/pure_cpp_plane/lib/pybind11"]
+[submodule "cpp/pure_cpp/lib/pybind11"]
 	path = cpp/pybind11_package/lib/pybind11
 	url = https://github.com/pybind/pybind11.git
 	ignore = dirty

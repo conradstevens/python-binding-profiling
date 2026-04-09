@@ -1,8 +1,8 @@
 #!/bin/bash
 
-mkdir "outputs"
-uv venv --python pypy3.10 pypy_venv
-source pypy_venv/bin/activate
+#mkdir "outputs"
+#uv venv --python pypy3.10 pypy_venv
+#source pypy_venv/bin/activate
 
 # uv sync --active  # Installs and builds the wrong binaries of numpy
 pip install "numpy>=1.24.4"
