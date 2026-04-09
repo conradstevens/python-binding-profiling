@@ -180,8 +180,11 @@ class ProfilerJson(Profiler):
 
     def profile(self):
         self.print_heading()
-        with open(self.results_path, "r") as f:
-            self.profile_results: dict[str, float] = json.load(f)
+        try:
+            with open(self.results_path, "r") as f:
+                self.profile_results: dict[str, float] = json.load(f)
+        except FileNotFoundError:
+            raise FileNotFoundError(f"{self.results_path} does not exist")
 
         for key, val in self.profile_results.items():
             print(f"{key}: {round(val, 4)}")

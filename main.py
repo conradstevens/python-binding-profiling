@@ -1,3 +1,4 @@
+import argparse
 from pathlib import Path
 
 from python_binding_profiling.profiler import Profiler
@@ -30,14 +31,21 @@ import c.c_package.cmake_build_release.c_package as c_package
 import cpp.pure_cpp.cmake_build_release.python_cpp_profiler as cpp_profiler
 
 
-NUM_TRIALS: int = 1_000
-FIBONACCI_NUMBER: int = 10_000
-BURNER_TRIALS: int = 200
-
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--num-trials", type=int, default=1_000)
+    parser.add_argument("--fibonacci-number", type=int, default=10_000)
+    parser.add_argument("--burner-trials", type=int, default=200)
+    args = parser.parse_args()
+
+    NUM_TRIALS: int = args.num_trials
+    FIBONACCI_NUMBER: int = args.fibonacci_number
+    BURNER_TRIALS: int = args.burner_trials
+
     print()
     print(f'NUM_TRIALS={NUM_TRIALS}')
     print(f'FIBONACCI_NUMBER={FIBONACCI_NUMBER}')
+    print(f'BURNER_TRIALS={FIBONACCI_NUMBER}')
 
     Profiler.set_num_trials(NUM_TRIALS)
     Profiler.set_fib_num(FIBONACCI_NUMBER)
