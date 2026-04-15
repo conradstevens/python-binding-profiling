@@ -232,7 +232,7 @@ static PyMethodDef methods[] = {
         METH_VARARGS | METH_KEYWORDS,
         "Add two numbers together"
     },
-    {
+{
         "addition_three_times",
         (PyCFunction)c_package_addition_three_times,
         METH_VARARGS,

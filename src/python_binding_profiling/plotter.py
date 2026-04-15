@@ -11,7 +11,7 @@ DARK_THEME = {
         'axes.titlecolor': '#79c0ff',
         'xtick.color': '#8b949e',
         'ytick.color': '#8b949e',
-        'grid.color': '#21262d',
+        'grid.color': '#417A68',
         'text.color': '#c9d1d9',
         'figure.titlesize': 13,
         'axes.titlesize': 11,
@@ -46,6 +46,7 @@ class ProfilePlotter:
         ax.set_ylabel('Function time (μs)')
         ax.grid(True, alpha=0.2, axis='y')
         ax.bar(self._headers, avg_func_profile_time, color=BAR_COLOR)
+        # ax.set_ylim([0, 250])
 
         if ax is None:
             plt.show()

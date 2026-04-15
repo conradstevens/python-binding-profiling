@@ -7,7 +7,7 @@
 #define PY_ARRAY_UNIQUE_SYMBOL MY_ARRAY_API
 #include <numpy/arrayobject.h>
 
-PyObject* clib_addition(PyObject* self, PyObject* args, PyObject* kwargs);
+PyObject* c_package_addition(PyObject* self, PyObject* args, PyObject* kwargs);
 PyObject* clib_addition_three_times(PyObject* self, PyObject* args, PyObject* kwargs);
 PyObject* clib_fibonacci(PyObject* self, PyObject* args, PyObject* kwargs);
 

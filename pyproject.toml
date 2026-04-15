@@ -23,7 +23,7 @@ dev = [
 [tool.uv.sources]
 pure-python-package = { path = "python/pure_python/dist/pure_python_package-0.1.0-py3-none-any.whl" }
 numba-package = {path = "python/numba_package/dist/numba_package-0.1.0-py3-none-any.whl"}
-cython-package = { path = "python/cython_package/dist/cython_package-0.1.0-cp312-cp312-linux_x86_64.whl" }
+cython-package = { path = "python/cython_package/dist/cython_package-0.1.0-cp312-cp312-macosx_14_0_arm64.whl" }
 
 [tool.uv]
 package = true

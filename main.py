@@ -53,11 +53,11 @@ if __name__ == '__main__':
 
     profile_plotter = ProfilePlotter([
         Profiler(header="PYTHON", modulo=packaged_raw_python),
+        ProfilerJson(header="PYPY", json_path=Path("python/pypy/outputs/PYPY_results.json")),
         Profiler(header="NUMBA", modulo=numba_python),
         Profiler(header="CYTHON", modulo=cython_module),
-        ProfilerJson(header="PYPY", json_path=Path("python/pypy/outputs/PYPY_results.json")),
-        Profiler(header="PYBIND11", modulo=pybind11_bindings),
         Profiler(header="NANOBIND", modulo=nano_bindings),
+        Profiler(header="PYBIND11", modulo=pybind11_bindings),
         Profiler(header="C", modulo=c_package),
         cpp_profiler.CppProfiler(NUM_TRIALS, FIBONACCI_NUMBER, BURNER_TRIALS, 99, 100, "CPP"),
     ])
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     profile_plotter.plot("fibonacci")
     profile_plotter.plot("fibonacci_numpy")
     profile_plotter.plot("MyClass")
-    profile_plotter.plot("class_addition")
-    profile_plotter.plot("class_addition_three_times")
+    # profile_plotter.plot("class_addition")
+    # profile_plotter.plot("class_addition_three_times")
     profile_plotter.plot("class_fibonacci")
     profile_plotter.plot("class_fibonacci_numpy")
