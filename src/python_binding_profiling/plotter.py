@@ -83,5 +83,5 @@ class ProfilePlotter:
 
             self.plot_time_averages(func_name, ax=ax1)
             self.plot_time_averages_rel(func_name, ax=ax2)
-
+            fig.savefig(f"plot_outputs/{func_name}.png", bbox_inches="tight")
             plt.show()

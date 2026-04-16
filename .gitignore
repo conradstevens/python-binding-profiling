@@ -11,7 +11,7 @@ build/
 .pytest_cache/
 .coverage
 htmlcov/
-
+plot_outputs/
 # Virtual environments
 venv/
 .venv/
