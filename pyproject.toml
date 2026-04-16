@@ -11,6 +11,7 @@ dependencies = [
     "numpy>=1.24.4",
     "pure-python-package",
     "numba-package",
+    "matplotlib>=3.10.8",
     "cython-package",
 ]
 

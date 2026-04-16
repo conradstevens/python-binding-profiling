@@ -2,6 +2,10 @@
 	path = cpp/pybind11_package/lib/pybind11
 	url = https://github.com/pybind/pybind11.git
 	ignore = dirty
+[submodule "cpp/pure_cpp/lib/pybind11"]
+	path = cpp/pure_cpp/lib/pybind11
+	url = https://github.com/pybind/pybind11.git
+	ignore = dirty
 [submodule "cpp/nanobind_package/lib/nanobind"]
 	path = cpp/nanobind_package/lib/nanobind
 	url = https://github.com/wjakob/nanobind.git

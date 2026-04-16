@@ -76,7 +76,9 @@ class MyClass:
         self.x = x
         self.y = y
         self.n = n
+        # noinspection PyPropertyAccess
         self._fib_l = list(range(n))
+        # noinspection PyPropertyAccess
         self._fib_arr = np.zeros(n, dtype=np.float64)
 
     @cython.ccall
@@ -127,4 +129,12 @@ class MyClass:
             for i in range(2, self.n):
                 fib_view[i] = (fib_view[i - 1] + fib_view[i - 2]) / self.n * i
 
+        return self._fib_arr
+
+    @property
+    def _fib_l(self) -> list:
+        return self._fib_l
+
+    @property
+    def _fib_arr(self) -> list:
         return self._fib_arr
