@@ -1,6 +1,9 @@
 import matplotlib.pyplot as plt
-import numpy as np
 from python_binding_profiling.profiler import Profiler
+import logging as log
+
+log.basicConfig(level=log.INFO)
+logger = log.getLogger(__name__)
 
 
 DARK_THEME = {
@@ -84,4 +87,5 @@ class ProfilePlotter:
             self.plot_time_averages(func_name, ax=ax1)
             self.plot_time_averages_rel(func_name, ax=ax2)
             fig.savefig(f"plot_outputs/{func_name}.png", bbox_inches="tight")
+            logger.info(f"Saved: plot_outputs/{func_name}.png")
             plt.show()
