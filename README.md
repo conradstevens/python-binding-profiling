@@ -3,14 +3,13 @@
 This repo profiles tools used to improve the performance of python, determining which is the best for different use cases. 
 The approaches profiled are:
 1. Pure python
-2. Pure CPP
-3. Pybind11
-4. Nanobind
+2. Cython
+3. Numba
+4. Pypy
+5. Pybind11
+6. Nanobind
 5. C Python Package
-6. Numba
-5. Cython _TODO_
-
-_Pull requests profiling others are allways welcome :)_
+5. C++
 
 ## Building and Running
 ### Cloning
@@ -22,13 +21,22 @@ cd python-binding-profiling
 ```
 
 ### Building Compiled Packages
-C / CPP is compiled with optimization flags to profile release performance. 
-Run the build script to build all compiled repos.
+Build and compile python wheels and libraries 
 ```commandline
-./build.sh  # potentially requires: chmod +x build.sh 
+just build  
 ```
-
-### Run Profiler!
 ```commandline
-uv run main.py
+just profile-all  
 ```
+## Results
+The below results where profiled on a Thinkpad T16, with numpy using Blas and Lapac. 
+Relative results plots are relative to the python run time.
+### simple addition function
+![Tier List](media/addition.png)
+### Fibonacci like sequence over python list
+![Tier List](media/fibonacci.png)
+### Fibonacci like sequence over python list using numpy
+![Tier List](media/fibonacci_numpy.png)
+## Tier list
+Influencing this list was the amount of effort, control and of course performance.    
+![Tier List](media/tier_list.png)
