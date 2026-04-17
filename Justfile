@@ -18,7 +18,7 @@ profile-all: profile-pypy
 
 profile-pypy:
     #!/usr/bin/env bash
-    cd python/pypy
+    cd python/pypy_package
     source pypy_venv/bin/activate
     python save_results.py \
         --num-trials {{NUM_TRIALS}} \
@@ -32,10 +32,10 @@ profile-pypy:
 ########################################################################################################################
 
 
-build-pure-python:
+build-python-package:
     #!/usr/bin/env bash
     echo -e "\n ### Building Pure Python Package ### \n"
-    uv build --wheel --project python/pure_python/
+    uv build --wheel --project python/python_package/
 
 build-numba-python:
     #!/usr/bin/env bash
@@ -59,12 +59,12 @@ build-main-venv:
 build-pypy-venv:
     #!/usr/bin/env bash
     echo -e "\n ### Making PYPY Virtual Environment ### \n"
-    cd python/pypy
+    cd python/pypy_package
     mkdir -p "outputs"
     uv venv --python pypy3.10 --clear pypy_venv
     pypy_venv/bin/pypy -m ensurepip
     pypy_venv/bin/pip3 install "numpy>=1.24.4"
-    pypy_venv/bin/pip3 install ../pure_python/dist/pure_python_package-0.1.0-py3-none-any.whl
+    pypy_venv/bin/pip3 install ../python_package/dist/python_package-0.1.0-py3-none-any.whl
     cd ../..
 
 build-pure-cpp:
@@ -112,7 +112,7 @@ build-c-package:
 
 # Build all
 build: \
-    build-pure-python \
+    build-python-package \
     build-numba-python \
     build-cython \
     build-main-venv \

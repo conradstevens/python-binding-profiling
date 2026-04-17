@@ -6,21 +6,21 @@ from python_binding_profiling.profiler import ProfilerJson
 from python_binding_profiling.plotter import ProfilePlotter
 
 ## Python raw
-import pure_python.raw_python as packaged_raw_python
+import python_pacakge.raw_python as python_pacakge
 
 ## Python with numba
-import numba_package.numba_python as numba_python
+import numba_package.numba_python as numba_package
 
 ## Cython package
-import cython_package.cython_module as cython_module
+import cython_package.cython_module as cython_package
 
 ## CPP pybind11 package
 # noinspection PyUnresolvedReferences
-import cpp.pybind11_package.cmake_build_release.pybind11_bindings as pybind11_bindings
+import cpp.pybind11_package.cmake_build_release.pybind11_bindings as pybind11_package
 
 ## CPP Nanobind package
 # noinspection PyUnresolvedReferences
-import cpp.nanobind_package.cmake_build_release.nano_bindings as nano_bindings
+import cpp.nanobind_package.cmake_build_release.nano_bindings as nanobind_package
 
 ## C Library
 # noinspection PyUnresolvedReferences
@@ -52,12 +52,12 @@ if __name__ == '__main__':
     Profiler.set_burner_num(BURNER_TRIALS)
 
     profile_plotter = ProfilePlotter([
-        Profiler(header="PYTHON", modulo=packaged_raw_python),
+        Profiler(header="PYTHON", modulo=python_pacakge),
         ProfilerJson(header="PYPY", json_path=Path("python/pypy/outputs/PYPY_results.json")),
-        Profiler(header="NUMBA", modulo=numba_python),
-        Profiler(header="CYTHON", modulo=cython_module),
-        Profiler(header="NANOBIND", modulo=nano_bindings),
-        Profiler(header="PYBIND11", modulo=pybind11_bindings),
+        Profiler(header="NUMBA", modulo=numba_package),
+        Profiler(header="CYTHON", modulo=cython_package),
+        Profiler(header="NANOBIND", modulo=nanobind_package),
+        Profiler(header="PYBIND11", modulo=pybind11_package),
         Profiler(header="C", modulo=c_package),
         cpp_profiler.CppProfiler(NUM_TRIALS, FIBONACCI_NUMBER, BURNER_TRIALS, 99, 100, "CPP"),
     ])

@@ -9,7 +9,7 @@ requires-python = ">=3.12,<3.13"
 
 dependencies = [
     "numpy>=1.24.4",
-    "pure-python-package",
+    "python-package",
     "numba-package",
     "matplotlib>=3.10.8",
     "cython-package",
@@ -21,7 +21,7 @@ dev = [
 ]
 
 [tool.uv.sources]
-pure-python-package = { path = "python/pure_python/dist/pure_python_package-0.1.0-py3-none-any.whl" }
+python-package = { path = "python/python_package/dist/python_package-0.1.0-py3-none-any.whl" }
 numba-package = {path = "python/numba_package/dist/numba_package-0.1.0-py3-none-any.whl"}
 cython-package = { path = "python/cython_package/dist/cython_package-0.1.0-cp312-cp312-linux_x86_64.whl" }
 

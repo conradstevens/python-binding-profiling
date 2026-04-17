@@ -4,7 +4,7 @@
 {
     "distutils": {
         "include_dirs": [
-            "/Users/conradstevens/.cache/uv/builds-v0/.tmpdHXtJd/lib/python3.12/site-packages/numpy/_core/include"
+            "/home/baboon/.cache/uv/builds-v0/.tmpqxs6MD/lib/python3.12/site-packages/numpy/_core/include"
         ],
         "name": "cython_package.cython_module",
         "sources": [
@@ -1613,7 +1613,7 @@ struct __pyx_MemviewEnum_obj;
 struct __pyx_memoryview_obj;
 struct __pyx_memoryviewslice_obj;
 
-/* "cython_package/cython_module.py":68
+/* "cython_package/cython_module.py":64
  * 
  * @cython.cclass
  * class MyClass:             # <<<<<<<<<<<<<<
@@ -1708,7 +1708,7 @@ struct __pyx_memoryviewslice_obj {
 
 
 
-/* "cython_package/cython_module.py":68
+/* "cython_package/cython_module.py":64
  * 
  * @cython.cclass
  * class MyClass:             # <<<<<<<<<<<<<<
@@ -16625,7 +16625,7 @@ static PyObject *__pyx_unpickle_Enum__set_state(struct __pyx_MemviewEnum_obj *__
  * 
  * @cython.ccall             # <<<<<<<<<<<<<<
  * def addition(x: cython.double, y: cython.double) -> cython.double:
- *     """Return simple addition between x and y"""
+ *     return x + y
 */
 
 static PyObject *__pyx_pw_14cython_package_13cython_module_1addition(PyObject *__pyx_self, 
@@ -16638,9 +16638,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 static double __pyx_f_14cython_package_13cython_module_addition(double __pyx_v_x, double __pyx_v_y, CYTHON_UNUSED int __pyx_skip_dispatch) {
   double __pyx_r;
 
-  /* "cython_package/cython_module.py":9
+  /* "cython_package/cython_module.py":8
+ * @cython.ccall
  * def addition(x: cython.double, y: cython.double) -> cython.double:
- *     """Return simple addition between x and y"""
  *     return x + y             # <<<<<<<<<<<<<<
  * 
  * 
@@ -16653,7 +16653,7 @@ static double __pyx_f_14cython_package_13cython_module_addition(double __pyx_v_x
  * 
  * @cython.ccall             # <<<<<<<<<<<<<<
  * def addition(x: cython.double, y: cython.double) -> cython.double:
- *     """Return simple addition between x and y"""
+ *     return x + y
 */
 
   /* function exit code */
@@ -16669,8 +16669,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14cython_package_13cython_module_addition, "Return simple addition between x and y");
-static PyMethodDef __pyx_mdef_14cython_package_13cython_module_1addition = {"addition", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14cython_package_13cython_module_1addition, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14cython_package_13cython_module_addition};
+static PyMethodDef __pyx_mdef_14cython_package_13cython_module_1addition = {"addition", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14cython_package_13cython_module_1addition, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
 static PyObject *__pyx_pw_14cython_package_13cython_module_1addition(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
@@ -16783,12 +16782,12 @@ static PyObject *__pyx_pf_14cython_package_13cython_module_addition(CYTHON_UNUSE
   return __pyx_r;
 }
 
-/* "cython_package/cython_module.py":12
+/* "cython_package/cython_module.py":11
  * 
  * 
  * @cython.ccall             # <<<<<<<<<<<<<<
  * def addition_three_times(x: cython.double, y: cython.double) -> cython.double:
- *     """Return simple addition between x and y"""
+ *     var: cython.double = x + y
 */
 
 static PyObject *__pyx_pw_14cython_package_13cython_module_3addition_three_times(PyObject *__pyx_self, 
@@ -16802,17 +16801,17 @@ static double __pyx_f_14cython_package_13cython_module_addition_three_times(doub
   double __pyx_v_var;
   double __pyx_r;
 
-  /* "cython_package/cython_module.py":15
+  /* "cython_package/cython_module.py":13
+ * @cython.ccall
  * def addition_three_times(x: cython.double, y: cython.double) -> cython.double:
- *     """Return simple addition between x and y"""
  *     var: cython.double = x + y             # <<<<<<<<<<<<<<
  *     var /= 5
  *     var *= 7
 */
   __pyx_v_var = (__pyx_v_x + __pyx_v_y);
 
-  /* "cython_package/cython_module.py":16
- *     """Return simple addition between x and y"""
+  /* "cython_package/cython_module.py":14
+ * def addition_three_times(x: cython.double, y: cython.double) -> cython.double:
  *     var: cython.double = x + y
  *     var /= 5             # <<<<<<<<<<<<<<
  *     var *= 7
@@ -16820,7 +16819,7 @@ static double __pyx_f_14cython_package_13cython_module_addition_three_times(doub
 */
   __pyx_v_var = (__pyx_v_var / 5.0);
 
-  /* "cython_package/cython_module.py":17
+  /* "cython_package/cython_module.py":15
  *     var: cython.double = x + y
  *     var /= 5
  *     var *= 7             # <<<<<<<<<<<<<<
@@ -16829,7 +16828,7 @@ static double __pyx_f_14cython_package_13cython_module_addition_three_times(doub
 */
   __pyx_v_var = (__pyx_v_var * 7.0);
 
-  /* "cython_package/cython_module.py":18
+  /* "cython_package/cython_module.py":16
  *     var /= 5
  *     var *= 7
  *     return var             # <<<<<<<<<<<<<<
@@ -16839,12 +16838,12 @@ static double __pyx_f_14cython_package_13cython_module_addition_three_times(doub
   __pyx_r = __pyx_v_var;
   goto __pyx_L0;
 
-  /* "cython_package/cython_module.py":12
+  /* "cython_package/cython_module.py":11
  * 
  * 
  * @cython.ccall             # <<<<<<<<<<<<<<
  * def addition_three_times(x: cython.double, y: cython.double) -> cython.double:
- *     """Return simple addition between x and y"""
+ *     var: cython.double = x + y
 */
 
   /* function exit code */
@@ -16860,8 +16859,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14cython_package_13cython_module_2addition_three_times, "Return simple addition between x and y");
-static PyMethodDef __pyx_mdef_14cython_package_13cython_module_3addition_three_times = {"addition_three_times", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14cython_package_13cython_module_3addition_three_times, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14cython_package_13cython_module_2addition_three_times};
+static PyMethodDef __pyx_mdef_14cython_package_13cython_module_3addition_three_times = {"addition_three_times", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14cython_package_13cython_module_3addition_three_times, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
 static PyObject *__pyx_pw_14cython_package_13cython_module_3addition_three_times(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
@@ -16893,39 +16891,39 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_x,&__pyx_mstate_global->__pyx_n_u_y,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 12, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 11, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 12, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 11, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 12, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 11, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "addition_three_times", 0) < (0)) __PYX_ERR(0, 12, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "addition_three_times", 0) < (0)) __PYX_ERR(0, 11, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("addition_three_times", 1, 2, 2, i); __PYX_ERR(0, 12, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("addition_three_times", 1, 2, 2, i); __PYX_ERR(0, 11, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 12, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 11, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 12, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 11, __pyx_L3_error)
     }
-    __pyx_v_x = __Pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_x == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 13, __pyx_L3_error)
-    __pyx_v_y = __Pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_y == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 13, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_x == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
+    __pyx_v_y = __Pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_y == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("addition_three_times", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 12, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("addition_three_times", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 11, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -16956,8 +16954,8 @@ static PyObject *__pyx_pf_14cython_package_13cython_module_2addition_three_times
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("addition_three_times", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_14cython_package_13cython_module_addition_three_times(__pyx_v_x, __pyx_v_y, 1); if (unlikely(__pyx_t_1 == ((double)-1) && PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_14cython_package_13cython_module_addition_three_times(__pyx_v_x, __pyx_v_y, 1); if (unlikely(__pyx_t_1 == ((double)-1) && PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -16974,7 +16972,7 @@ static PyObject *__pyx_pf_14cython_package_13cython_module_2addition_three_times
   return __pyx_r;
 }
 
-/* "cython_package/cython_module.py":21
+/* "cython_package/cython_module.py":19
  * 
  * 
  * @cython.ccall             # <<<<<<<<<<<<<<
@@ -17009,9 +17007,9 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci(int __pyx_v_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("fibonacci", 0);
 
-  /* "cython_package/cython_module.py":26
+  /* "cython_package/cython_module.py":23
+ * @cython.wraparound(False)
  * def fibonacci(n: cython.int) -> list:
- *     """Generate first n numbers of Fibonacci sequence"""
  *     if n <= 0:             # <<<<<<<<<<<<<<
  *         return []
  * 
@@ -17019,30 +17017,30 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci(int __pyx_v_
   __pyx_t_1 = (__pyx_v_n <= 0);
   if (__pyx_t_1) {
 
-    /* "cython_package/cython_module.py":27
- *     """Generate first n numbers of Fibonacci sequence"""
+    /* "cython_package/cython_module.py":24
+ * def fibonacci(n: cython.int) -> list:
  *     if n <= 0:
  *         return []             # <<<<<<<<<<<<<<
  * 
  *     fib: list = list(range(n))
 */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 27, __pyx_L1_error)
+    __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_r = ((PyObject*)__pyx_t_2);
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "cython_package/cython_module.py":26
+    /* "cython_package/cython_module.py":23
+ * @cython.wraparound(False)
  * def fibonacci(n: cython.int) -> list:
- *     """Generate first n numbers of Fibonacci sequence"""
  *     if n <= 0:             # <<<<<<<<<<<<<<
  *         return []
  * 
 */
   }
 
-  /* "cython_package/cython_module.py":29
+  /* "cython_package/cython_module.py":26
  *         return []
  * 
  *     fib: list = list(range(n))             # <<<<<<<<<<<<<<
@@ -17050,7 +17048,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci(int __pyx_v_
  *         return [1.0]
 */
   __pyx_t_3 = NULL;
-  __pyx_t_4 = __Pyx_PyLong_From_int(__pyx_v_n); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyLong_From_int(__pyx_v_n); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = 1;
   {
@@ -17058,16 +17056,16 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci(int __pyx_v_
     __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)(&PyRange_Type), __pyx_callargs+__pyx_t_5, (2-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 29, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 26, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
   }
-  __pyx_t_4 = PySequence_List(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_4 = PySequence_List(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 26, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_fib = ((PyObject*)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "cython_package/cython_module.py":30
+  /* "cython_package/cython_module.py":27
  * 
  *     fib: list = list(range(n))
  *     if n == 1:             # <<<<<<<<<<<<<<
@@ -17077,7 +17075,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci(int __pyx_v_
   switch (__pyx_v_n) {
     case 1:
 
-    /* "cython_package/cython_module.py":31
+    /* "cython_package/cython_module.py":28
  *     fib: list = list(range(n))
  *     if n == 1:
  *         return [1.0]             # <<<<<<<<<<<<<<
@@ -17085,16 +17083,16 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci(int __pyx_v_
  *         return [1.0, 2.0]
 */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_4 = PyList_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 31, __pyx_L1_error)
+    __pyx_t_4 = PyList_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 28, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_mstate_global->__pyx_float_1_0);
     __Pyx_GIVEREF(__pyx_mstate_global->__pyx_float_1_0);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_4, 0, __pyx_mstate_global->__pyx_float_1_0) != (0)) __PYX_ERR(0, 31, __pyx_L1_error);
+    if (__Pyx_PyList_SET_ITEM(__pyx_t_4, 0, __pyx_mstate_global->__pyx_float_1_0) != (0)) __PYX_ERR(0, 28, __pyx_L1_error);
     __pyx_r = ((PyObject*)__pyx_t_4);
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "cython_package/cython_module.py":30
+    /* "cython_package/cython_module.py":27
  * 
  *     fib: list = list(range(n))
  *     if n == 1:             # <<<<<<<<<<<<<<
@@ -17104,7 +17102,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci(int __pyx_v_
     break;
     case 2:
 
-    /* "cython_package/cython_module.py":33
+    /* "cython_package/cython_module.py":30
  *         return [1.0]
  *     elif n == 2:
  *         return [1.0, 2.0]             # <<<<<<<<<<<<<<
@@ -17112,19 +17110,19 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci(int __pyx_v_
  *     fib[0] = 1.0
 */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 33, __pyx_L1_error)
+    __pyx_t_4 = PyList_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 30, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_mstate_global->__pyx_float_1_0);
     __Pyx_GIVEREF(__pyx_mstate_global->__pyx_float_1_0);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_4, 0, __pyx_mstate_global->__pyx_float_1_0) != (0)) __PYX_ERR(0, 33, __pyx_L1_error);
+    if (__Pyx_PyList_SET_ITEM(__pyx_t_4, 0, __pyx_mstate_global->__pyx_float_1_0) != (0)) __PYX_ERR(0, 30, __pyx_L1_error);
     __Pyx_INCREF(__pyx_mstate_global->__pyx_float_2_0);
     __Pyx_GIVEREF(__pyx_mstate_global->__pyx_float_2_0);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_4, 1, __pyx_mstate_global->__pyx_float_2_0) != (0)) __PYX_ERR(0, 33, __pyx_L1_error);
+    if (__Pyx_PyList_SET_ITEM(__pyx_t_4, 1, __pyx_mstate_global->__pyx_float_2_0) != (0)) __PYX_ERR(0, 30, __pyx_L1_error);
     __pyx_r = ((PyObject*)__pyx_t_4);
     __pyx_t_4 = 0;
     goto __pyx_L0;
 
-    /* "cython_package/cython_module.py":32
+    /* "cython_package/cython_module.py":29
  *     if n == 1:
  *         return [1.0]
  *     elif n == 2:             # <<<<<<<<<<<<<<
@@ -17135,25 +17133,25 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci(int __pyx_v_
     default: break;
   }
 
-  /* "cython_package/cython_module.py":35
+  /* "cython_package/cython_module.py":32
  *         return [1.0, 2.0]
  * 
  *     fib[0] = 1.0             # <<<<<<<<<<<<<<
  *     fib[1] = 2.0
  * 
 */
-  if (unlikely((__Pyx_SetItemInt(__pyx_v_fib, 0, __pyx_mstate_global->__pyx_float_1_0, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 35, __pyx_L1_error)
+  if (unlikely((__Pyx_SetItemInt(__pyx_v_fib, 0, __pyx_mstate_global->__pyx_float_1_0, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 32, __pyx_L1_error)
 
-  /* "cython_package/cython_module.py":36
+  /* "cython_package/cython_module.py":33
  * 
  *     fib[0] = 1.0
  *     fib[1] = 2.0             # <<<<<<<<<<<<<<
  * 
  *     i: cython.int
 */
-  if (unlikely((__Pyx_SetItemInt(__pyx_v_fib, 1, __pyx_mstate_global->__pyx_float_2_0, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 36, __pyx_L1_error)
+  if (unlikely((__Pyx_SetItemInt(__pyx_v_fib, 1, __pyx_mstate_global->__pyx_float_2_0, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 33, __pyx_L1_error)
 
-  /* "cython_package/cython_module.py":39
+  /* "cython_package/cython_module.py":36
  * 
  *     i: cython.int
  *     for i in range(2, n):             # <<<<<<<<<<<<<<
@@ -17165,7 +17163,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci(int __pyx_v_
   for (__pyx_t_8 = 2; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
     __pyx_v_i = __pyx_t_8;
 
-    /* "cython_package/cython_module.py":40
+    /* "cython_package/cython_module.py":37
  *     i: cython.int
  *     for i in range(2, n):
  *         fib[i] = (fib[i - 1] + fib[i - 2]) / n * i             # <<<<<<<<<<<<<<
@@ -17174,25 +17172,25 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci(int __pyx_v_
 */
     __pyx_t_9 = (__pyx_v_i - 1);
     __pyx_t_10 = (__pyx_v_i - 2);
-    __pyx_t_4 = PyNumber_Add(__Pyx_PyList_GET_ITEM(__pyx_v_fib, __pyx_t_9), __Pyx_PyList_GET_ITEM(__pyx_v_fib, __pyx_t_10)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 40, __pyx_L1_error)
+    __pyx_t_4 = PyNumber_Add(__Pyx_PyList_GET_ITEM(__pyx_v_fib, __pyx_t_9), __Pyx_PyList_GET_ITEM(__pyx_v_fib, __pyx_t_10)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 37, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = __Pyx_PyLong_From_int(__pyx_v_n); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 40, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyLong_From_int(__pyx_v_n); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyNumber_Divide(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 40, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyNumber_Divide(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyLong_From_int(__pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 40, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyLong_From_int(__pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = PyNumber_Multiply(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 40, __pyx_L1_error)
+    __pyx_t_4 = PyNumber_Multiply(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 37, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    if (unlikely((__Pyx_SetItemInt(__pyx_v_fib, __pyx_v_i, __pyx_t_4, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 40, __pyx_L1_error)
+    if (unlikely((__Pyx_SetItemInt(__pyx_v_fib, __pyx_v_i, __pyx_t_4, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_OwnStrongReference) < 0))) __PYX_ERR(0, 37, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
 
-  /* "cython_package/cython_module.py":41
+  /* "cython_package/cython_module.py":38
  *     for i in range(2, n):
  *         fib[i] = (fib[i - 1] + fib[i - 2]) / n * i
  *     return fib             # <<<<<<<<<<<<<<
@@ -17204,7 +17202,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci(int __pyx_v_
   __pyx_r = __pyx_v_fib;
   goto __pyx_L0;
 
-  /* "cython_package/cython_module.py":21
+  /* "cython_package/cython_module.py":19
  * 
  * 
  * @cython.ccall             # <<<<<<<<<<<<<<
@@ -17234,8 +17232,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14cython_package_13cython_module_4fibonacci, "Generate first n numbers of Fibonacci sequence");
-static PyMethodDef __pyx_mdef_14cython_package_13cython_module_5fibonacci = {"fibonacci", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14cython_package_13cython_module_5fibonacci, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14cython_package_13cython_module_4fibonacci};
+static PyMethodDef __pyx_mdef_14cython_package_13cython_module_5fibonacci = {"fibonacci", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14cython_package_13cython_module_5fibonacci, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
 static PyObject *__pyx_pw_14cython_package_13cython_module_5fibonacci(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
@@ -17266,32 +17263,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_n,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 21, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 19, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 21, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 19, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "fibonacci", 0) < (0)) __PYX_ERR(0, 21, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "fibonacci", 0) < (0)) __PYX_ERR(0, 19, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("fibonacci", 1, 1, 1, i); __PYX_ERR(0, 21, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("fibonacci", 1, 1, 1, i); __PYX_ERR(0, 19, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 21, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 19, __pyx_L3_error)
     }
-    __pyx_v_n = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_n == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 24, __pyx_L3_error)
+    __pyx_v_n = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_n == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 22, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("fibonacci", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 21, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("fibonacci", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 19, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -17321,7 +17318,7 @@ static PyObject *__pyx_pf_14cython_package_13cython_module_4fibonacci(CYTHON_UNU
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("fibonacci", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_14cython_package_13cython_module_fibonacci(__pyx_v_n, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_14cython_package_13cython_module_fibonacci(__pyx_v_n, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -17338,7 +17335,7 @@ static PyObject *__pyx_pf_14cython_package_13cython_module_4fibonacci(CYTHON_UNU
   return __pyx_r;
 }
 
-/* "cython_package/cython_module.py":44
+/* "cython_package/cython_module.py":41
  * 
  * 
  * @cython.ccall             # <<<<<<<<<<<<<<
@@ -17378,9 +17375,9 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci_numpy(int __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("fibonacci_numpy", 0);
 
-  /* "cython_package/cython_module.py":49
+  /* "cython_package/cython_module.py":45
+ * @cython.wraparound(False)
  * def fibonacci_numpy(n: cython.int) -> NDArray[np.float64]:
- *     """Generate first n numbers of Fibonacci sequence"""
  *     if n == 0:             # <<<<<<<<<<<<<<
  *         return np.array([], dtype=np.float64)
  *     elif n == 1:
@@ -17388,8 +17385,8 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci_numpy(int __
   switch (__pyx_v_n) {
     case 0:
 
-    /* "cython_package/cython_module.py":50
- *     """Generate first n numbers of Fibonacci sequence"""
+    /* "cython_package/cython_module.py":46
+ * def fibonacci_numpy(n: cython.int) -> NDArray[np.float64]:
  *     if n == 0:
  *         return np.array([], dtype=np.float64)             # <<<<<<<<<<<<<<
  *     elif n == 1:
@@ -17397,16 +17394,16 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci_numpy(int __
 */
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_2 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 50, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_array); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 50, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_array); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 46, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 50, __pyx_L1_error)
+    __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 46, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 46, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 50, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 46, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_7 = 1;
@@ -17423,25 +17420,25 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci_numpy(int __
     #endif
     {
       PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_2, __pyx_t_3};
-      __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 46, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_t_6, __pyx_t_5, __pyx_callargs+2, 0) < (0)) __PYX_ERR(0, 50, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_t_6, __pyx_t_5, __pyx_callargs+2, 0) < (0)) __PYX_ERR(0, 46, __pyx_L1_error)
       __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_5);
       __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "cython_package/cython_module.py":49
+    /* "cython_package/cython_module.py":45
+ * @cython.wraparound(False)
  * def fibonacci_numpy(n: cython.int) -> NDArray[np.float64]:
- *     """Generate first n numbers of Fibonacci sequence"""
  *     if n == 0:             # <<<<<<<<<<<<<<
  *         return np.array([], dtype=np.float64)
  *     elif n == 1:
@@ -17449,7 +17446,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci_numpy(int __
     break;
     case 1:
 
-    /* "cython_package/cython_module.py":52
+    /* "cython_package/cython_module.py":48
  *         return np.array([], dtype=np.float64)
  *     elif n == 1:
  *         return np.array([1], dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -17458,19 +17455,19 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci_numpy(int __
 */
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_4 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 48, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_array); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_array); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 48, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyList_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __pyx_t_5 = PyList_New(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 48, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_INCREF(__pyx_mstate_global->__pyx_int_1);
     __Pyx_GIVEREF(__pyx_mstate_global->__pyx_int_1);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_5, 0, __pyx_mstate_global->__pyx_int_1) != (0)) __PYX_ERR(0, 52, __pyx_L1_error);
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L1_error)
+    if (__Pyx_PyList_SET_ITEM(__pyx_t_5, 0, __pyx_mstate_global->__pyx_int_1) != (0)) __PYX_ERR(0, 48, __pyx_L1_error);
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 48, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 48, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_7 = 1;
@@ -17487,23 +17484,23 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci_numpy(int __
     #endif
     {
       PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_4, __pyx_t_5};
-      __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 48, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_t_2, __pyx_t_3, __pyx_callargs+2, 0) < (0)) __PYX_ERR(0, 52, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_t_2, __pyx_t_3, __pyx_callargs+2, 0) < (0)) __PYX_ERR(0, 48, __pyx_L1_error)
       __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder((PyObject*)__pyx_t_6, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "cython_package/cython_module.py":51
+    /* "cython_package/cython_module.py":47
  *     if n == 0:
  *         return np.array([], dtype=np.float64)
  *     elif n == 1:             # <<<<<<<<<<<<<<
@@ -17513,7 +17510,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci_numpy(int __
     break;
     case 2:
 
-    /* "cython_package/cython_module.py":54
+    /* "cython_package/cython_module.py":50
  *         return np.array([1], dtype=np.float64)
  *     elif n == 2:
  *         return np.array([1, 2], dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -17522,22 +17519,22 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci_numpy(int __
 */
     __Pyx_XDECREF(__pyx_r);
     __pyx_t_6 = NULL;
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_array); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_array); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = PyList_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_3 = PyList_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_mstate_global->__pyx_int_1);
     __Pyx_GIVEREF(__pyx_mstate_global->__pyx_int_1);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_mstate_global->__pyx_int_1) != (0)) __PYX_ERR(0, 54, __pyx_L1_error);
+    if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 0, __pyx_mstate_global->__pyx_int_1) != (0)) __PYX_ERR(0, 50, __pyx_L1_error);
     __Pyx_INCREF(__pyx_mstate_global->__pyx_int_2);
     __Pyx_GIVEREF(__pyx_mstate_global->__pyx_int_2);
-    if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 1, __pyx_mstate_global->__pyx_int_2) != (0)) __PYX_ERR(0, 54, __pyx_L1_error);
-    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L1_error)
+    if (__Pyx_PyList_SET_ITEM(__pyx_t_3, 1, __pyx_mstate_global->__pyx_int_2) != (0)) __PYX_ERR(0, 50, __pyx_L1_error);
+    __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_7 = 1;
@@ -17554,23 +17551,23 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci_numpy(int __
     #endif
     {
       PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_6, __pyx_t_3};
-      __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 54, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_t_4, __pyx_t_5, __pyx_callargs+2, 0) < (0)) __PYX_ERR(0, 54, __pyx_L1_error)
+      if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_t_4, __pyx_t_5, __pyx_callargs+2, 0) < (0)) __PYX_ERR(0, 50, __pyx_L1_error)
       __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder((PyObject*)__pyx_t_2, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_5);
       __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
     }
     __pyx_r = __pyx_t_1;
     __pyx_t_1 = 0;
     goto __pyx_L0;
 
-    /* "cython_package/cython_module.py":53
+    /* "cython_package/cython_module.py":49
  *     elif n == 1:
  *         return np.array([1], dtype=np.float64)
  *     elif n == 2:             # <<<<<<<<<<<<<<
@@ -17581,7 +17578,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci_numpy(int __
     default: break;
   }
 
-  /* "cython_package/cython_module.py":56
+  /* "cython_package/cython_module.py":52
  *         return np.array([1, 2], dtype=np.float64)
  * 
  *     fib: NDArray[np.float64] = np.zeros(n, dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -17589,16 +17586,16 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci_numpy(int __
  *     fib_view[0] = 1.0
 */
   __pyx_t_2 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_zeros); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_zeros); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyLong_From_int(__pyx_v_n); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyLong_From_int(__pyx_v_n); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_7 = 1;
@@ -17615,34 +17612,34 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci_numpy(int __
   #endif
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_2, __pyx_t_5};
-    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 56, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 52, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_t_6, __pyx_t_3, __pyx_callargs+2, 0) < (0)) __PYX_ERR(0, 56, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_t_6, __pyx_t_3, __pyx_callargs+2, 0) < (0)) __PYX_ERR(0, 52, __pyx_L1_error)
     __pyx_t_1 = __Pyx_Object_Vectorcall_CallFromBuilder((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_7, (2-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_3);
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 56, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
   __pyx_v_fib = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "cython_package/cython_module.py":57
+  /* "cython_package/cython_module.py":53
  * 
  *     fib: NDArray[np.float64] = np.zeros(n, dtype=np.float64)
  *     fib_view: cython.double[::1] = fib             # <<<<<<<<<<<<<<
  *     fib_view[0] = 1.0
  *     fib_view[1] = 2.0
 */
-  __pyx_t_8 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_v_fib, PyBUF_WRITABLE); if (unlikely(!__pyx_t_8.memview)) __PYX_ERR(0, 57, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_v_fib, PyBUF_WRITABLE); if (unlikely(!__pyx_t_8.memview)) __PYX_ERR(0, 53, __pyx_L1_error)
   __pyx_v_fib_view = __pyx_t_8;
   __pyx_t_8.memview = NULL;
   __pyx_t_8.data = NULL;
 
-  /* "cython_package/cython_module.py":58
+  /* "cython_package/cython_module.py":54
  *     fib: NDArray[np.float64] = np.zeros(n, dtype=np.float64)
  *     fib_view: cython.double[::1] = fib
  *     fib_view[0] = 1.0             # <<<<<<<<<<<<<<
@@ -17652,7 +17649,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci_numpy(int __
   __pyx_t_9 = 0;
   *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_fib_view.data) + __pyx_t_9)) )) = 1.0;
 
-  /* "cython_package/cython_module.py":59
+  /* "cython_package/cython_module.py":55
  *     fib_view: cython.double[::1] = fib
  *     fib_view[0] = 1.0
  *     fib_view[1] = 2.0             # <<<<<<<<<<<<<<
@@ -17662,7 +17659,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci_numpy(int __
   __pyx_t_9 = 1;
   *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_fib_view.data) + __pyx_t_9)) )) = 2.0;
 
-  /* "cython_package/cython_module.py":62
+  /* "cython_package/cython_module.py":58
  * 
  *     i: cython.int
  *     for i in range(2, n):             # <<<<<<<<<<<<<<
@@ -17674,7 +17671,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci_numpy(int __
   for (__pyx_t_12 = 2; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
     __pyx_v_i = __pyx_t_12;
 
-    /* "cython_package/cython_module.py":63
+    /* "cython_package/cython_module.py":59
  *     i: cython.int
  *     for i in range(2, n):
  *         fib_view[i] = (fib_view[i - 1] + fib_view[i - 2]) / n * i             # <<<<<<<<<<<<<<
@@ -17686,13 +17683,13 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci_numpy(int __
     __pyx_t_14 = ((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_fib_view.data) + __pyx_t_9)) ))) + (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_fib_view.data) + __pyx_t_13)) ))));
     if (unlikely(__pyx_v_n == 0)) {
       PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-      __PYX_ERR(0, 63, __pyx_L1_error)
+      __PYX_ERR(0, 59, __pyx_L1_error)
     }
     __pyx_t_13 = __pyx_v_i;
     *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_fib_view.data) + __pyx_t_13)) )) = ((__pyx_t_14 / ((double)__pyx_v_n)) * __pyx_v_i);
   }
 
-  /* "cython_package/cython_module.py":64
+  /* "cython_package/cython_module.py":60
  *     for i in range(2, n):
  *         fib_view[i] = (fib_view[i - 1] + fib_view[i - 2]) / n * i
  *     return fib             # <<<<<<<<<<<<<<
@@ -17704,7 +17701,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_fibonacci_numpy(int __
   __pyx_r = __pyx_v_fib;
   goto __pyx_L0;
 
-  /* "cython_package/cython_module.py":44
+  /* "cython_package/cython_module.py":41
  * 
  * 
  * @cython.ccall             # <<<<<<<<<<<<<<
@@ -17739,8 +17736,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14cython_package_13cython_module_6fibonacci_numpy, "Generate first n numbers of Fibonacci sequence");
-static PyMethodDef __pyx_mdef_14cython_package_13cython_module_7fibonacci_numpy = {"fibonacci_numpy", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14cython_package_13cython_module_7fibonacci_numpy, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14cython_package_13cython_module_6fibonacci_numpy};
+static PyMethodDef __pyx_mdef_14cython_package_13cython_module_7fibonacci_numpy = {"fibonacci_numpy", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14cython_package_13cython_module_7fibonacci_numpy, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
 static PyObject *__pyx_pw_14cython_package_13cython_module_7fibonacci_numpy(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
@@ -17771,32 +17767,32 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_n,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 44, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 41, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 44, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 41, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "fibonacci_numpy", 0) < (0)) __PYX_ERR(0, 44, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "fibonacci_numpy", 0) < (0)) __PYX_ERR(0, 41, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 1; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("fibonacci_numpy", 1, 1, 1, i); __PYX_ERR(0, 44, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("fibonacci_numpy", 1, 1, 1, i); __PYX_ERR(0, 41, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 1)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 44, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 41, __pyx_L3_error)
     }
-    __pyx_v_n = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_n == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 47, __pyx_L3_error)
+    __pyx_v_n = __Pyx_PyLong_As_int(values[0]); if (unlikely((__pyx_v_n == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 44, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("fibonacci_numpy", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 44, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("fibonacci_numpy", 1, 1, 1, __pyx_nargs); __PYX_ERR(0, 41, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -17826,7 +17822,7 @@ static PyObject *__pyx_pf_14cython_package_13cython_module_6fibonacci_numpy(CYTH
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("fibonacci_numpy", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_14cython_package_13cython_module_fibonacci_numpy(__pyx_v_n, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_14cython_package_13cython_module_fibonacci_numpy(__pyx_v_n, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -17843,7 +17839,7 @@ static PyObject *__pyx_pf_14cython_package_13cython_module_6fibonacci_numpy(CYTH
   return __pyx_r;
 }
 
-/* "cython_package/cython_module.py":75
+/* "cython_package/cython_module.py":71
  *     _fib_arr: object  # NDArray stored as generic object
  * 
  *     def __init__(self, x: cython.double, y: cython.double, n: cython.int):             # <<<<<<<<<<<<<<
@@ -17875,46 +17871,46 @@ static int __pyx_pw_14cython_package_13cython_module_7MyClass_1__init__(PyObject
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_x,&__pyx_mstate_global->__pyx_n_u_y,&__pyx_mstate_global->__pyx_n_u_n,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_VARARGS(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 75, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 71, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  3:
         values[2] = __Pyx_ArgRef_VARARGS(__pyx_args, 2);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 75, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 71, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  2:
         values[1] = __Pyx_ArgRef_VARARGS(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 75, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 71, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_VARARGS(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 75, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 71, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "__init__", 0) < (0)) __PYX_ERR(0, 75, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "__init__", 0) < (0)) __PYX_ERR(0, 71, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 3; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, i); __PYX_ERR(0, 75, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, i); __PYX_ERR(0, 71, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 3)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_VARARGS(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 75, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 71, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_VARARGS(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 75, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 71, __pyx_L3_error)
       values[2] = __Pyx_ArgRef_VARARGS(__pyx_args, 2);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 75, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[2])) __PYX_ERR(0, 71, __pyx_L3_error)
     }
-    __pyx_v_x = __Pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_x == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 75, __pyx_L3_error)
-    __pyx_v_y = __Pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_y == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 75, __pyx_L3_error)
-    __pyx_v_n = __Pyx_PyLong_As_int(values[2]); if (unlikely((__pyx_v_n == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 75, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_x == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 71, __pyx_L3_error)
+    __pyx_v_y = __Pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_y == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 71, __pyx_L3_error)
+    __pyx_v_n = __Pyx_PyLong_As_int(values[2]); if (unlikely((__pyx_v_n == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 71, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 75, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, __pyx_nargs); __PYX_ERR(0, 71, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -17950,7 +17946,7 @@ static int __pyx_pf_14cython_package_13cython_module_7MyClass___init__(struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "cython_package/cython_module.py":76
+  /* "cython_package/cython_module.py":72
  * 
  *     def __init__(self, x: cython.double, y: cython.double, n: cython.int):
  *         self.x = x             # <<<<<<<<<<<<<<
@@ -17959,7 +17955,7 @@ static int __pyx_pf_14cython_package_13cython_module_7MyClass___init__(struct __
 */
   __pyx_v_self->x = __pyx_v_x;
 
-  /* "cython_package/cython_module.py":77
+  /* "cython_package/cython_module.py":73
  *     def __init__(self, x: cython.double, y: cython.double, n: cython.int):
  *         self.x = x
  *         self.y = y             # <<<<<<<<<<<<<<
@@ -17968,7 +17964,7 @@ static int __pyx_pf_14cython_package_13cython_module_7MyClass___init__(struct __
 */
   __pyx_v_self->y = __pyx_v_y;
 
-  /* "cython_package/cython_module.py":78
+  /* "cython_package/cython_module.py":74
  *         self.x = x
  *         self.y = y
  *         self.n = n             # <<<<<<<<<<<<<<
@@ -17977,7 +17973,7 @@ static int __pyx_pf_14cython_package_13cython_module_7MyClass___init__(struct __
 */
   __pyx_v_self->n = __pyx_v_n;
 
-  /* "cython_package/cython_module.py":80
+  /* "cython_package/cython_module.py":76
  *         self.n = n
  *         # noinspection PyPropertyAccess
  *         self._fib_l = list(range(n))             # <<<<<<<<<<<<<<
@@ -17985,7 +17981,7 @@ static int __pyx_pf_14cython_package_13cython_module_7MyClass___init__(struct __
  *         self._fib_arr = np.zeros(n, dtype=np.float64)
 */
   __pyx_t_2 = NULL;
-  __pyx_t_3 = __Pyx_PyLong_From_int(__pyx_v_n); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyLong_From_int(__pyx_v_n); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 76, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = 1;
   {
@@ -17993,10 +17989,10 @@ static int __pyx_pf_14cython_package_13cython_module_7MyClass___init__(struct __
     __pyx_t_1 = __Pyx_PyObject_FastCall((PyObject*)(&PyRange_Type), __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   }
-  __pyx_t_3 = PySequence_List(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_t_3 = PySequence_List(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 76, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_GIVEREF(__pyx_t_3);
@@ -18005,7 +18001,7 @@ static int __pyx_pf_14cython_package_13cython_module_7MyClass___init__(struct __
   __pyx_v_self->_fib_l = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "cython_package/cython_module.py":82
+  /* "cython_package/cython_module.py":78
  *         self._fib_l = list(range(n))
  *         # noinspection PyPropertyAccess
  *         self._fib_arr = np.zeros(n, dtype=np.float64)             # <<<<<<<<<<<<<<
@@ -18013,16 +18009,16 @@ static int __pyx_pf_14cython_package_13cython_module_7MyClass___init__(struct __
  *     @cython.ccall
 */
   __pyx_t_1 = NULL;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_zeros); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_mstate_global->__pyx_n_u_zeros); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyLong_From_int(__pyx_v_n); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyLong_From_int(__pyx_v_n); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_mstate_global->__pyx_n_u_float64); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 78, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_t_4 = 1;
@@ -18039,16 +18035,16 @@ static int __pyx_pf_14cython_package_13cython_module_7MyClass___init__(struct __
   #endif
   {
     PyObject *__pyx_callargs[2 + ((CYTHON_VECTORCALL) ? 1 : 0)] = {__pyx_t_1, __pyx_t_2};
-    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 82, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_MakeVectorcallBuilderKwds(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 78, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_t_7, __pyx_t_6, __pyx_callargs+2, 0) < (0)) __PYX_ERR(0, 82, __pyx_L1_error)
+    if (__Pyx_VectorcallBuilder_AddArg(__pyx_mstate_global->__pyx_n_u_dtype, __pyx_t_7, __pyx_t_6, __pyx_callargs+2, 0) < (0)) __PYX_ERR(0, 78, __pyx_L1_error)
     __pyx_t_3 = __Pyx_Object_Vectorcall_CallFromBuilder((PyObject*)__pyx_t_5, __pyx_callargs+__pyx_t_4, (2-__pyx_t_4) | (__pyx_t_4*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET), __pyx_t_6);
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 82, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 78, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
   }
   __Pyx_GIVEREF(__pyx_t_3);
@@ -18057,7 +18053,7 @@ static int __pyx_pf_14cython_package_13cython_module_7MyClass___init__(struct __
   __pyx_v_self->_fib_arr = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "cython_package/cython_module.py":75
+  /* "cython_package/cython_module.py":71
  *     _fib_arr: object  # NDArray stored as generic object
  * 
  *     def __init__(self, x: cython.double, y: cython.double, n: cython.int):             # <<<<<<<<<<<<<<
@@ -18082,12 +18078,12 @@ static int __pyx_pf_14cython_package_13cython_module_7MyClass___init__(struct __
   return __pyx_r;
 }
 
-/* "cython_package/cython_module.py":84
+/* "cython_package/cython_module.py":80
  *         self._fib_arr = np.zeros(n, dtype=np.float64)
  * 
  *     @cython.ccall             # <<<<<<<<<<<<<<
  *     def class_addition(self, x: cython.double, y: cython.double) -> cython.double:
- *         """Return simple addition between x and y"""
+ *         return self.x + self.y + x + y
 */
 
 static PyObject *__pyx_pw_14cython_package_13cython_module_7MyClass_3class_addition(PyObject *__pyx_v_self, 
@@ -18128,9 +18124,261 @@ static double __pyx_f_14cython_package_13cython_module_7MyClass_class_addition(s
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_typedict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_mstate_global->__pyx_n_u_class_addition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_mstate_global->__pyx_n_u_class_addition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!__Pyx_IsSameCFunction(__pyx_t_1, (void(*)(void)) __pyx_pw_14cython_package_13cython_module_7MyClass_3class_addition)) {
+        __pyx_t_3 = NULL;
+        __Pyx_INCREF(__pyx_t_1);
+        __pyx_t_4 = __pyx_t_1; 
+        __pyx_t_5 = PyFloat_FromDouble(__pyx_v_x); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 80, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_5);
+        __pyx_t_6 = PyFloat_FromDouble(__pyx_v_y); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 80, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_6);
+        __pyx_t_7 = 1;
+        #if CYTHON_UNPACK_METHODS
+        if (unlikely(PyMethod_Check(__pyx_t_4))) {
+          __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
+          assert(__pyx_t_3);
+          PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
+          __Pyx_INCREF(__pyx_t_3);
+          __Pyx_INCREF(__pyx__function);
+          __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
+          __pyx_t_7 = 0;
+        }
+        #endif
+        {
+          PyObject *__pyx_callargs[3] = {__pyx_t_3, __pyx_t_5, __pyx_t_6};
+          __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_7, (3-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
+          __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
+          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
+          __Pyx_GOTREF(__pyx_t_2);
+        }
+        __pyx_t_8 = __Pyx_PyFloat_AsDouble(__pyx_t_2); if (unlikely((__pyx_t_8 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+        __pyx_r = __pyx_t_8;
+        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+        goto __pyx_L0;
+      }
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
+      if (unlikely(__pyx_typedict_guard != __pyx_tp_dict_version)) {
+        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+      }
+      #endif
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    }
+    #endif
+  }
+
+  /* "cython_package/cython_module.py":82
+ *     @cython.ccall
+ *     def class_addition(self, x: cython.double, y: cython.double) -> cython.double:
+ *         return self.x + self.y + x + y             # <<<<<<<<<<<<<<
+ * 
+ *     @cython.ccall
+*/
+  __pyx_r = (((__pyx_v_self->x + __pyx_v_self->y) + __pyx_v_x) + __pyx_v_y);
+  goto __pyx_L0;
+
+  /* "cython_package/cython_module.py":80
+ *         self._fib_arr = np.zeros(n, dtype=np.float64)
+ * 
+ *     @cython.ccall             # <<<<<<<<<<<<<<
+ *     def class_addition(self, x: cython.double, y: cython.double) -> cython.double:
+ *         return self.x + self.y + x + y
+*/
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_XDECREF(__pyx_t_5);
+  __Pyx_XDECREF(__pyx_t_6);
+  __Pyx_AddTraceback("cython_package.cython_module.MyClass.class_addition", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_14cython_package_13cython_module_7MyClass_3class_addition(PyObject *__pyx_v_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static PyMethodDef __pyx_mdef_14cython_package_13cython_module_7MyClass_3class_addition = {"class_addition", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14cython_package_13cython_module_7MyClass_3class_addition, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_14cython_package_13cython_module_7MyClass_3class_addition(PyObject *__pyx_v_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+) {
+  double __pyx_v_x;
+  double __pyx_v_y;
+  #if !CYTHON_METH_FASTCALL
+  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
+  #endif
+  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
+  PyObject* values[2] = {0,0};
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("class_addition (wrapper)", 0);
+  #if !CYTHON_METH_FASTCALL
+  #if CYTHON_ASSUME_SAFE_SIZE
+  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
+  #else
+  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
+  #endif
+  #endif
+  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
+  {
+    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_x,&__pyx_mstate_global->__pyx_n_u_y,0};
+    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 80, __pyx_L3_error)
+    if (__pyx_kwds_len > 0) {
+      switch (__pyx_nargs) {
+        case  2:
+        values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 80, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  1:
+        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 80, __pyx_L3_error)
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      const Py_ssize_t kwd_pos_args = __pyx_nargs;
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "class_addition", 0) < (0)) __PYX_ERR(0, 80, __pyx_L3_error)
+      for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("class_addition", 1, 2, 2, i); __PYX_ERR(0, 80, __pyx_L3_error) }
+      }
+    } else if (unlikely(__pyx_nargs != 2)) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 80, __pyx_L3_error)
+      values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 80, __pyx_L3_error)
+    }
+    __pyx_v_x = __Pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_x == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 81, __pyx_L3_error)
+    __pyx_v_y = __Pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_y == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 81, __pyx_L3_error)
+  }
+  goto __pyx_L6_skip;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("class_addition", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 80, __pyx_L3_error)
+  __pyx_L6_skip:;
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L3_error:;
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_AddTraceback("cython_package.cython_module.MyClass.class_addition", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_14cython_package_13cython_module_7MyClass_2class_addition(((struct __pyx_obj_14cython_package_13cython_module_MyClass *)__pyx_v_self), __pyx_v_x, __pyx_v_y);
+
+  /* function exit code */
+  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
+    Py_XDECREF(values[__pyx_temp]);
+  }
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_14cython_package_13cython_module_7MyClass_2class_addition(struct __pyx_obj_14cython_package_13cython_module_MyClass *__pyx_v_self, double __pyx_v_x, double __pyx_v_y) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  double __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("class_addition", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_f_14cython_package_13cython_module_7MyClass_class_addition(__pyx_v_self, __pyx_v_x, __pyx_v_y, 1); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_AddTraceback("cython_package.cython_module.MyClass.class_addition", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "cython_package/cython_module.py":84
+ *         return self.x + self.y + x + y
+ * 
+ *     @cython.ccall             # <<<<<<<<<<<<<<
+ *     def class_addition_three_times(self, x: cython.double, y: cython.double) -> cython.double:
+ *         var: cython.double = x + y
+*/
+
+static PyObject *__pyx_pw_14cython_package_13cython_module_7MyClass_5class_addition_three_times(PyObject *__pyx_v_self, 
+#if CYTHON_METH_FASTCALL
+PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
+#else
+PyObject *__pyx_args, PyObject *__pyx_kwds
+#endif
+); /*proto*/
+static double __pyx_f_14cython_package_13cython_module_7MyClass_class_addition_three_times(CYTHON_UNUSED struct __pyx_obj_14cython_package_13cython_module_MyClass *__pyx_v_self, double __pyx_v_x, double __pyx_v_y, int __pyx_skip_dispatch) {
+  double __pyx_v_var;
+  double __pyx_r;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *__pyx_t_4 = NULL;
+  PyObject *__pyx_t_5 = NULL;
+  PyObject *__pyx_t_6 = NULL;
+  size_t __pyx_t_7;
+  double __pyx_t_8;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("class_addition_three_times", 0);
+  /* Check if called by wrapper */
+  if (unlikely(__pyx_skip_dispatch)) ;
+  /* Check if overridden in Python */
+  else if (
+  #if !CYTHON_USE_TYPE_SLOTS
+  unlikely(Py_TYPE(((PyObject *)__pyx_v_self)) != __pyx_mstate_global->__pyx_ptype_14cython_package_13cython_module_MyClass &&
+  __Pyx_PyType_HasFeature(Py_TYPE(((PyObject *)__pyx_v_self)), Py_TPFLAGS_HAVE_GC))
+  #else
+  unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0 || __Pyx_PyType_HasFeature(Py_TYPE(((PyObject *)__pyx_v_self)), (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))
+  #endif
+  ) {
+    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
+    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
+    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
+      PY_UINT64_T __pyx_typedict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
+      #endif
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_mstate_global->__pyx_n_u_class_addition_three_times); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      if (!__Pyx_IsSameCFunction(__pyx_t_1, (void(*)(void)) __pyx_pw_14cython_package_13cython_module_7MyClass_5class_addition_three_times)) {
         __pyx_t_3 = NULL;
         __Pyx_INCREF(__pyx_t_1);
         __pyx_t_4 = __pyx_t_1; 
@@ -18179,270 +18427,17 @@ static double __pyx_f_14cython_package_13cython_module_7MyClass_class_addition(s
     #endif
   }
 
-  /* "cython_package/cython_module.py":87
- *     def class_addition(self, x: cython.double, y: cython.double) -> cython.double:
- *         """Return simple addition between x and y"""
- *         return self.x + self.y + x + y             # <<<<<<<<<<<<<<
- * 
+  /* "cython_package/cython_module.py":86
  *     @cython.ccall
-*/
-  __pyx_r = (((__pyx_v_self->x + __pyx_v_self->y) + __pyx_v_x) + __pyx_v_y);
-  goto __pyx_L0;
-
-  /* "cython_package/cython_module.py":84
- *         self._fib_arr = np.zeros(n, dtype=np.float64)
- * 
- *     @cython.ccall             # <<<<<<<<<<<<<<
- *     def class_addition(self, x: cython.double, y: cython.double) -> cython.double:
- *         """Return simple addition between x and y"""
-*/
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("cython_package.cython_module.MyClass.class_addition", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = 0;
-  __pyx_L0:;
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* Python wrapper */
-static PyObject *__pyx_pw_14cython_package_13cython_module_7MyClass_3class_addition(PyObject *__pyx_v_self, 
-#if CYTHON_METH_FASTCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14cython_package_13cython_module_7MyClass_2class_addition, "Return simple addition between x and y");
-static PyMethodDef __pyx_mdef_14cython_package_13cython_module_7MyClass_3class_addition = {"class_addition", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14cython_package_13cython_module_7MyClass_3class_addition, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14cython_package_13cython_module_7MyClass_2class_addition};
-static PyObject *__pyx_pw_14cython_package_13cython_module_7MyClass_3class_addition(PyObject *__pyx_v_self, 
-#if CYTHON_METH_FASTCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-) {
-  double __pyx_v_x;
-  double __pyx_v_y;
-  #if !CYTHON_METH_FASTCALL
-  CYTHON_UNUSED Py_ssize_t __pyx_nargs;
-  #endif
-  CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
-  PyObject* values[2] = {0,0};
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("class_addition (wrapper)", 0);
-  #if !CYTHON_METH_FASTCALL
-  #if CYTHON_ASSUME_SAFE_SIZE
-  __pyx_nargs = PyTuple_GET_SIZE(__pyx_args);
-  #else
-  __pyx_nargs = PyTuple_Size(__pyx_args); if (unlikely(__pyx_nargs < 0)) return NULL;
-  #endif
-  #endif
-  __pyx_kwvalues = __Pyx_KwValues_FASTCALL(__pyx_args, __pyx_nargs);
-  {
-    PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_x,&__pyx_mstate_global->__pyx_n_u_y,0};
-    const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 84, __pyx_L3_error)
-    if (__pyx_kwds_len > 0) {
-      switch (__pyx_nargs) {
-        case  2:
-        values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 84, __pyx_L3_error)
-        CYTHON_FALLTHROUGH;
-        case  1:
-        values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 84, __pyx_L3_error)
-        CYTHON_FALLTHROUGH;
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "class_addition", 0) < (0)) __PYX_ERR(0, 84, __pyx_L3_error)
-      for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("class_addition", 1, 2, 2, i); __PYX_ERR(0, 84, __pyx_L3_error) }
-      }
-    } else if (unlikely(__pyx_nargs != 2)) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 84, __pyx_L3_error)
-      values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 84, __pyx_L3_error)
-    }
-    __pyx_v_x = __Pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_x == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 85, __pyx_L3_error)
-    __pyx_v_y = __Pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_y == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 85, __pyx_L3_error)
-  }
-  goto __pyx_L6_skip;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("class_addition", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 84, __pyx_L3_error)
-  __pyx_L6_skip:;
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L3_error:;
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-  __Pyx_AddTraceback("cython_package.cython_module.MyClass.class_addition", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_14cython_package_13cython_module_7MyClass_2class_addition(((struct __pyx_obj_14cython_package_13cython_module_MyClass *)__pyx_v_self), __pyx_v_x, __pyx_v_y);
-
-  /* function exit code */
-  for (Py_ssize_t __pyx_temp=0; __pyx_temp < (Py_ssize_t)(sizeof(values)/sizeof(values[0])); ++__pyx_temp) {
-    Py_XDECREF(values[__pyx_temp]);
-  }
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_14cython_package_13cython_module_7MyClass_2class_addition(struct __pyx_obj_14cython_package_13cython_module_MyClass *__pyx_v_self, double __pyx_v_x, double __pyx_v_y) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  double __pyx_t_1;
-  PyObject *__pyx_t_2 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("class_addition", 0);
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_14cython_package_13cython_module_7MyClass_class_addition(__pyx_v_self, __pyx_v_x, __pyx_v_y, 1); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 84, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_r = __pyx_t_2;
-  __pyx_t_2 = 0;
-  goto __pyx_L0;
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_AddTraceback("cython_package.cython_module.MyClass.class_addition", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "cython_package/cython_module.py":89
- *         return self.x + self.y + x + y
- * 
- *     @cython.ccall             # <<<<<<<<<<<<<<
  *     def class_addition_three_times(self, x: cython.double, y: cython.double) -> cython.double:
- *         """Return simple addition between x and y with some extra steps"""
-*/
-
-static PyObject *__pyx_pw_14cython_package_13cython_module_7MyClass_5class_addition_three_times(PyObject *__pyx_v_self, 
-#if CYTHON_METH_FASTCALL
-PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
-#else
-PyObject *__pyx_args, PyObject *__pyx_kwds
-#endif
-); /*proto*/
-static double __pyx_f_14cython_package_13cython_module_7MyClass_class_addition_three_times(CYTHON_UNUSED struct __pyx_obj_14cython_package_13cython_module_MyClass *__pyx_v_self, double __pyx_v_x, double __pyx_v_y, int __pyx_skip_dispatch) {
-  double __pyx_v_var;
-  double __pyx_r;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  PyObject *__pyx_t_2 = NULL;
-  PyObject *__pyx_t_3 = NULL;
-  PyObject *__pyx_t_4 = NULL;
-  PyObject *__pyx_t_5 = NULL;
-  PyObject *__pyx_t_6 = NULL;
-  size_t __pyx_t_7;
-  double __pyx_t_8;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("class_addition_three_times", 0);
-  /* Check if called by wrapper */
-  if (unlikely(__pyx_skip_dispatch)) ;
-  /* Check if overridden in Python */
-  else if (
-  #if !CYTHON_USE_TYPE_SLOTS
-  unlikely(Py_TYPE(((PyObject *)__pyx_v_self)) != __pyx_mstate_global->__pyx_ptype_14cython_package_13cython_module_MyClass &&
-  __Pyx_PyType_HasFeature(Py_TYPE(((PyObject *)__pyx_v_self)), Py_TPFLAGS_HAVE_GC))
-  #else
-  unlikely(Py_TYPE(((PyObject *)__pyx_v_self))->tp_dictoffset != 0 || __Pyx_PyType_HasFeature(Py_TYPE(((PyObject *)__pyx_v_self)), (Py_TPFLAGS_IS_ABSTRACT | Py_TPFLAGS_HEAPTYPE)))
-  #endif
-  ) {
-    #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
-    static PY_UINT64_T __pyx_tp_dict_version = __PYX_DICT_VERSION_INIT, __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
-    if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
-      PY_UINT64_T __pyx_typedict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
-      #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_mstate_global->__pyx_n_u_class_addition_three_times); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_1);
-      if (!__Pyx_IsSameCFunction(__pyx_t_1, (void(*)(void)) __pyx_pw_14cython_package_13cython_module_7MyClass_5class_addition_three_times)) {
-        __pyx_t_3 = NULL;
-        __Pyx_INCREF(__pyx_t_1);
-        __pyx_t_4 = __pyx_t_1; 
-        __pyx_t_5 = PyFloat_FromDouble(__pyx_v_x); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 89, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_6 = PyFloat_FromDouble(__pyx_v_y); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 89, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_6);
-        __pyx_t_7 = 1;
-        #if CYTHON_UNPACK_METHODS
-        if (unlikely(PyMethod_Check(__pyx_t_4))) {
-          __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_4);
-          assert(__pyx_t_3);
-          PyObject* __pyx__function = PyMethod_GET_FUNCTION(__pyx_t_4);
-          __Pyx_INCREF(__pyx_t_3);
-          __Pyx_INCREF(__pyx__function);
-          __Pyx_DECREF_SET(__pyx_t_4, __pyx__function);
-          __pyx_t_7 = 0;
-        }
-        #endif
-        {
-          PyObject *__pyx_callargs[3] = {__pyx_t_3, __pyx_t_5, __pyx_t_6};
-          __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_7, (3-__pyx_t_7) | (__pyx_t_7*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
-          __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-          __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-          __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 89, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_2);
-        }
-        __pyx_t_8 = __Pyx_PyFloat_AsDouble(__pyx_t_2); if (unlikely((__pyx_t_8 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 89, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-        __pyx_r = __pyx_t_8;
-        __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        goto __pyx_L0;
-      }
-      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
-      __pyx_tp_dict_version = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
-      __pyx_obj_dict_version = __Pyx_get_object_dict_version(((PyObject *)__pyx_v_self));
-      if (unlikely(__pyx_typedict_guard != __pyx_tp_dict_version)) {
-        __pyx_tp_dict_version = __pyx_obj_dict_version = __PYX_DICT_VERSION_INIT;
-      }
-      #endif
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      #if CYTHON_USE_DICT_VERSIONS && CYTHON_USE_PYTYPE_LOOKUP && CYTHON_USE_TYPE_SLOTS
-    }
-    #endif
-  }
-
-  /* "cython_package/cython_module.py":92
- *     def class_addition_three_times(self, x: cython.double, y: cython.double) -> cython.double:
- *         """Return simple addition between x and y with some extra steps"""
  *         var: cython.double = x + y             # <<<<<<<<<<<<<<
  *         var /= 5
  *         var *= 7
 */
   __pyx_v_var = (__pyx_v_x + __pyx_v_y);
 
-  /* "cython_package/cython_module.py":93
- *         """Return simple addition between x and y with some extra steps"""
+  /* "cython_package/cython_module.py":87
+ *     def class_addition_three_times(self, x: cython.double, y: cython.double) -> cython.double:
  *         var: cython.double = x + y
  *         var /= 5             # <<<<<<<<<<<<<<
  *         var *= 7
@@ -18450,7 +18445,7 @@ static double __pyx_f_14cython_package_13cython_module_7MyClass_class_addition_t
 */
   __pyx_v_var = (__pyx_v_var / 5.0);
 
-  /* "cython_package/cython_module.py":94
+  /* "cython_package/cython_module.py":88
  *         var: cython.double = x + y
  *         var /= 5
  *         var *= 7             # <<<<<<<<<<<<<<
@@ -18459,7 +18454,7 @@ static double __pyx_f_14cython_package_13cython_module_7MyClass_class_addition_t
 */
   __pyx_v_var = (__pyx_v_var * 7.0);
 
-  /* "cython_package/cython_module.py":95
+  /* "cython_package/cython_module.py":89
  *         var /= 5
  *         var *= 7
  *         return var             # <<<<<<<<<<<<<<
@@ -18469,12 +18464,12 @@ static double __pyx_f_14cython_package_13cython_module_7MyClass_class_addition_t
   __pyx_r = __pyx_v_var;
   goto __pyx_L0;
 
-  /* "cython_package/cython_module.py":89
+  /* "cython_package/cython_module.py":84
  *         return self.x + self.y + x + y
  * 
  *     @cython.ccall             # <<<<<<<<<<<<<<
  *     def class_addition_three_times(self, x: cython.double, y: cython.double) -> cython.double:
- *         """Return simple addition between x and y with some extra steps"""
+ *         var: cython.double = x + y
 */
 
   /* function exit code */
@@ -18500,8 +18495,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14cython_package_13cython_module_7MyClass_4class_addition_three_times, "Return simple addition between x and y with some extra steps");
-static PyMethodDef __pyx_mdef_14cython_package_13cython_module_7MyClass_5class_addition_three_times = {"class_addition_three_times", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14cython_package_13cython_module_7MyClass_5class_addition_three_times, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14cython_package_13cython_module_7MyClass_4class_addition_three_times};
+static PyMethodDef __pyx_mdef_14cython_package_13cython_module_7MyClass_5class_addition_three_times = {"class_addition_three_times", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14cython_package_13cython_module_7MyClass_5class_addition_three_times, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
 static PyObject *__pyx_pw_14cython_package_13cython_module_7MyClass_5class_addition_three_times(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
@@ -18533,39 +18527,39 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   {
     PyObject ** const __pyx_pyargnames[] = {&__pyx_mstate_global->__pyx_n_u_x,&__pyx_mstate_global->__pyx_n_u_y,0};
     const Py_ssize_t __pyx_kwds_len = (__pyx_kwds) ? __Pyx_NumKwargs_FASTCALL(__pyx_kwds) : 0;
-    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 89, __pyx_L3_error)
+    if (unlikely(__pyx_kwds_len) < 0) __PYX_ERR(0, 84, __pyx_L3_error)
     if (__pyx_kwds_len > 0) {
       switch (__pyx_nargs) {
         case  2:
         values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 89, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 84, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  1:
         values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 89, __pyx_L3_error)
+        if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 84, __pyx_L3_error)
         CYTHON_FALLTHROUGH;
         case  0: break;
         default: goto __pyx_L5_argtuple_error;
       }
       const Py_ssize_t kwd_pos_args = __pyx_nargs;
-      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "class_addition_three_times", 0) < (0)) __PYX_ERR(0, 89, __pyx_L3_error)
+      if (__Pyx_ParseKeywords(__pyx_kwds, __pyx_kwvalues, __pyx_pyargnames, 0, values, kwd_pos_args, __pyx_kwds_len, "class_addition_three_times", 0) < (0)) __PYX_ERR(0, 84, __pyx_L3_error)
       for (Py_ssize_t i = __pyx_nargs; i < 2; i++) {
-        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("class_addition_three_times", 1, 2, 2, i); __PYX_ERR(0, 89, __pyx_L3_error) }
+        if (unlikely(!values[i])) { __Pyx_RaiseArgtupleInvalid("class_addition_three_times", 1, 2, 2, i); __PYX_ERR(0, 84, __pyx_L3_error) }
       }
     } else if (unlikely(__pyx_nargs != 2)) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = __Pyx_ArgRef_FASTCALL(__pyx_args, 0);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 89, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[0])) __PYX_ERR(0, 84, __pyx_L3_error)
       values[1] = __Pyx_ArgRef_FASTCALL(__pyx_args, 1);
-      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 89, __pyx_L3_error)
+      if (!CYTHON_ASSUME_SAFE_MACROS && unlikely(!values[1])) __PYX_ERR(0, 84, __pyx_L3_error)
     }
-    __pyx_v_x = __Pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_x == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 90, __pyx_L3_error)
-    __pyx_v_y = __Pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_y == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 90, __pyx_L3_error)
+    __pyx_v_x = __Pyx_PyFloat_AsDouble(values[0]); if (unlikely((__pyx_v_x == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 85, __pyx_L3_error)
+    __pyx_v_y = __Pyx_PyFloat_AsDouble(values[1]); if (unlikely((__pyx_v_y == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 85, __pyx_L3_error)
   }
   goto __pyx_L6_skip;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("class_addition_three_times", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 89, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("class_addition_three_times", 1, 2, 2, __pyx_nargs); __PYX_ERR(0, 84, __pyx_L3_error)
   __pyx_L6_skip:;
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -18596,8 +18590,8 @@ static PyObject *__pyx_pf_14cython_package_13cython_module_7MyClass_4class_addit
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("class_addition_three_times", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_14cython_package_13cython_module_7MyClass_class_addition_three_times(__pyx_v_self, __pyx_v_x, __pyx_v_y, 1); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 89, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_14cython_package_13cython_module_7MyClass_class_addition_three_times(__pyx_v_self, __pyx_v_x, __pyx_v_y, 1); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 84, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 84, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -18614,7 +18608,7 @@ static PyObject *__pyx_pf_14cython_package_13cython_module_7MyClass_4class_addit
   return __pyx_r;
 }
 
-/* "cython_package/cython_module.py":97
+/* "cython_package/cython_module.py":91
  *         return var
  * 
  *     @cython.ccall             # <<<<<<<<<<<<<<
@@ -18664,7 +18658,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_typedict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_mstate_global->__pyx_n_u_class_fibonacci); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 97, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_mstate_global->__pyx_n_u_class_fibonacci); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!__Pyx_IsSameCFunction(__pyx_t_1, (void(*)(void)) __pyx_pw_14cython_package_13cython_module_7MyClass_7class_fibonacci)) {
         __Pyx_XDECREF(__pyx_r);
@@ -18688,10 +18682,10 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
           __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 97, __pyx_L1_error)
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 91, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
         }
-        if (!(likely(PyList_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None) || __Pyx_RaiseUnexpectedTypeError("list", __pyx_t_2))) __PYX_ERR(0, 97, __pyx_L1_error)
+        if (!(likely(PyList_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None) || __Pyx_RaiseUnexpectedTypeError("list", __pyx_t_2))) __PYX_ERR(0, 91, __pyx_L1_error)
         __pyx_r = ((PyObject*)__pyx_t_2);
         __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -18710,9 +18704,9 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
     #endif
   }
 
-  /* "cython_package/cython_module.py":102
+  /* "cython_package/cython_module.py":95
+ *     @cython.wraparound(False)
  *     def class_fibonacci(self) -> list:
- *         """Generate first n numbers of Fibonacci sequence"""
  *         if self.n <= 0:             # <<<<<<<<<<<<<<
  *             return self._fib_l
  * 
@@ -18720,8 +18714,8 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
   __pyx_t_6 = (__pyx_v_self->n <= 0);
   if (__pyx_t_6) {
 
-    /* "cython_package/cython_module.py":103
- *         """Generate first n numbers of Fibonacci sequence"""
+    /* "cython_package/cython_module.py":96
+ *     def class_fibonacci(self) -> list:
  *         if self.n <= 0:
  *             return self._fib_l             # <<<<<<<<<<<<<<
  * 
@@ -18732,16 +18726,16 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
     __pyx_r = __pyx_v_self->_fib_l;
     goto __pyx_L0;
 
-    /* "cython_package/cython_module.py":102
+    /* "cython_package/cython_module.py":95
+ *     @cython.wraparound(False)
  *     def class_fibonacci(self) -> list:
- *         """Generate first n numbers of Fibonacci sequence"""
  *         if self.n <= 0:             # <<<<<<<<<<<<<<
  *             return self._fib_l
  * 
 */
   }
 
-  /* "cython_package/cython_module.py":105
+  /* "cython_package/cython_module.py":98
  *             return self._fib_l
  * 
  *         self._fib_l[0] = 1.0             # <<<<<<<<<<<<<<
@@ -18750,11 +18744,11 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
 */
   if (unlikely(__pyx_v_self->_fib_l == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 105, __pyx_L1_error)
+    __PYX_ERR(0, 98, __pyx_L1_error)
   }
-  if (unlikely((__Pyx_SetItemInt(__pyx_v_self->_fib_l, 0, __pyx_mstate_global->__pyx_float_1_0, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference) < 0))) __PYX_ERR(0, 105, __pyx_L1_error)
+  if (unlikely((__Pyx_SetItemInt(__pyx_v_self->_fib_l, 0, __pyx_mstate_global->__pyx_float_1_0, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference) < 0))) __PYX_ERR(0, 98, __pyx_L1_error)
 
-  /* "cython_package/cython_module.py":108
+  /* "cython_package/cython_module.py":101
  * 
  *         i: cython.int
  *         if self.n > 1:             # <<<<<<<<<<<<<<
@@ -18764,7 +18758,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
   __pyx_t_6 = (__pyx_v_self->n > 1);
   if (__pyx_t_6) {
 
-    /* "cython_package/cython_module.py":109
+    /* "cython_package/cython_module.py":102
  *         i: cython.int
  *         if self.n > 1:
  *             self._fib_l[1] = 2.0             # <<<<<<<<<<<<<<
@@ -18773,11 +18767,11 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
 */
     if (unlikely(__pyx_v_self->_fib_l == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 109, __pyx_L1_error)
+      __PYX_ERR(0, 102, __pyx_L1_error)
     }
-    if (unlikely((__Pyx_SetItemInt(__pyx_v_self->_fib_l, 1, __pyx_mstate_global->__pyx_float_2_0, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference) < 0))) __PYX_ERR(0, 109, __pyx_L1_error)
+    if (unlikely((__Pyx_SetItemInt(__pyx_v_self->_fib_l, 1, __pyx_mstate_global->__pyx_float_2_0, long, 1, __Pyx_PyLong_From_long, 1, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference) < 0))) __PYX_ERR(0, 102, __pyx_L1_error)
 
-    /* "cython_package/cython_module.py":110
+    /* "cython_package/cython_module.py":103
  *         if self.n > 1:
  *             self._fib_l[1] = 2.0
  *             for i in range(2, self.n):             # <<<<<<<<<<<<<<
@@ -18789,7 +18783,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
     for (__pyx_t_9 = 2; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
       __pyx_v_i = __pyx_t_9;
 
-      /* "cython_package/cython_module.py":111
+      /* "cython_package/cython_module.py":104
  *             self._fib_l[1] = 2.0
  *             for i in range(2, self.n):
  *                 self._fib_l[i] = (self._fib_l[i - 1] + self._fib_l[i - 2]) / self.n * i             # <<<<<<<<<<<<<<
@@ -18798,37 +18792,37 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
 */
       if (unlikely(__pyx_v_self->_fib_l == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-        __PYX_ERR(0, 111, __pyx_L1_error)
+        __PYX_ERR(0, 104, __pyx_L1_error)
       }
       __pyx_t_10 = (__pyx_v_i - 1);
       if (unlikely(__pyx_v_self->_fib_l == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-        __PYX_ERR(0, 111, __pyx_L1_error)
+        __PYX_ERR(0, 104, __pyx_L1_error)
       }
       __pyx_t_11 = (__pyx_v_i - 2);
-      __pyx_t_1 = PyNumber_Add(__Pyx_PyList_GET_ITEM(__pyx_v_self->_fib_l, __pyx_t_10), __Pyx_PyList_GET_ITEM(__pyx_v_self->_fib_l, __pyx_t_11)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
+      __pyx_t_1 = PyNumber_Add(__Pyx_PyList_GET_ITEM(__pyx_v_self->_fib_l, __pyx_t_10), __Pyx_PyList_GET_ITEM(__pyx_v_self->_fib_l, __pyx_t_11)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 104, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_2 = __Pyx_PyLong_From_int(__pyx_v_self->n); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 111, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyLong_From_int(__pyx_v_self->n); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 104, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_4 = __Pyx_PyNumber_Divide(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 111, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyNumber_Divide(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-      __pyx_t_2 = __Pyx_PyLong_From_int(__pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 111, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyLong_From_int(__pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 104, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_1 = PyNumber_Multiply(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
+      __pyx_t_1 = PyNumber_Multiply(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 104, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       if (unlikely(__pyx_v_self->_fib_l == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-        __PYX_ERR(0, 111, __pyx_L1_error)
+        __PYX_ERR(0, 104, __pyx_L1_error)
       }
-      if (unlikely((__Pyx_SetItemInt(__pyx_v_self->_fib_l, __pyx_v_i, __pyx_t_1, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference) < 0))) __PYX_ERR(0, 111, __pyx_L1_error)
+      if (unlikely((__Pyx_SetItemInt(__pyx_v_self->_fib_l, __pyx_v_i, __pyx_t_1, int, 1, __Pyx_PyLong_From_int, 1, 0, 0, 1, __Pyx_ReferenceSharing_SharedReference) < 0))) __PYX_ERR(0, 104, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     }
 
-    /* "cython_package/cython_module.py":108
+    /* "cython_package/cython_module.py":101
  * 
  *         i: cython.int
  *         if self.n > 1:             # <<<<<<<<<<<<<<
@@ -18837,7 +18831,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
 */
   }
 
-  /* "cython_package/cython_module.py":113
+  /* "cython_package/cython_module.py":106
  *                 self._fib_l[i] = (self._fib_l[i - 1] + self._fib_l[i - 2]) / self.n * i
  * 
  *         return self._fib_l             # <<<<<<<<<<<<<<
@@ -18849,7 +18843,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
   __pyx_r = __pyx_v_self->_fib_l;
   goto __pyx_L0;
 
-  /* "cython_package/cython_module.py":97
+  /* "cython_package/cython_module.py":91
  *         return var
  * 
  *     @cython.ccall             # <<<<<<<<<<<<<<
@@ -18879,8 +18873,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14cython_package_13cython_module_7MyClass_6class_fibonacci, "Generate first n numbers of Fibonacci sequence");
-static PyMethodDef __pyx_mdef_14cython_package_13cython_module_7MyClass_7class_fibonacci = {"class_fibonacci", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14cython_package_13cython_module_7MyClass_7class_fibonacci, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14cython_package_13cython_module_7MyClass_6class_fibonacci};
+static PyMethodDef __pyx_mdef_14cython_package_13cython_module_7MyClass_7class_fibonacci = {"class_fibonacci", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14cython_package_13cython_module_7MyClass_7class_fibonacci, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
 static PyObject *__pyx_pw_14cython_package_13cython_module_7MyClass_7class_fibonacci(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
@@ -18923,7 +18916,7 @@ static PyObject *__pyx_pf_14cython_package_13cython_module_7MyClass_6class_fibon
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("class_fibonacci", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_14cython_package_13cython_module_7MyClass_class_fibonacci(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_14cython_package_13cython_module_7MyClass_class_fibonacci(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -18940,7 +18933,7 @@ static PyObject *__pyx_pf_14cython_package_13cython_module_7MyClass_6class_fibon
   return __pyx_r;
 }
 
-/* "cython_package/cython_module.py":115
+/* "cython_package/cython_module.py":108
  *         return self._fib_l
  * 
  *     @cython.ccall             # <<<<<<<<<<<<<<
@@ -18993,7 +18986,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_typedict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_mstate_global->__pyx_n_u_class_fibonacci_numpy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 115, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_mstate_global->__pyx_n_u_class_fibonacci_numpy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!__Pyx_IsSameCFunction(__pyx_t_1, (void(*)(void)) __pyx_pw_14cython_package_13cython_module_7MyClass_9class_fibonacci_numpy)) {
         __Pyx_XDECREF(__pyx_r);
@@ -19017,7 +19010,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
           __pyx_t_2 = __Pyx_PyObject_FastCall((PyObject*)__pyx_t_4, __pyx_callargs+__pyx_t_5, (1-__pyx_t_5) | (__pyx_t_5*__Pyx_PY_VECTORCALL_ARGUMENTS_OFFSET));
           __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 115, __pyx_L1_error)
+          if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 108, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
         }
         __pyx_r = __pyx_t_2;
@@ -19038,9 +19031,9 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
     #endif
   }
 
-  /* "cython_package/cython_module.py":120
+  /* "cython_package/cython_module.py":112
+ *     @cython.wraparound(False)
  *     def class_fibonacci_numpy(self) -> NDArray[np.float64]:
- *         """Generate first n numbers of Fibonacci sequence"""
  *         if self.n <= 0:             # <<<<<<<<<<<<<<
  *             return self._fib_arr
  * 
@@ -19048,8 +19041,8 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
   __pyx_t_6 = (__pyx_v_self->n <= 0);
   if (__pyx_t_6) {
 
-    /* "cython_package/cython_module.py":121
- *         """Generate first n numbers of Fibonacci sequence"""
+    /* "cython_package/cython_module.py":113
+ *     def class_fibonacci_numpy(self) -> NDArray[np.float64]:
  *         if self.n <= 0:
  *             return self._fib_arr             # <<<<<<<<<<<<<<
  * 
@@ -19060,28 +19053,28 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
     __pyx_r = __pyx_v_self->_fib_arr;
     goto __pyx_L0;
 
-    /* "cython_package/cython_module.py":120
+    /* "cython_package/cython_module.py":112
+ *     @cython.wraparound(False)
  *     def class_fibonacci_numpy(self) -> NDArray[np.float64]:
- *         """Generate first n numbers of Fibonacci sequence"""
  *         if self.n <= 0:             # <<<<<<<<<<<<<<
  *             return self._fib_arr
  * 
 */
   }
 
-  /* "cython_package/cython_module.py":123
+  /* "cython_package/cython_module.py":115
  *             return self._fib_arr
  * 
  *         fib_view: cython.double[::1] = self._fib_arr             # <<<<<<<<<<<<<<
  *         fib_view[0] = 1.0
  * 
 */
-  __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_v_self->_fib_arr, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 123, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_to_MemoryviewSlice_dc_double(__pyx_v_self->_fib_arr, PyBUF_WRITABLE); if (unlikely(!__pyx_t_7.memview)) __PYX_ERR(0, 115, __pyx_L1_error)
   __pyx_v_fib_view = __pyx_t_7;
   __pyx_t_7.memview = NULL;
   __pyx_t_7.data = NULL;
 
-  /* "cython_package/cython_module.py":124
+  /* "cython_package/cython_module.py":116
  * 
  *         fib_view: cython.double[::1] = self._fib_arr
  *         fib_view[0] = 1.0             # <<<<<<<<<<<<<<
@@ -19091,7 +19084,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
   __pyx_t_8 = 0;
   *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_fib_view.data) + __pyx_t_8)) )) = 1.0;
 
-  /* "cython_package/cython_module.py":127
+  /* "cython_package/cython_module.py":119
  * 
  *         i: cython.int
  *         if self.n > 1:             # <<<<<<<<<<<<<<
@@ -19101,7 +19094,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
   __pyx_t_6 = (__pyx_v_self->n > 1);
   if (__pyx_t_6) {
 
-    /* "cython_package/cython_module.py":128
+    /* "cython_package/cython_module.py":120
  *         i: cython.int
  *         if self.n > 1:
  *             fib_view[1] = 2.0             # <<<<<<<<<<<<<<
@@ -19111,7 +19104,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
     __pyx_t_8 = 1;
     *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_fib_view.data) + __pyx_t_8)) )) = 2.0;
 
-    /* "cython_package/cython_module.py":129
+    /* "cython_package/cython_module.py":121
  *         if self.n > 1:
  *             fib_view[1] = 2.0
  *             for i in range(2, self.n):             # <<<<<<<<<<<<<<
@@ -19123,7 +19116,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
     for (__pyx_t_11 = 2; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
       __pyx_v_i = __pyx_t_11;
 
-      /* "cython_package/cython_module.py":130
+      /* "cython_package/cython_module.py":122
  *             fib_view[1] = 2.0
  *             for i in range(2, self.n):
  *                 fib_view[i] = (fib_view[i - 1] + fib_view[i - 2]) / self.n * i             # <<<<<<<<<<<<<<
@@ -19135,13 +19128,13 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
       __pyx_t_13 = ((*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_fib_view.data) + __pyx_t_8)) ))) + (*((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_fib_view.data) + __pyx_t_12)) ))));
       if (unlikely(__pyx_v_self->n == 0)) {
         PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-        __PYX_ERR(0, 130, __pyx_L1_error)
+        __PYX_ERR(0, 122, __pyx_L1_error)
       }
       __pyx_t_12 = __pyx_v_i;
       *((double *) ( /* dim=0 */ ((char *) (((double *) __pyx_v_fib_view.data) + __pyx_t_12)) )) = ((__pyx_t_13 / ((double)__pyx_v_self->n)) * __pyx_v_i);
     }
 
-    /* "cython_package/cython_module.py":127
+    /* "cython_package/cython_module.py":119
  * 
  *         i: cython.int
  *         if self.n > 1:             # <<<<<<<<<<<<<<
@@ -19150,7 +19143,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
 */
   }
 
-  /* "cython_package/cython_module.py":132
+  /* "cython_package/cython_module.py":124
  *                 fib_view[i] = (fib_view[i - 1] + fib_view[i - 2]) / self.n * i
  * 
  *         return self._fib_arr             # <<<<<<<<<<<<<<
@@ -19162,7 +19155,7 @@ static PyObject *__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonac
   __pyx_r = __pyx_v_self->_fib_arr;
   goto __pyx_L0;
 
-  /* "cython_package/cython_module.py":115
+  /* "cython_package/cython_module.py":108
  *         return self._fib_l
  * 
  *     @cython.ccall             # <<<<<<<<<<<<<<
@@ -19194,8 +19187,7 @@ PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-PyDoc_STRVAR(__pyx_doc_14cython_package_13cython_module_7MyClass_8class_fibonacci_numpy, "Generate first n numbers of Fibonacci sequence");
-static PyMethodDef __pyx_mdef_14cython_package_13cython_module_7MyClass_9class_fibonacci_numpy = {"class_fibonacci_numpy", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14cython_package_13cython_module_7MyClass_9class_fibonacci_numpy, __Pyx_METH_FASTCALL|METH_KEYWORDS, __pyx_doc_14cython_package_13cython_module_7MyClass_8class_fibonacci_numpy};
+static PyMethodDef __pyx_mdef_14cython_package_13cython_module_7MyClass_9class_fibonacci_numpy = {"class_fibonacci_numpy", (PyCFunction)(void(*)(void))(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_14cython_package_13cython_module_7MyClass_9class_fibonacci_numpy, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
 static PyObject *__pyx_pw_14cython_package_13cython_module_7MyClass_9class_fibonacci_numpy(PyObject *__pyx_v_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
@@ -19238,7 +19230,7 @@ static PyObject *__pyx_pf_14cython_package_13cython_module_7MyClass_8class_fibon
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("class_fibonacci_numpy", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_14cython_package_13cython_module_7MyClass_class_fibonacci_numpy(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 115, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_14cython_package_13cython_module_7MyClass_class_fibonacci_numpy(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -19255,7 +19247,7 @@ static PyObject *__pyx_pf_14cython_package_13cython_module_7MyClass_8class_fibon
   return __pyx_r;
 }
 
-/* "cython_package/cython_module.py":134
+/* "cython_package/cython_module.py":126
  *         return self._fib_arr
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -19283,7 +19275,7 @@ static PyObject *__pyx_pf_14cython_package_13cython_module_7MyClass_6_fib_l___ge
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "cython_package/cython_module.py":136
+  /* "cython_package/cython_module.py":128
  *     @property
  *     def _fib_l(self) -> list:
  *         return self._fib_l             # <<<<<<<<<<<<<<
@@ -19295,7 +19287,7 @@ static PyObject *__pyx_pf_14cython_package_13cython_module_7MyClass_6_fib_l___ge
   __pyx_r = __pyx_v_self->_fib_l;
   goto __pyx_L0;
 
-  /* "cython_package/cython_module.py":134
+  /* "cython_package/cython_module.py":126
  *         return self._fib_arr
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -19310,7 +19302,7 @@ static PyObject *__pyx_pf_14cython_package_13cython_module_7MyClass_6_fib_l___ge
   return __pyx_r;
 }
 
-/* "cython_package/cython_module.py":138
+/* "cython_package/cython_module.py":130
  *         return self._fib_l
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -19338,7 +19330,7 @@ static PyObject *__pyx_pf_14cython_package_13cython_module_7MyClass_8_fib_arr___
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "cython_package/cython_module.py":140
+  /* "cython_package/cython_module.py":132
  *     @property
  *     def _fib_arr(self) -> list:
  *         return self._fib_arr             # <<<<<<<<<<<<<<
@@ -19348,7 +19340,7 @@ static PyObject *__pyx_pf_14cython_package_13cython_module_7MyClass_8_fib_arr___
   __pyx_r = __pyx_v_self->_fib_arr;
   goto __pyx_L0;
 
-  /* "cython_package/cython_module.py":138
+  /* "cython_package/cython_module.py":130
  *         return self._fib_l
  * 
  *     @property             # <<<<<<<<<<<<<<
@@ -21206,15 +21198,15 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
   __pyx_vtable_14cython_package_13cython_module_MyClass.class_fibonacci = (PyObject *(*)(struct __pyx_obj_14cython_package_13cython_module_MyClass *, int __pyx_skip_dispatch))__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonacci;
   __pyx_vtable_14cython_package_13cython_module_MyClass.class_fibonacci_numpy = (PyObject *(*)(struct __pyx_obj_14cython_package_13cython_module_MyClass *, int __pyx_skip_dispatch))__pyx_f_14cython_package_13cython_module_7MyClass_class_fibonacci_numpy;
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14cython_package_13cython_module_MyClass_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass)) __PYX_ERR(0, 68, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14cython_package_13cython_module_MyClass_spec, __pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass) < (0)) __PYX_ERR(0, 68, __pyx_L1_error)
+  __pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_14cython_package_13cython_module_MyClass_spec, NULL); if (unlikely(!__pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass)) __PYX_ERR(0, 64, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_14cython_package_13cython_module_MyClass_spec, __pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass) < (0)) __PYX_ERR(0, 64, __pyx_L1_error)
   #else
   __pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass = &__pyx_type_14cython_package_13cython_module_MyClass;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass) < (0)) __PYX_ERR(0, 68, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass) < (0)) __PYX_ERR(0, 64, __pyx_L1_error)
   #endif
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount((PyObject*)__pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass);
@@ -21224,10 +21216,10 @@ static int __Pyx_modinit_type_init_code(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass->tp_getattro = PyObject_GenericGetAttr;
   }
   #endif
-  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass, __pyx_vtabptr_14cython_package_13cython_module_MyClass) < (0)) __PYX_ERR(0, 68, __pyx_L1_error)
-  if (__Pyx_MergeVtables(__pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass) < (0)) __PYX_ERR(0, 68, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_MyClass, (PyObject *) __pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass) < (0)) __PYX_ERR(0, 68, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass) < (0)) __PYX_ERR(0, 68, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass, __pyx_vtabptr_14cython_package_13cython_module_MyClass) < (0)) __PYX_ERR(0, 64, __pyx_L1_error)
+  if (__Pyx_MergeVtables(__pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass) < (0)) __PYX_ERR(0, 64, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_mstate_global->__pyx_n_u_MyClass, (PyObject *) __pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass) < (0)) __PYX_ERR(0, 64, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject *) __pyx_mstate->__pyx_ptype_14cython_package_13cython_module_MyClass) < (0)) __PYX_ERR(0, 64, __pyx_L1_error)
   __pyx_vtabptr_array = &__pyx_vtable_array;
   __pyx_vtable_array.get_memview = (PyObject *(*)(struct __pyx_array_obj *))__pyx_array_get_memview;
   #if CYTHON_USE_TYPE_SPECS
@@ -22194,7 +22186,7 @@ __Pyx_RefNannySetupContext("PyInit_cython_module", 0);
  * 
  * @cython.ccall             # <<<<<<<<<<<<<<
  * def addition(x: cython.double, y: cython.double) -> cython.double:
- *     """Return simple addition between x and y"""
+ *     return x + y
 */
   __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -22210,137 +22202,137 @@ __Pyx_RefNannySetupContext("PyInit_cython_module", 0);
   if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_addition, __pyx_t_5) < (0)) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cython_package/cython_module.py":12
+  /* "cython_package/cython_module.py":11
  * 
  * 
  * @cython.ccall             # <<<<<<<<<<<<<<
  * def addition_three_times(x: cython.double, y: cython.double) -> cython.double:
- *     """Return simple addition between x and y"""
+ *     var: cython.double = x + y
 */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_x, __pyx_mstate_global->__pyx_kp_u_cython_double) < (0)) __PYX_ERR(0, 12, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_y, __pyx_mstate_global->__pyx_kp_u_cython_double) < (0)) __PYX_ERR(0, 12, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14cython_package_13cython_module_3addition_three_times, 0, __pyx_mstate_global->__pyx_n_u_addition_three_times, NULL, __pyx_mstate_global->__pyx_n_u_cython_package_cython_module, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_x, __pyx_mstate_global->__pyx_kp_u_cython_double) < (0)) __PYX_ERR(0, 11, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_y, __pyx_mstate_global->__pyx_kp_u_cython_double) < (0)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14cython_package_13cython_module_3addition_three_times, 0, __pyx_mstate_global->__pyx_n_u_addition_three_times, NULL, __pyx_mstate_global->__pyx_n_u_cython_package_cython_module, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[1])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
   #endif
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_addition_three_times, __pyx_t_4) < (0)) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_addition_three_times, __pyx_t_4) < (0)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cython_package/cython_module.py":21
+  /* "cython_package/cython_module.py":19
  * 
  * 
  * @cython.ccall             # <<<<<<<<<<<<<<
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
 */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_n, __pyx_mstate_global->__pyx_kp_u_cython_int) < (0)) __PYX_ERR(0, 21, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_14cython_package_13cython_module_5fibonacci, 0, __pyx_mstate_global->__pyx_n_u_fibonacci, NULL, __pyx_mstate_global->__pyx_n_u_cython_package_cython_module, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_n, __pyx_mstate_global->__pyx_kp_u_cython_int) < (0)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_14cython_package_13cython_module_5fibonacci, 0, __pyx_mstate_global->__pyx_n_u_fibonacci, NULL, __pyx_mstate_global->__pyx_n_u_cython_package_cython_module, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[2])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
   #endif
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_4);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_fibonacci, __pyx_t_5) < (0)) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_fibonacci, __pyx_t_5) < (0)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cython_package/cython_module.py":44
+  /* "cython_package/cython_module.py":41
  * 
  * 
  * @cython.ccall             # <<<<<<<<<<<<<<
  * @cython.boundscheck(False)
  * @cython.wraparound(False)
 */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_n, __pyx_mstate_global->__pyx_kp_u_cython_int) < (0)) __PYX_ERR(0, 44, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14cython_package_13cython_module_7fibonacci_numpy, 0, __pyx_mstate_global->__pyx_n_u_fibonacci_numpy, NULL, __pyx_mstate_global->__pyx_n_u_cython_package_cython_module, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_n, __pyx_mstate_global->__pyx_kp_u_cython_int) < (0)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14cython_package_13cython_module_7fibonacci_numpy, 0, __pyx_mstate_global->__pyx_n_u_fibonacci_numpy, NULL, __pyx_mstate_global->__pyx_n_u_cython_package_cython_module, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[3])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
   #endif
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_fibonacci_numpy, __pyx_t_4) < (0)) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_mstate_global->__pyx_d, __pyx_mstate_global->__pyx_n_u_fibonacci_numpy, __pyx_t_4) < (0)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cython_package/cython_module.py":84
+  /* "cython_package/cython_module.py":80
  *         self._fib_arr = np.zeros(n, dtype=np.float64)
  * 
  *     @cython.ccall             # <<<<<<<<<<<<<<
  *     def class_addition(self, x: cython.double, y: cython.double) -> cython.double:
- *         """Return simple addition between x and y"""
+ *         return self.x + self.y + x + y
 */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 84, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_x, __pyx_mstate_global->__pyx_kp_u_cython_double) < (0)) __PYX_ERR(0, 84, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_y, __pyx_mstate_global->__pyx_kp_u_cython_double) < (0)) __PYX_ERR(0, 84, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_14cython_package_13cython_module_7MyClass_3class_addition, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_MyClass_class_addition, NULL, __pyx_mstate_global->__pyx_n_u_cython_package_cython_module, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 84, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_x, __pyx_mstate_global->__pyx_kp_u_cython_double) < (0)) __PYX_ERR(0, 80, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_mstate_global->__pyx_n_u_y, __pyx_mstate_global->__pyx_kp_u_cython_double) < (0)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_14cython_package_13cython_module_7MyClass_3class_addition, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_MyClass_class_addition, NULL, __pyx_mstate_global->__pyx_n_u_cython_package_cython_module, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[4])); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_5);
   #endif
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_4);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_14cython_package_13cython_module_MyClass, __pyx_mstate_global->__pyx_n_u_class_addition, __pyx_t_5) < (0)) __PYX_ERR(0, 84, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_14cython_package_13cython_module_MyClass, __pyx_mstate_global->__pyx_n_u_class_addition, __pyx_t_5) < (0)) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "cython_package/cython_module.py":89
+  /* "cython_package/cython_module.py":84
  *         return self.x + self.y + x + y
  * 
  *     @cython.ccall             # <<<<<<<<<<<<<<
  *     def class_addition_three_times(self, x: cython.double, y: cython.double) -> cython.double:
- *         """Return simple addition between x and y with some extra steps"""
+ *         var: cython.double = x + y
 */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 84, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_x, __pyx_mstate_global->__pyx_kp_u_cython_double) < (0)) __PYX_ERR(0, 89, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_y, __pyx_mstate_global->__pyx_kp_u_cython_double) < (0)) __PYX_ERR(0, 89, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14cython_package_13cython_module_7MyClass_5class_addition_three_times, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_MyClass_class_addition_three_tim, NULL, __pyx_mstate_global->__pyx_n_u_cython_package_cython_module, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 89, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_x, __pyx_mstate_global->__pyx_kp_u_cython_double) < (0)) __PYX_ERR(0, 84, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_mstate_global->__pyx_n_u_y, __pyx_mstate_global->__pyx_kp_u_cython_double) < (0)) __PYX_ERR(0, 84, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14cython_package_13cython_module_7MyClass_5class_addition_three_times, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_MyClass_class_addition_three_tim, NULL, __pyx_mstate_global->__pyx_n_u_cython_package_cython_module, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[5])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 84, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
   #endif
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_14cython_package_13cython_module_MyClass, __pyx_mstate_global->__pyx_n_u_class_addition_three_times, __pyx_t_4) < (0)) __PYX_ERR(0, 89, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_14cython_package_13cython_module_MyClass, __pyx_mstate_global->__pyx_n_u_class_addition_three_times, __pyx_t_4) < (0)) __PYX_ERR(0, 84, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cython_package/cython_module.py":97
+  /* "cython_package/cython_module.py":91
  *         return var
  * 
  *     @cython.ccall             # <<<<<<<<<<<<<<
  *     @cython.boundscheck(False)
  *     @cython.wraparound(False)
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14cython_package_13cython_module_7MyClass_7class_fibonacci, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_MyClass_class_fibonacci, NULL, __pyx_mstate_global->__pyx_n_u_cython_package_cython_module, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14cython_package_13cython_module_7MyClass_7class_fibonacci, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_MyClass_class_fibonacci, NULL, __pyx_mstate_global->__pyx_n_u_cython_package_cython_module, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[6])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_14cython_package_13cython_module_MyClass, __pyx_mstate_global->__pyx_n_u_class_fibonacci, __pyx_t_4) < (0)) __PYX_ERR(0, 97, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_14cython_package_13cython_module_MyClass, __pyx_mstate_global->__pyx_n_u_class_fibonacci, __pyx_t_4) < (0)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "cython_package/cython_module.py":115
+  /* "cython_package/cython_module.py":108
  *         return self._fib_l
  * 
  *     @cython.ccall             # <<<<<<<<<<<<<<
  *     @cython.boundscheck(False)
  *     @cython.wraparound(False)
 */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14cython_package_13cython_module_7MyClass_9class_fibonacci_numpy, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_MyClass_class_fibonacci_numpy, NULL, __pyx_mstate_global->__pyx_n_u_cython_package_cython_module, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[7])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 115, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_14cython_package_13cython_module_7MyClass_9class_fibonacci_numpy, __Pyx_CYFUNCTION_CCLASS, __pyx_mstate_global->__pyx_n_u_MyClass_class_fibonacci_numpy, NULL, __pyx_mstate_global->__pyx_n_u_cython_package_cython_module, __pyx_mstate_global->__pyx_d, ((PyObject *)__pyx_mstate_global->__pyx_codeobj_tab[7])); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   #if CYTHON_COMPILING_IN_CPYTHON && PY_VERSION_HEX >= 0x030E0000
   PyUnstable_Object_EnableDeferredRefcount(__pyx_t_4);
   #endif
-  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_14cython_package_13cython_module_MyClass, __pyx_mstate_global->__pyx_n_u_class_fibonacci_numpy, __pyx_t_4) < (0)) __PYX_ERR(0, 115, __pyx_L1_error)
+  if (__Pyx_SetItemOnTypeDict(__pyx_mstate_global->__pyx_ptype_14cython_package_13cython_module_MyClass, __pyx_mstate_global->__pyx_n_u_class_fibonacci_numpy, __pyx_t_4) < (0)) __PYX_ERR(0, 108, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "(tree fragment)":1
@@ -22529,24 +22521,24 @@ static int __Pyx_InitConstants(__pyx_mstatetype *__pyx_mstate) {
   CYTHON_UNUSED_VAR(__pyx_mstate);
   {
     const struct { const unsigned int length: 8; } index[] = {{2},{68},{35},{54},{37},{60},{24},{52},{26},{34},{29},{33},{45},{22},{15},{179},{37},{30},{32},{1},{1},{1},{1},{1},{8},{5},{6},{15},{23},{25},{13},{10},{7},{6},{2},{6},{35},{9},{30},{50},{8},{35},{20},{32},{22},{14},{30},{37},{5},{8},{7},{25},{27},{22},{34},{23},{29},{7},{20},{8},{15},{3},{8},{20},{15},{5},{18},{4},{1},{9},{14},{26},{15},{21},{17},{18},{5},{28},{8},{5},{5},{15},{6},{9},{5},{9},{15},{5},{7},{6},{7},{8},{12},{2},{10},{5},{13},{5},{8},{8},{7},{4},{10},{1},{4},{8},{4},{7},{2},{5},{12},{3},{4},{3},{14},{12},{11},{10},{19},{22},{14},{12},{10},{17},{13},{8},{4},{12},{10},{12},{19},{5},{4},{5},{5},{4},{4},{6},{8},{6},{6},{12},{6},{1},{1},{5},{16},{28},{127},{121},{31},{11},{123},{31},{55},{141},{184},{1}};
-    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (1831 bytes) */
-const char* const cstring = "BZh91AY&SY\263\317R\320\000\001\016\377\377\377\375\377\356\376\367\375\337\277\253\377\200\277\377\377\364@@@@@@@@@@@@@\000@\000`\006\235\367\275\324O]\333\333\240\347m\331\272\263Ke\340\303T\364SBhz\215=4z'\242\206\214\233Q\240\032h\000h\000\003@\031\000d4\323M=F\202Q\002i\223\"\r&\224\364\324\375\024~\251\215L\324\3654\r\032\003\010d\302\006#@d2hz\236\246\232i\203D5\032\215\023\310F\232=L\200\000\000\001\220\000\000\000\000\000\000\000%4A4\231A\210L\247\264\023\002\233Pz\200h\000\323@\000\000\000\031\006\215\036\204\034\000\006\200\000d\000\000\001\220\321\240\000\000\000\000\000\000\002E)\351M\211\252~\251\372\247\351=\002A\246\203@4\031\r\r\001\240\000\r\000\r\001\246\200h\321B\344^#\335\033\371;M\376\366\2417m4\273q\376.\216\367y\220\200I\222L\213\252HR\277\201\025\037\360\247\307\002;\010\315;@\301\241\247\256\324\341x\233\030\230\022\214\246\024\r\004\240\026\030n\377\005\202$#\014\204\24461\275\004v\251l\220M\021\021\225N\324\342o\236d\035)\227F1\237\036\332\305\307\347\374\034G\3507\211\274+\373u\277\3157[\016\253\343\320g\203\032v\245v7\017\245D%\355AO2\316^?a\356\267v\231\007\211K\367\271\361X\262\353w9\275\207G\016\254\036\367Lc?\253\346:\214Vx\240\325\300y\343\310\331\016V\337I\016-\301\276K\036\275\026\256\017\222\344\361RZP\236!\212\316\263\226\234V\3542S:\3369\033\220\347 \202\033\212\033\222\016Iw\345h\325\343\235wB4q\3759\246\034\250-\347\033{$\3652\313\222\275\232\227\350\333[[W\303LA\271\020)\361z\321\233+s\206\310\221\246t\240[9\342Rh\246\327\220Q\256K\017\267\352\373\036\0171\223\r\\\277\336M\241\206\243\025>\376\013\204\307\177\262\353{\270d2\014\030\233\r=\360\334\363\262\237\316\345\333\246\274@\277b\227\370_k\313\265k\360i\346g'L[!\203,\375_M:\016\260\216\3045\204\243}\221\341\024\0304\240\372\276Tg\204C(\213\304I>%T\226\254b|\025\200\263?\036\263o\254\243\033\243\262\360\250Y\237Z\337\303\014.8\263\201\025\02775\250\215n\3217\t\274\364q\244\246B\356#\215j\252b)fHu\363\326\214\n\210\364\350\364\356:\310\252\016\200\307#\020Z\300P\234\035!""\324;\223\0214\330-\346\254\310\030\252\n\247P\320\312\024:J6\321\220EX\253\324NuO\022\223<7\020\\\253\3439\371\262y\n\025\347\360\272a\320\345e%A\000\314\265\020\215\353N\313,\250\021\215\211\312s1`\2769\324\031@\342\354y\007\352^\2514\033\274;\354\267\372\234\321\245\267\347\232\014M\314\301&$\232\006\220o+\214p\311\351\324A\014\350\024\371Q\021\">Ao\2732\003\004n! 46M\010\245\004\222\267\201\245u\320\316J\356\01023\027\230\247\022h:\257P\354\335\241\360\233\t\216\305\223\216\242\rA\311n\344\340\2336\2616R\275A`\300\207LY\307d\310\234Xh\302d\246\230\225\315\314s\355c\301\336\261\013\215\372O\263$\271a\266)*j\327r\253lq.\027\254,\225\231)Z\036\211%\232V\314\333\2018}4\335\324\302T{\341\336\331\033v\373\344\247u\300d\213\251\320\344Nk\tQ\261:\004\316\313Jxe\234\306P\2177\250\351\245\235\363\024\236\266\314\214\265$`\255\315\031.K\355M\n\252\2166\321$\244\315\2658\307\272\267\207;.\2253\241P\224\221V\375\373\346|\\\234\215\263\323\312\224\326;\260\332>\303\202\306\271#j\\\n\232U\000a\221v\350\236\"<\354%\222\025\301\022\231\315\261\271-\334\270\257\306v\213Jj\3245b\022c\t\023\303\021d\345X5\031\220\225j1\302\026i^J4g\311\026\327\245\336\310\301\035\007&\352Ah\0073%\372=tG\252\242\031\254\014x\0060\261\201\"r\"\230\265\223\320\010\350J\212SUHO4\303\020R\311\226\320\014\202\320\022\031.[\t\322&Fq\210j+\027Q\322\023\306\304D\230\023\270\tP\356P\206lq\310R|\024{0p\336\325w\n\213\004I\rVz1t\354\222\022\021*\262\240Xj\272.GQm\2614L\206\033!r\204\253R\334\032\234\203\025M\250\003e\021\273\314\233\002\014\006\030D\310\350\220\013aU2`\034\360\220\220\201BP#M\t\261\26199\257\251-\255\204\244\215\030\342o\322\026]\262\212n(\307\214\034\317?6j\306\026\350\255bn\260\330\245\227'#1\364\006rC\215\277\036\362$\216ED\2555\266\006\260\242\355u\230\2133\214e\312\221\276\317E\206\003`\270\324F\376\223\301\266r\"\032\001\350\354\331\2333k6\277T\3257\365\334\327\021{\276\033\212\217:I\221\010\035\335\346\343$\302\035\2608\243\\!a\2378h]mF:\3414\355\245ac\371\256\270D(\303\002j\014\244""\345\355\242\211\334\227M\336\331v\003b\010\316\262\246\320 \226\266\241)\026O4\315\323Zj\266\036\327V\236\014\200\266z*\326HI\231\354\345\314E\3765\241g\240P\324c\211\206\223M\025+y\000\261Kj\266\201(\320kQ7\226p\260 \260\316\261\332\030\316>)\257Q\307\335\337\327\250\205\304R\343f\370\326dU\351[\307K&\254\272\n\323\312Y9SD0n!\323f\004\264:\3327Z\270rU\202b\\\316Q$\206\367\2370 \307G\036\314\320\265_\2767\217,\016\275\"C\272Vw\322\271\233\307\341\006\253]Fn]b\355W\315\277\212\353\267\204\357\242\375@Z<e+\326\221\244-5n\007\224\374\351\300\240\315\375-.\253\003\250\ry\n\231\022\236\027*\027\016\302\224J0\341! <+\003F\026J\215J\342=\222=\205\032h\2012*\3107\312\227\311\254Dt\212s\301\205\017\247\014A*~\225c8\333wd\034K\177fL\266\323a\303\307\030\377\216\3161\222\327`uJ.\357\007ZI3\r\252'~\"\367\220\253N\276\023\310a\036Hu\221\030T\316i\017J\017P\224\021\225A\2313\20731\"\261\3015z\263s\317n\304Y+\343\304\037\262\330\352_\016\035\304\305\233\326XB\352\265\026B,f\373[cBE;3\330c\001x\003dL\244\201:S\355\036R\236WM\231\371\034\327\007U\374\014#\032\t\316\n'\025\270\253\321C\270\234\201\310\340\353N\352\324zp\316rJQ|\250\326?\361w$S\205\t\013<\365-\000";
-    PyObject *data = __Pyx_DecompressString(cstring, 1831, 2);
+    #if (CYTHON_COMPRESS_STRINGS) == 2 /* compression: bz2 (1820 bytes) */
+const char* const cstring = "BZh91AY&SY\232\332^\264\000\001\016\377\377\377\355\377\356\376\367\375\337\277\253\377\200\277\377\377\364@@@@@@@@@@@@@\000@\000`\006\2379\357^\254\305\355\350q\032\033\2604\336\01452SMM\252b{T\375=F)\372M@z5'\244d\311\3524\300h\004\032cDz\032\233A\037\251\017)\206\223\320i\250 \320\322`\215)\210\364OP\323\324h\0006\240h\000\000\000\000\321\246\201\352~\251\2404\206Rz\217Hh\206 \310\000\000\000\r\000\000\000\000\000\003M\000\004\246\210\020$\321\220\230\230\232=\010\236\240\321\246\231\000\014\200\000\000\000h\0002\007\000\000\320\0004\006@\000\000\320\000\032h\000\000\000\000\320\001)\252\233Q3S@\321\352\r\000\000\000\000\000\000\000\032\000\000\000\3204D\"\241\010\330\033\324\366o\257g\223KL\351o|\257\271\223\030\004\204\",\321\014\234o\300s;\370g\350@t\343\2323\351\201\t&\022Jbg\302\0024`\220\232YA\010\022\300`5=\374\030\010\220\224\016\240\2445\312\211\003\355[\016A4CC\2539\306\034\216\244 q\034\037kZ\353\030q\232c\247\314Q\035\201\224YA]\332\336\363\037\206\366\25271~\021^\240v\312\303\346\242\022\365`\247\217s\227\217\334{]\336\246\003\304\245\371\331\362Y2\364;\274\336\234\255\237\326\201\255d\201J\373O d\312*\315\002\315\340\321u\013pa\\\36380Gy{P\264\335\0342\276\026O\025%\232\023\3041Y\326r\326\212\333\034)\245t\016V\345:\242\2165\"\007nS\024\230\2143-\014\304\3030\200\230\"\260\343\000S &h\005\274\030\233\350\225I\231\031\r@\262}\366\241\246 \340\210\024\370\373q\243a\272\241\270$k\034\350\026\346\230\224\232)\273\327(\326j\237~\017\263\0000\024\321\210jH\322p\004\330B\210r\372\357\302\025\225^T\313S[\r\203\006\212\t\032@b\333R6qK\2421\330\000\237\004\323\35466\211w\030\376v\360\353\022Mb\334\024\025\017\305\263[}o\031\326P\361\273Vb\267\030\242\365\305\256\306\214\242\332\ruW\236XZ\232m\300X\033\013\360\354\353\361\247{\255lm\2710\314\025\323\251k~\324\317\211\374i\002\310Z;\020\315\021\274a!\272\223i)\350\226\365|\212Z\317\303s\302i\256?*'!\356\303\203-\332VW\271P\2251b \034N\016\220\352\035\311\210\232lWA\2532\006*\202\251\32442\205\016\327\3329\225""\002\023\021i\t\252\361\230\211\006\304\242\003I\270kUF\320\230?[\356\311\000\350\357\251\021 B\013\267\234\016\243yA\004\023\340\304I*)\221&\226\220O\264$G\023\224\n\234\357\037T\232\016\036\035\\L\271\271\2377?\3137\314\216\r\001&$\232\006\220t\025\214\262\307\317\347\347\336\235\002\343\224b$H\344\031\036\024\310\024\tO! R(\346\204Z\302Ic\202\222\302\360R\203\267J\014\031\213\314\223\2114\035\227\250~6\337|f\302c\271rq\324A\234r\\8t\246\315\262M\224\257P\\\030\220\351\213\234vL\211\305\303F3%4\304\254\334\307Ww.\227\373q\013\221\371\317\271$\272p\333t\2255\353\301U\317\034KS\326\026\025\231)]\017D\222\321+\2647\000N\037Y7y0\225\036\370w\273\006\341\276\371)\332\300a\021Ar\202\332\323+ I\205\300\242\220\275\262\322\326\204+#.E\024ej\250@\3330\270R\360\341x\256\250\234h\2364\276IF\r\004G\021 \320#<e3\201\253M\244V\201\3409\310L\372\223\310:\032t.\034\224\244\330\303;\253\231\260\216\014+bE\032J\001KJ\000\010oh\3202\335%\346\356\03336\035\213\035t\220\224\353\206\r\267+\323\020\327l3\353\304$\3062'\216B\303\246\261j3!*\324cP\\\322\274\224o\351\302.\332\245\272\343\215*I\270\232\213 <=}m\256\2634\322f4T6|!\334\253\205\346\027\226\237\223\321\310@\"\241.!M]19\252\006\202\\\231M\001D\030\200\221D\311FP\210\215\367\2101\250\256-GHO\033q\022`N\340%C\273B\031\262\313\002\223\351Q\356`\325{U\334*,Q$5Y\350\305\247rHHD\252\312\201p\325\225\244\322\311]V\332\300\246}\300\305\005\371\263\027g\206\3456SoP\"\373\021\324|\034\035\000\203pdK\2648T3\346\2378W\274\311\216b\314\344\263b\311\t\r\323\252w\207g`I\234/\331`\324\232\010e\302\204b!M\n\014V\336\252\237\024\021\337{\342\032$\t\346k8xwk4F _\333\212\321\3045\r\243\305L\232\254\023S1C\"A$\202\210cca#\211\236\213\034F\305r(\216,\317\007<\345D4\003\321\331\2646\206\331m\256\311\256qm9\264\"\367|x\025\036t\223\"\020;\273\315\306I\204;bq\3336zT\323\2446\226\250g\226#s\267\3335+>\304\261\031\214\234\316`\201\362\302\376\313!;\222\350\273\335\261\266\033pF\225\260\233|A-\234\344\244\\\236i\233\242\265\225n\036\353V\236\004\200\273M""\025k$$\314\3679f\"\376\265\320\264\320(gc\215\206\223`\311\263k\024\n\242\354\312\340/\266DC7QaJ\205\0254\253o\016\374\233-\253\204\361\2710\177o\005H\201\345\226d\027\020\304\277\0215\242b\275\274\224R\207I1iF\300-\334\253\250D\242[\356\267N\026\256<\265`\230\2273\224I!\275\247\320\0102\337\344\334\232\026\273\357\035\003\307\003\267H\220\356\225\316\371\254\315\342\352\006\253Z\214\335=\222\332\357\243\213%\333o\005\337\264\276\200\0368I\326\350f%\r\326\323P\2162_\\\"9\201\362\322\264\320\032@\233\210\237I5\251\250-\355\224Y*\003x\206(\272.\003\240/\025\231;F\025\342Oz\037|\201<?\270\247m\030\313\270D\225\211+\003\025\377\324L\202\321\342W\016\214\020BB\212\340\3565\323\201}\364S\2043<#\252f\267\371Dh\263\035?\220}d\363o\331K\"}\242\026\344\356\364\335uN\365;\033\302\200\354\370>\355\330\205\332\361\007}\265\336\310\2528\236\235=_L\347-\347h'\001S\362\034\314\234<i\252\303\231M\371\352`\301\257\202\032\261\346\027\203\276\031\377\273\374\266\235\222\365e*\223\214\215\241S\360\350\253\024\255,:\334)\327)\320\235\362L\215\271r\245\234\312\206w\311HV\225%i:\254QC\270\234\201\310\244\t\365R\010\245\245F\251\377\213\271\"\234(HMm/Z\000";
+    PyObject *data = __Pyx_DecompressString(cstring, 1820, 2);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
-    #elif (CYTHON_COMPRESS_STRINGS) != 0 /* compression: zlib (1663 bytes) */
-const char* const cstring = "x\332}U\277s\3336\024\216S\271q\032_\343_M\323k{\205\234\346\224\364\0225v|m/M\335Sl\247\347\3535\215\034'\031q\020\t\311h(\200\002@[\312u\360\310\221#G\216\0349j\324\230\321\243F\377\t\371\023\372\000R\222\025;\035\010\202\017xx\337\373\336\367\300G\250\346y\310em\312\025\023\\!_R\207\272\214\267&Ft\333E\355@i\324\240\210q\227v\251\213\010w\021\027\032)\217\301\366'A\263I%:d\364\010\271\202*\273D\273\276P\024)-\231K\325\026\341Hp\257\207\034I\211\246\210\240F\356\244\017\210FL!Gp\315Z\201\010\024\004Am\332\026\262W\005/s\024Q\212\2658\322\002\201\263{\337\236\223\3570!\213M\305\301G\222i\322\360h\261!\007\325\224\242\375\177\2766-t\304\364\001\322=\237\242Ja\327\222pe\323\230\270\344\333\300\203\001U\372\014w\333g\tc9\t\371\246\235\266\257{H\035\0208Z\007>\200k\n\211\234\236>\020\274J\244$\275]\013@\004\032\211&j\210\200\273\n\335!]8\345\266{w\367|\254\234\374\300\367\205\324\324\335\345\207\304cP%\341\322{\206x\330\014E\2528\025\004q*\020\314$R\271\207Z\3405\332\234\303\001\256m\230\307\177\331\004_\231\004\001\3023\001T\332\322lY\224&\037\227z\254A%\220\014\024\232\262B\020[?\216\236\357<\277\277\361\313\206\225\205\244\377@x\005\350\032\216\007\225\0039\230\234\002\346i\010f\350UU\264\333D=\021 N\001&\224\325\207}g\035\364\001\345HQm&\250bkA4\344\215\301\035\264Y)xe\207\324x?%\236\242\325\277\247\310\003\310\205\300\210\343P5b\363\205\246>j\223\236\345\017\364\374\226J1!\372%\267\312\201#A\215\207T\20204m\233o\3210IU7+w\177'\256\213\271\241\307$\213\200\241\007]Gx\236\201\003\205\251\222\206\363\370\214\226\315\246\034\354\346\207\346\221\2046\013!\270\"\200\350\305\007\343\332e\312\300\241\026T\313AwL\365ZVT&1\323\243\264\253)\327\266c&\355\312T\356\342\032\360\212\275\245\350\361o\350\3019\311q\001\025m\222\300\323\010cI\335\300\241\030#7\260\371s\301\357C\205\017\031\361`\325a\234iX\314Y\330T\322\3711?\t\373\304yCZt\364\t\002\014<Z\365{\217\363\266w\247\362?o3\362\034\3230\265>m\345-%\002\351\320\315`\\!\342y\302\2617\211I\006\271D\223\352\005\253\271\312""\315\211\305ET\255\275\330\332\335\335\361<\346+\246\376\352m\031\311\025\257\352\230\210\"\037<Y\0005*\020\341\371%\253Y\014\252`F\000\027[\261>\220\224b\r5R\323;\232\254!8H\224}\304\214y\320\366{\317\266k&K\214\237\367\272\360lC\353\341gP\374=\332|A;\001\345\0165\235[\23541\310p\024\374\"\020#~p\336$\226C\242z\334a\242\352\010\t\027\021\343T5\210\242\016\224\337B\302\323)}<\301\0172\2700\241\321i-\252\215J\315'\004\304\014\016\222\304\241\r\220\225\003\215\254\247eV\235\222\031\306\256\341!\177\271\346b\261\003f\n\347B\005Z\340B\244\020\320\336ZTJ!\3078>\000\324\364HK5=A\364O\033\320)m\242\213[\023\343f\300\201\004l\260\346\n\300\314\205\247m\356^x\233\233\333\304\034\323\226\267]\321{\030\267\td\205\341\377a~\036\346\206\306c\374\234\223\266y\345#t0\214\364\010\006\337b\262C5\277\362 #C\202/|\214}\020\201s@\2357*h\347_\222*\350\343|^`4SK\207\235\005\334g\316\033\210\271\303G>cS\241\274\334zh\177\236&\335N@\274\034\331\344z8\327\037c\003p\000\323\026S\360OP\324k\332\206)2\203Yq\323\234i#|AK\331f5\254\201Y\346kp\236\257\264\200G\006\246\330\306\202\rv #\360\241\353i\240\350\370$\370\263\005Tu{\346ZW\3073\303\205\325\244|Z\272\026\256\207{a\347\2706D\353Y\371t\356z\250\243\207Q#.\305[\261L\226\222\365\244~\\{\377\331\245\253\363\341F\250\242[Q}8\277\034mD\235\323\271\371\360\217h-\332\211\027\337\177:Z^\215j\303\371\205\350J\324\211g\343\272\231\316F/\343r\3740v\223\362pa%\372#^\213\237&\337'\255\264\2366\262\313\331\255l/\323\375\237\007\345\301\372`o\240\337\255\277\333?\251\357\237\354\277:y\365:\007\263\366\261\360\225D\247k\303\271\205h&\372\"\"\037`X\211j&\3609\0047\343\231\370F\334M:\351\345t5\335Jev\263\277\330_\355?\351\273\203\325\301\366\273O\000A}\034xxo\263ON\347\276\215\367\200\213\305!\230;\223\001(,\335N\352I3\255\035\317\274\237\2734\373y\270\037}\035o'W\323\225t?[\311\366\373+\375\372\260\224\323\3644\276\227\220a\351\312\361a\370\0328[\001v\346\226\242\362p\356K\223\313\227\221\216\037%\257\323\235l9\333\356\317\r\256\014:f\257\ttr\375NZJk\351""\353\354\317\376\321\000\320LY\014\212o\252)9-}\025/\305\353p*Ttm2\034\317\234\226\276\213;'\350Av\255\377\353\340\315I}oXZ\216~\216\357$\345d\315\304\370\027>\000\306\335t1\375!{6(\027n\300\347\322\362)\254\313p9\254\331\204OK\013Q)\3475\266\256\223\245hfx\365Z\3700$\371\327lT7\256\235p6\254\017G\0238q\366*L^FeP\030\354\2048\341SSR\220\333\345\370\026\220\254\000\324z\262\007\205]O\367\2406\213\02307\277\232\002#\243\033\240\261\022hi5\251\235\211\235\333g\200\337WF\272\027\254,C\205>M\032\251%F&7@\n\237\244?eK\031\244t\313P2\037\326\014\306\361\344\034n\243\270\033Q7\356$\227!\372V\"\323\233\331b\266\232=\311\\\253\244\306`\306\342\376\373?[\251\272\377";
-    PyObject *data = __Pyx_DecompressString(cstring, 1663, 1);
+    #elif (CYTHON_COMPRESS_STRINGS) != 0 /* compression: zlib (1657 bytes) */
+const char* const cstring = "x\332}U\315s\323F\024o\300)a\310\224|\025\350\264\235n\2222\206\016\270$d\240\323\322tL\022:\231\016\037\016\001\216;ki\355l\221w\345\335Ubwz\310QG\035u\324QG\035}\364\221c\216>\346O\340O\350\333\225l\307$\364\240\325j?\336\373\275\337\373\275\247_Q\325\363\220\313Z\224+&\270B\276\244\016u\031o\216\027\321m\027\265\002\245Q\235\"\306]\332\241.\"\334E\\h\244<\006\307\237\006\215\006\225\350\220\321#\344\n\252\354\026\355\370BQ\244\264d.U[\204#\301\275.r$%\232\"\202\352\371%}@4b\n9\202k\326\014D\240\300\tj\321\226\220\335\n\3342\246\210R\254\311\221\026\010.\273\367\255\235\374\204qY\034*\014\037I\246I\335\243\305\201\034TC\212\326\377\335\265a\241#\246\017\220\356\372\024\225\213u-\tW6\214\361\225\374\030\334`@\225>\303\335\366Y\302XNB~h\247\345\353.R\007\004L\353\300\007p\r!\221\323\325\007\202W\210\224\244\273k\001\210@#\321@u\021pW\241;\244\003Vn\273ww\317\373\312\311\017|_HM\335]~H<\006Y\022.\275g\210\207\303\220\244\262SF\340\247\014\316L \345{\250\t\267\206\207s8\300\265u\363\344\271\r\360\255\t\020 \274\020@\245M\315\226Ei\342q\251\307\352T\002\311@\241I+8\261\371\343\350\325\316\253\373\033\277lXYH\3727\270W\200\256\356x\2209\220\203\211)`\236\006g\206^UA\273\r\324\025\001\342\024`BZ}8w\366\202>\240\034)\252\315\004\225m.\210\206\2701\\\007m\226\013^\331!5\267\237\021O\321\312\313\t\362\000r!0\3428T\r\331|\255\251\217Z\244k\371\003=\377C\245\030\023\375\206[\345\200IP\343!\225 \014M[\346[\324MP\225\315\362\335?\210\353bn\3501\301\"`\350A\307\021\236g\340@b*\244\356<9\243es(\007\273\371\351\362PB\233\205\020\\\021\200\367\342\203q\3552e\340P\013\252\351\240;&{M+*\023\230\251Q\332\321\224k[1\343re*\277\342\032\360\212\375C\321\223\337\321\203s\222\343\0022\332 \201\247\021\306\222\272\201C1Fn`\343\347\202\337\207\014\0372\342\301\256\3038\323\260\231\263\260\251\244\363sn\t\373\304yO\232t\370\t\002\014<Z\361\273O\362\262w'\342?\277f\3449\242ab\177r\2257\225\010\244C7\203Q\206\210\347\t\307v\022\023\014r\211&\225\013vs\225\033\213E#\252T_o\355\356\356x\036\363""\025S\317\273[Fr\305\2532\"\242\210\007\2177@\215\nDx~\313j\026\203*\230\021\300\305\253X\037HJ\261\206\034\251\311\023\rV\027\034$\312>\263\214y\320\362\273/\266\253&J\214_u;\360lC\351\341\027\220\374=\332xM\333\001\345\0165\225[\031\0271\310p\350\374\"\020C~p^$\226C\242\272\334a\242\342\010\t\215\210q\252\352DQ\007\322o!\341\311\220>\037\340'\021\\\030\320\320Z\223j\243R\363\t\0161\003C\2228\264\016\262r\240\220\365\244\314*\0232\303\3305<\344/\3274\026;`\246p.T\240\005\032\"\005\207\266kQ)\205\034\341\370\004P\303#M\325\360\004\321\2176\240RZD\027]\023\343F\300\201\004l\260\346\n\300\314\205\247ez/\274M\3476>G\264\345eW\324\036\306-\002Qa\370\177\230\237\207\351\320x\204\237s\3222\257|\204\n\206\221\036\301\340[Lv\250\344-\017\"2$\370\302\307\330\007\0218\007\324y\257\202V\376%\251\202:\316\347\005F3\265t\330Y\300}\346\274\007\237;|xg\264T(/_=\264?O\023n; ^\216l\334\036\316\325\307h\0018\200i\223)\370'(\3525l\301\024\221\301\254\3504g\312\010_PR\266X\rk\260,\363=\260\347+-\340\221\201I\266Y\301\006;\220\021\370P\3654Ptd\t\376l\001U\235\256i\353\352xj0\267\222,\017J\327\302\365p/l\037W\007h=[\036\314\\\017u\3640\252\307\245x+\226\311B\262\236\324\216\253\037g\276\270:\033n\204*Z\215j\203\331\305h#j\237\316\314\206\177Fk\321N<\377\361\313\341\366JT\035\314\316EW\242v<\035\327\314t:z\023/\307\017c\027\234\315-E\177\306k\361\263\344\307\244\231\326\322zv)[\315\3662\335{\334_\356\257\367\367\372\372\303\372\207\375\223\332\376\311\376\333\223\267\357N-\230\265\317\271/':]\033\314\314ES\321\327\021\371\004\303RT5\216\317!\270\025O\3057\342N\322N/\245+\351V*\263[\275\371\336J\357i\317\355\257\364\267?\\\006\004\265\221\343\301\275\315\036\031\314|\037\357\001\027\363\206\234\366x\000\nK\267\223Z\322H\253\307S\000q\372\253p?\3726\336N\256\246K\351~\266\224\355\367\226z\265A)\247\351Y|/!\203\322\225\343\303\360\035p\266\004\354\314,D@\370M\023\313\315H\307\277&\357\322\235l1\333\356\315\364\257\364\333\346\254qtr\375NZJ\253\351\273\354\257\336Q\237\234N\256\030\024\337UR""\260\374M\274\020\257\203U\310\350\332x8\236:-\375\020\267O\320\203\354Z\357\267\376\373\223\332\336\240\264\030=\216\357$\313\311\232\361\361/|\000\214\273\351|\372S\366\242\277\\\\\003>\027\026\315\276\014\027\303\252\r\370\2644\027\225r^\343\265\311\255hjp\365Z\3700$\371\327tT;5\360\303\351\2606\030N\300\342\364U\230\274\211\226Aap\022\374\204\317LJAn\227\342U Y\001\250\365d\017\022\273\236\356An\346\307`n}3\341QF7@c%\320\322JR=\343;_\237\002~\337\032\351^\260\263\010\031\3722\251\247\226\030\231\334\000)\\N\037e\013\031\204\264j(\231\r\253\006\343hr\016\267Q\334\215\250\023\267\223K\340}+\221\351\255l>[\311\236f\256UR\275?eq\277\374\017\354`\272\313";
+    PyObject *data = __Pyx_DecompressString(cstring, 1657, 1);
     if (unlikely(!data)) __PYX_ERR(0, 1, __pyx_L1_error)
     const char* const bytes = __Pyx_PyBytes_AsString(data);
     #if !CYTHON_ASSUME_SAFE_MACROS
     if (likely(bytes)); else { Py_DECREF(data); __PYX_ERR(0, 1, __pyx_L1_error) }
     #endif
     #else /* compression: none (3137 bytes) */
-const char* const bytes = ": All dimensions preceding dimension %d must be indexed and not slicedBuffer view does not expose stridesCan only create a buffer that is contiguous in memory.Cannot assign to read-only memoryviewCannot create writable memory view from read-only memoryviewCannot index with type 'Cannot transpose memoryview with indirect dimensionsDimension %d is not directEmpty shape tuple for cython.arrayIndex out of bounds (axis %d)Indirect dimensions not supportedInvalid mode, expected 'c' or 'fortran', got Invalid shape in axis <MemoryView of Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.Out of bounds on buffer access (axis Step may not be zero (axis %d)Unable to convert item to object.>')?add_note and  at 0xcollections.abc<contiguous and direct><contiguous and indirect>cython.doublecython.intdisableenablegc (got got differing extents in dimension isenableditemsize <= 0 for cython.arrayno default __reduce__ due to non-trivial __cinit__ object>src/cython_package/cython_module.py<strided and direct><strided and direct or indirect><strided and indirect><stringsource>unable to allocate array data.unable to allocate shape and strides.ASCIIEllipsisMyClassMyClass.__reduce_cython__MyClass.__setstate_cython__MyClass.class_additionMyClass.class_addition_three_timesMyClass.class_fibonacciMyClass.class_fibonacci_numpyNDArray__Pyx_PyDict_NextRefSequenceView.MemoryViewabcadditionaddition_three_timesallocate_bufferarrayasyncio.coroutinesbasec__class__class_additionclass_addition_three_timesclass_fibonacciclass_fibonacci_numpy__class_getitem__cline_in_tracebackcountcython_package.cython_module__dict___dictdtypedtype_is_objectencodeenumerateerrorfibonaccifibonacci_numpyflagsfloat64formatfortran__func____getstate__id__import__index_is_coroutineitemsitemsize__main__memviewmode__module__nname__name__ndim__new__npnumpynumpy.typingobjpackpop__pyx_checksum__pyx_result__p""yx_state__pyx_type__pyx_unpickle_Enum__pyx_unpickle_MyClass__pyx_vtable____qualname____reduce____reduce_cython____reduce_ex__registerself__set_name__setdefault__setstate____setstate_cython__shapesizestartstatestepstopstruct__test__unpackupdateuse_setstatevaluesxyzeros\200\001\330\020\"\240!\340\004\013\2102\210R\210q\200A\330 2\260!\340\010\017\210t\2203\220b\230\004\230C\230r\240\022\2402\240Q\200A\360\n\000\t\014\2104\210s\220#\220Q\330\014\023\2204\220q\340\010\014\210G\2201\220E\230\021\360\006\000\t\014\2104\210s\220\"\220A\330\014\020\220\007\220q\230\005\230Q\330\014\020\220\005\220U\230!\2303\230d\240!\330\020\024\220G\2301\230F\240$\240g\250Q\250b\260\002\260#\260R\260t\2707\300!\3002\300R\300t\3102\310T\320QT\320TV\320VW\340\010\017\210t\2201\200A\360\n\000\t\014\2104\210s\220#\220Q\330\014\023\2204\220q\340\010'\240t\2501\330\010\020\220\001\220\025\220a\360\006\000\t\014\2104\210s\220\"\220A\330\014\024\220A\220U\230!\330\014\020\220\005\220U\230!\2303\230d\240!\330\020\030\230\001\230\026\230x\240q\250\002\250\"\250C\250r\260\030\270\021\270\"\270B\270d\300\"\300D\310\003\3102\310Q\340\010\017\210t\2201\200A\330,>\270a\340\010\035\230R\230r\240\021\330\010\017\210q\330\010\017\210q\330\010\017\210q\200\001\330\004%\240Q\240f\250A\200\001\360\010\000\005\016\210T\220\033\230D\240\t\250\024\250T\260\024\260T\270\024\270Q\330\004\014\210G\2201\220F\230,\240a\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\027\220t\230:\240W\250E\260\023\260D\270\010\300\007\300q\330\004\007\200q\330\010\017\320\017(\250\004\250A\250W\260K\270w\300a\340\010\017\320\017(\250\004\250A\250W\260K\270q\200\001\330\034.\250a\340\004\031\230\022\2302\230Q\330\004\013\2101\330\004\013\2101\330\004\013\2101\200\001\340\004\037\230q\320 0\260\013\270;\300k\320QR\330\004\023\2207\230(\240!\2401\330\004\007\200|\2207\230!\330\010)\250\021\250*\260N\300!\330\004\013\2101\200\001\360\006\000\022\023\340\004\007\200r\210\023\210A\330\010\017\210q\340\004""\020\220\004\220A\220U\230!\2301\330\004\007\200r\210\023\210A\330\010\017\210q\220\001\330\t\013\2103\210a\330\010\017\210q\220\005\220Q\340\004\007\200q\210\005\210Q\330\004\007\200q\210\005\210Q\360\006\000\005\t\210\005\210U\220!\2203\220a\330\010\013\2101\210F\220#\220Q\220b\230\002\230#\230R\230s\240!\2402\240R\240t\2502\250R\250r\260\021\330\004\013\2101\200\001\360\006\000\030\031\340\004\007\200r\210\023\210A\330\010\017\210r\220\026\220q\230\004\230F\240\"\240A\330\t\013\2103\210a\330\010\017\210r\220\026\220q\230\001\230\024\230V\2402\240Q\330\t\013\2103\210a\330\010\017\210r\220\026\220q\230\001\230\023\230D\240\006\240b\250\001\340\004\037\230r\240\026\240q\250\003\2506\260\022\2601\330\004#\2401\330\004\014\210A\210U\220!\330\004\014\210A\210U\220!\360\006\000\005\t\210\005\210U\220!\2203\220a\330\010\020\220\001\220\026\220x\230q\240\002\240\"\240C\240r\250\030\260\021\260\"\260B\260d\270\"\270B\270b\300\001\330\004\013\2101O";
+const char* const bytes = ": All dimensions preceding dimension %d must be indexed and not slicedBuffer view does not expose stridesCan only create a buffer that is contiguous in memory.Cannot assign to read-only memoryviewCannot create writable memory view from read-only memoryviewCannot index with type 'Cannot transpose memoryview with indirect dimensionsDimension %d is not directEmpty shape tuple for cython.arrayIndex out of bounds (axis %d)Indirect dimensions not supportedInvalid mode, expected 'c' or 'fortran', got Invalid shape in axis <MemoryView of Note that Cython is deliberately stricter than PEP-484 and rejects subclasses of builtin types. If you need to pass subclasses then set the 'annotation_typing' directive to False.Out of bounds on buffer access (axis Step may not be zero (axis %d)Unable to convert item to object.>')?add_note and  at 0xcollections.abc<contiguous and direct><contiguous and indirect>cython.doublecython.intdisableenablegc (got got differing extents in dimension isenableditemsize <= 0 for cython.arrayno default __reduce__ due to non-trivial __cinit__ object>src/cython_package/cython_module.py<strided and direct><strided and direct or indirect><strided and indirect><stringsource>unable to allocate array data.unable to allocate shape and strides.ASCIIEllipsisMyClassMyClass.__reduce_cython__MyClass.__setstate_cython__MyClass.class_additionMyClass.class_addition_three_timesMyClass.class_fibonacciMyClass.class_fibonacci_numpyNDArray__Pyx_PyDict_NextRefSequenceView.MemoryViewabcadditionaddition_three_timesallocate_bufferarrayasyncio.coroutinesbasec__class__class_additionclass_addition_three_timesclass_fibonacciclass_fibonacci_numpy__class_getitem__cline_in_tracebackcountcython_package.cython_module__dict___dictdtypedtype_is_objectencodeenumerateerrorfibonaccifibonacci_numpyflagsfloat64formatfortran__func____getstate__id__import__index_is_coroutineitemsitemsize__main__memviewmode__module__nname__name__ndim__new__npnumpynumpy.typingobjpackpop__pyx_checksum__pyx_result__p""yx_state__pyx_type__pyx_unpickle_Enum__pyx_unpickle_MyClass__pyx_vtable____qualname____reduce____reduce_cython____reduce_ex__registerself__set_name__setdefault__setstate____setstate_cython__shapesizestartstatestepstopstruct__test__unpackupdateuse_setstatevaluesxyzeros\200\001\330\020\"\240!\330\004\013\2102\210R\210q\200A\330 2\260!\330\010\017\210t\2203\220b\230\004\230C\230r\240\022\2402\240Q\200A\360\010\000\t\014\2104\210s\220#\220Q\330\014\023\2204\220q\340\010\014\210G\2201\220E\230\021\360\006\000\t\014\2104\210s\220\"\220A\330\014\020\220\007\220q\230\005\230Q\330\014\020\220\005\220U\230!\2303\230d\240!\330\020\024\220G\2301\230F\240$\240g\250Q\250b\260\002\260#\260R\260t\2707\300!\3002\300R\300t\3102\310T\320QT\320TV\320VW\340\010\017\210t\2201\200A\360\010\000\t\014\2104\210s\220#\220Q\330\014\023\2204\220q\340\010'\240t\2501\330\010\020\220\001\220\025\220a\360\006\000\t\014\2104\210s\220\"\220A\330\014\024\220A\220U\230!\330\014\020\220\005\220U\230!\2303\230d\240!\330\020\030\230\001\230\026\230x\240q\250\002\250\"\250C\250r\260\030\270\021\270\"\270B\270d\300\"\300D\310\003\3102\310Q\340\010\017\210t\2201\200A\330,>\270a\330\010\035\230R\230r\240\021\330\010\017\210q\330\010\017\210q\330\010\017\210q\200\001\330\004%\240Q\240f\250A\200\001\360\010\000\005\016\210T\220\033\230D\240\t\250\024\250T\260\024\260T\270\024\270Q\330\004\014\210G\2201\220F\230,\240a\330\004\007\200v\210W\220E\230\024\230Q\330\010\022\220!\330\010\027\220q\340\010\027\220t\230:\240W\250E\260\023\260D\270\010\300\007\300q\330\004\007\200q\330\010\017\320\017(\250\004\250A\250W\260K\270w\300a\340\010\017\320\017(\250\004\250A\250W\260K\270q\200\001\330\034.\250a\330\004\031\230\022\2302\230Q\330\004\013\2101\330\004\013\2101\330\004\013\2101\200\001\340\004\037\230q\320 0\260\013\270;\300k\320QR\330\004\023\2207\230(\240!\2401\330\004\007\200|\2207\230!\330\010)\250\021\250*\260N\300!\330\004\013\2101\200\001\360\006\000\022\023\330\004\007\200r\210\023\210A\330\010\017\210q\340""\004\020\220\004\220A\220U\230!\2301\330\004\007\200r\210\023\210A\330\010\017\210q\220\001\330\t\013\2103\210a\330\010\017\210q\220\005\220Q\340\004\007\200q\210\005\210Q\330\004\007\200q\210\005\210Q\360\006\000\005\t\210\005\210U\220!\2203\220a\330\010\013\2101\210F\220#\220Q\220b\230\002\230#\230R\230s\240!\2402\240R\240t\2502\250R\250r\260\021\330\004\013\2101\200\001\360\006\000\030\031\330\004\007\200r\210\023\210A\330\010\017\210r\220\026\220q\230\004\230F\240\"\240A\330\t\013\2103\210a\330\010\017\210r\220\026\220q\230\001\230\024\230V\2402\240Q\330\t\013\2103\210a\330\010\017\210r\220\026\220q\230\001\230\023\230D\240\006\240b\250\001\340\004\037\230r\240\026\240q\250\003\2506\260\022\2601\330\004#\2401\330\004\014\210A\210U\220!\330\004\014\210A\210U\220!\360\006\000\005\t\210\005\210U\220!\2203\220a\330\010\020\220\001\220\026\220x\230q\240\002\240\"\240C\240r\250\030\260\021\260\"\260B\260d\270\"\270B\270b\300\001\330\004\013\2101O";
     PyObject *data = NULL;
     CYTHON_UNUSED_VAR(__Pyx_DecompressString);
     #endif
@@ -22668,37 +22660,37 @@ static int __Pyx_CreateCodeObjects(__pyx_mstatetype *__pyx_mstate) {
     __pyx_mstate_global->__pyx_codeobj_tab[0] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cython_package_cython_module, __pyx_mstate->__pyx_n_u_addition, __pyx_mstate->__pyx_kp_b_iso88591_2Rq, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[0])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 12};
+    const __Pyx_PyCode_New_function_description descr = {2, 0, 0, 2, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 11};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_x, __pyx_mstate->__pyx_n_u_y};
     __pyx_mstate_global->__pyx_codeobj_tab[1] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cython_package_cython_module, __pyx_mstate->__pyx_n_u_addition_three_times, __pyx_mstate->__pyx_kp_b_iso88591_a_2Q_1_1_1, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[1])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 21};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 19};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_n};
     __pyx_mstate_global->__pyx_codeobj_tab[2] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cython_package_cython_module, __pyx_mstate->__pyx_n_u_fibonacci, __pyx_mstate->__pyx_kp_b_iso88591_r_A_q_AU_1_r_A_q_3a_q_Q_q_Q_q_Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[2])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 44};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 41};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_n};
     __pyx_mstate_global->__pyx_codeobj_tab[3] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cython_package_cython_module, __pyx_mstate->__pyx_n_u_fibonacci_numpy, __pyx_mstate->__pyx_kp_b_iso88591_r_A_r_q_F_A_3a_r_q_V2Q_3a_r_q_D, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[3])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 84};
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 80};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_x, __pyx_mstate->__pyx_n_u_y};
     __pyx_mstate_global->__pyx_codeobj_tab[4] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cython_package_cython_module, __pyx_mstate->__pyx_n_u_class_addition, __pyx_mstate->__pyx_kp_b_iso88591_A_2_t3b_Cr_2Q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[4])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 89};
+    const __Pyx_PyCode_New_function_description descr = {3, 0, 0, 3, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 84};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self, __pyx_mstate->__pyx_n_u_x, __pyx_mstate->__pyx_n_u_y};
     __pyx_mstate_global->__pyx_codeobj_tab[5] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cython_package_cython_module, __pyx_mstate->__pyx_n_u_class_addition_three_times, __pyx_mstate->__pyx_kp_b_iso88591_A_a_Rr_q_q_q, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[5])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 97};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 91};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
     __pyx_mstate_global->__pyx_codeobj_tab[6] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cython_package_cython_module, __pyx_mstate->__pyx_n_u_class_fibonacci, __pyx_mstate->__pyx_kp_b_iso88591_A_4s_Q_4q_G1E_4s_A_q_Q_U_3d_G1F, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[6])) goto bad;
   }
   {
-    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 115};
+    const __Pyx_PyCode_New_function_description descr = {1, 0, 0, 1, (unsigned int)(CO_OPTIMIZED|CO_NEWLOCALS), 108};
     PyObject* const varnames[] = {__pyx_mstate->__pyx_n_u_self};
     __pyx_mstate_global->__pyx_codeobj_tab[7] = __Pyx_PyCode_New(descr, varnames, __pyx_mstate->__pyx_kp_u_src_cython_package_cython_module, __pyx_mstate->__pyx_n_u_class_fibonacci_numpy, __pyx_mstate->__pyx_kp_b_iso88591_A_4s_Q_4q_t1_a_4s_A_AU_U_3d_xq_C, tuple_dedup_map); if (unlikely(!__pyx_mstate_global->__pyx_codeobj_tab[7])) goto bad;
   }
