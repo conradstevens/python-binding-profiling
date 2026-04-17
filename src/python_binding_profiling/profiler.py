@@ -45,6 +45,7 @@ class Profiler:
             header: str,
             modulo: ModuleProtocol | types.ModuleType,
     ) -> None:
+        """Profile the python packages"""
         ## Module used to call functions
         self._m: ModuleProtocol = modulo
 
@@ -73,7 +74,7 @@ class Profiler:
         self.profile_func(self._m_class.class_fibonacci_numpy)
 
     def profile_func(self, obj: Callable, *args, **kwargs):
-        # Setting cache
+        """Profile single python function, method call or initialization"""
         for i in range(self._BURNER_TRIALS):
             _ = obj(*args, **kwargs)
 
@@ -134,6 +135,7 @@ class Profiler:
         print(result.stdout)
 
     def print_heading(self):
+        """Heading showing package name in terminal"""
         # Get terminal width, default to 80 if unable to determine
         try:
             width = shutil.get_terminal_size().columns

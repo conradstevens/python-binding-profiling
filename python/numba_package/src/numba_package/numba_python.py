@@ -8,13 +8,11 @@ from numba.typed import List as NumbaList
 
 @njit(cache=True)
 def addition(x: float, y: float) -> float:
-    """Return simple addition between x and y"""
     return x + y
 
 
 @njit(cache=True)
 def addition_three_times(x: float, y: float) -> float:
-    """Return simple addition between x and y"""
     var = x + y
     var /= 5
     var *= 7
@@ -23,7 +21,6 @@ def addition_three_times(x: float, y: float) -> float:
 
 @njit(cache=True)
 def fibonacci(n: int) -> NumbaList:
-    """Generate first n numbers of Fibonacci sequence"""
     fib = NumbaList()
     if n <= 0:
         return fib
@@ -49,7 +46,6 @@ def fibonacci(n: int) -> NumbaList:
 
 @njit(cache=True)
 def fibonacci_numpy(n: int) -> NDArray[np.float64]:
-    """Generate first n numbers of Fibonacci sequence"""
     if n == 0:
         return np.empty(0, dtype=np.float64)
     elif n == 1:
@@ -82,18 +78,15 @@ class MyClass:
         self._fib_arr: NDArray[np.float64] = np.zeros(n, dtype=np.float64)
 
     def class_addition(self, x: float, y: float) -> float:
-        """Return simple addition between x and y"""
         return self.x + self.y + x + y
 
     def class_addition_three_times(self, x: float, y: float) -> float:
-        """Return simple addition between x and y with some extra steps"""
         var = x + y
         var /= 5
         var *= 7
         return var
 
     def class_fibonacci(self) -> list[float]:
-        """Generate first n numbers of Fibonacci sequence"""
         if self.n <= 0:
             return self._fib_l
 
@@ -107,7 +100,6 @@ class MyClass:
         return self._fib_l
 
     def class_fibonacci_numpy(self) -> NDArray[np.float64]:
-        """Generate first n numbers of Fibonacci sequence"""
         if self.n <= 0:
             return self._fib_arr
 

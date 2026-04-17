@@ -2,13 +2,11 @@
 
 
 double addition(const double x, const double y) {
-    /** Addition function in cpp */
     return x + y;
 }
 
 
 double addition_three_times(const double x, const double y) {
-    /** Addition function in cpp */
     double var = x + y;
     var /= 5;
     var *= 7;
@@ -17,8 +15,6 @@ double addition_three_times(const double x, const double y) {
 
 
 std::vector<double> fibonacci(const size_t n) {
-    /** Return std::move fibonacci sequence n long as vector
-    * (deviding by index - 1 to limit number size) */
     if (n <= 0) {
         return {};
     }
@@ -39,9 +35,6 @@ std::vector<double> fibonacci(const size_t n) {
 
 
 nb::ndarray<nb::numpy, double> fibonacci_numpy(const size_t n) {
-    /** Return std::move fibonacci sequence n long as nanobind
-     * numpy array type (deviding by index - 1 to limit number
-     * size) */
     if (n == 0) {
         return nb::ndarray<nb::numpy, double>(nullptr, {0});
     }
@@ -69,7 +62,6 @@ nb::ndarray<nb::numpy, double> fibonacci_numpy(const size_t n) {
 
 
 MyClass::MyClass(const double x_, const double y_, const size_t n_) {
-    /** Initialization of addition variables */
     x = x_;
     y = y_;
     n = n_;
@@ -93,7 +85,6 @@ MyClass::MyClass(const double x_, const double y_, const size_t n_) {
 }
 
 [[nodiscard]] double MyClass::class_addition_three_times(const double x_, const double y_) const {
-    /** Addition function in cpp */
     double var = x_ + y_;
     var /= 5;
     var *= 7;

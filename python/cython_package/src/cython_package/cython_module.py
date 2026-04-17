@@ -5,13 +5,11 @@ from numpy.typing import NDArray
 
 @cython.ccall
 def addition(x: cython.double, y: cython.double) -> cython.double:
-    """Return simple addition between x and y"""
     return x + y
 
 
 @cython.ccall
 def addition_three_times(x: cython.double, y: cython.double) -> cython.double:
-    """Return simple addition between x and y"""
     var: cython.double = x + y
     var /= 5
     var *= 7
@@ -22,7 +20,6 @@ def addition_three_times(x: cython.double, y: cython.double) -> cython.double:
 @cython.boundscheck(False)
 @cython.wraparound(False)
 def fibonacci(n: cython.int) -> list:
-    """Generate first n numbers of Fibonacci sequence"""
     if n <= 0:
         return []
 
@@ -45,7 +42,6 @@ def fibonacci(n: cython.int) -> list:
 @cython.boundscheck(False)
 @cython.wraparound(False)
 def fibonacci_numpy(n: cython.int) -> NDArray[np.float64]:
-    """Generate first n numbers of Fibonacci sequence"""
     if n == 0:
         return np.array([], dtype=np.float64)
     elif n == 1:
@@ -83,12 +79,10 @@ class MyClass:
 
     @cython.ccall
     def class_addition(self, x: cython.double, y: cython.double) -> cython.double:
-        """Return simple addition between x and y"""
         return self.x + self.y + x + y
 
     @cython.ccall
     def class_addition_three_times(self, x: cython.double, y: cython.double) -> cython.double:
-        """Return simple addition between x and y with some extra steps"""
         var: cython.double = x + y
         var /= 5
         var *= 7
@@ -98,7 +92,6 @@ class MyClass:
     @cython.boundscheck(False)
     @cython.wraparound(False)
     def class_fibonacci(self) -> list:
-        """Generate first n numbers of Fibonacci sequence"""
         if self.n <= 0:
             return self._fib_l
 
@@ -116,7 +109,6 @@ class MyClass:
     @cython.boundscheck(False)
     @cython.wraparound(False)
     def class_fibonacci_numpy(self) -> NDArray[np.float64]:
-        """Generate first n numbers of Fibonacci sequence"""
         if self.n <= 0:
             return self._fib_arr
 

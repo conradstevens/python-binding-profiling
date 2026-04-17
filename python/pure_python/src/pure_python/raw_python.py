@@ -8,7 +8,7 @@ def addition(x: float, y: float) -> float:
 
 
 def addition_three_times(x: float, y: float) -> float:
-    """Return simple addition between x and y"""
+    """Return simple operations between x and y"""
     var = x + y
     var /= 5
     var *= 7
@@ -16,7 +16,7 @@ def addition_three_times(x: float, y: float) -> float:
 
 
 def fibonacci(n: int) -> list[float]:
-    """Generate first n numbers of Fibonacci sequence"""
+    """Generate first n numbers of Fibonacci like sequence using list"""
     if n <= 0:
         return []
 
@@ -35,7 +35,7 @@ def fibonacci(n: int) -> list[float]:
 
 
 def fibonacci_numpy(n: int) -> NDArray[np.float64]:
-    """Generate first n numbers of Fibonacci sequence"""
+    """Generate first n numbers of Fibonacci like sequence using numpy list"""
     if n == 0:
         return np.array([], dtype=np.float64)
     elif n == 1:
@@ -53,24 +53,25 @@ def fibonacci_numpy(n: int) -> NDArray[np.float64]:
 
 class MyClass:
     def __init__(self, x: float, y: float, n: int):
+        """Class used for profiling. Initialize data members allocating memory"""
         self.x, self.y, self.n = x, y, n
 
         self._fib_l: list[float] = list(range(n))
         self._fib_arr: NDArray[np.float64] = np.zeros(n, dtype=np.float64)
 
     def class_addition(self, x: float, y: float) -> float:
-        """Return simple addition between x and y"""
+        """Return simple addition between x and y and data members"""
         return self.x + self.y + x + y
 
     def class_addition_three_times(self, x: float, y: float) -> float:
-        """Return simple addition between x and y with some extra steps"""
+        """Return simple operation between x and y and data members"""
         var = x + y
         var /= 5
         var *= 7
         return var
 
     def class_fibonacci(self) -> list[float]:
-        """Generate first n numbers of Fibonacci sequence"""
+        """Generate first n numbers of Fibonacci like sequence with memory already allocated"""
         if self.n <= 0:
             return self._fib_l
 
@@ -84,7 +85,7 @@ class MyClass:
         return self._fib_l
 
     def class_fibonacci_numpy(self) -> NDArray[np.float64]:
-        """Generate first n numbers of Fibonacci sequence"""
+        """Generate first n numbers of Fibonacci like sequence using numpy with memory already allocated"""
         if self.n <= 0:
             return self._fib_arr
 

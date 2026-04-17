@@ -200,25 +200,25 @@ static PyMethodDef MyClass_methods[] = {
         "class_addition",
         (PyCFunction)MyClass_class_addition,
         METH_VARARGS | METH_KEYWORDS,
-        "Returns self.x + self.y + x + y"
+        "Return simple addition between x and y and data members"
     },
     {
     "class_addition_three_times",
     (PyCFunction)MyClass_class_addition_three_times,
     METH_VARARGS | METH_KEYWORDS,
-    "Return simple addition between x and y with some extra steps"
+    "Return simple operation between x and y and data members"
     },
     {
     "class_fibonacci",
     (PyCFunction)MyClass_class_fibonacci,
     METH_VARARGS | METH_KEYWORDS,
-    "Generate first n numbers of Fibonacci sequence with some extra steps"
+    "Generate first n numbers of Fibonacci like sequence with memory already allocated"
     },
 {
     "class_fibonacci_numpy",
     (PyCFunction)MyClass_fibonacci_numpy,
     METH_VARARGS | METH_KEYWORDS,
-    "Generate first n numbers of Fibonacci sequence using numpy with some extra steps"
+    "Generate first n numbers of Fibonacci like sequence using numpy with memory already allocated"
     },
     {
         NULL
@@ -230,25 +230,25 @@ static PyMethodDef methods[] = {
         "addition",
         (PyCFunction)c_package_addition,
         METH_VARARGS | METH_KEYWORDS,
-        "Add two numbers together"
+        "Return simple addition between x and y"
     },
 {
         "addition_three_times",
         (PyCFunction)c_package_addition_three_times,
         METH_VARARGS,
-        "Add two numbers together followed by some extra computations"
+        "Return simple operations between x and y"
     },
     {
     "fibonacci",
     (PyCFunction)c_package_fibonacci,
     METH_VARARGS,
-    "custom fibbonaci function for profiling"
+    "Generate first n numbers of Fibonacci like sequence using list"
 },
 {
     "fibonacci_numpy",
     (PyCFunction)fibonacci_numpy,
     METH_VARARGS | METH_KEYWORDS,
-    "custom fibbonaci function using numpy for profiling"
+    "Generate first n numbers of Fibonacci like sequence using numpy list"
 },
     {
         NULL,

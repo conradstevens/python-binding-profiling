@@ -26,6 +26,7 @@ BAR_COLOR = '#238636'
 class ProfilePlotter:
 
     def __init__(self, profilers: list[Profiler]):
+        """Profile and plot the different packages"""
         self._profilers: list[Profiler] = profilers
         self._headers: list[str] = [p.header for p in self._profilers]
 
