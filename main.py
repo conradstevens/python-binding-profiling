@@ -20,7 +20,7 @@ import cpp.pybind11_package.cmake_build_release.pybind11_bindings as pybind11_pa
 
 ## CPP Nanobind package
 # noinspection PyUnresolvedReferences
-import cpp.nanobind_package.cmake_build_release.nano_bindings as nanobind_package
+import cpp.nanobind_package.cmake_build_release.nanobind_package as nanobind_package
 
 ## C Library
 # noinspection PyUnresolvedReferences
@@ -53,7 +53,7 @@ if __name__ == '__main__':
 
     profile_plotter = ProfilePlotter([
         Profiler(header="PYTHON", modulo=python_pacakge),
-        ProfilerJson(header="PYPY", json_path=Path("python/pypy/outputs/PYPY_results.json")),
+        ProfilerJson(header="PYPY", json_path=Path("python/pypy_package/outputs/PYPY_results.json")),
         Profiler(header="NUMBA", modulo=numba_package),
         Profiler(header="CYTHON", modulo=cython_package),
         Profiler(header="NANOBIND", modulo=nanobind_package),

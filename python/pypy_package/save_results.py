@@ -2,7 +2,7 @@ import argparse
 import sys
 from pathlib import Path
 
-import pure_python.raw_python as packaged_raw_python
+import python_pacakge.raw_python as packaged_raw_python
 
 sys.path.insert(0, "../../src")
 # noinspection PyUnresolvedReferences
