@@ -35,7 +35,7 @@ Relative results plots are relative to the python run time.
 ![Tier List](media/addition.png)
 ### Fibonacci like sequence over python list
 ![Tier List](media/fibonacci.png)
-### Fibonacci like sequence over python list using numpy
+### Fibonacci like sequence over python numpy array
 ![Tier List](media/fibonacci_numpy.png)
 ## Tier list
 Influencing this list was the amount of effort, control and of course performance.    
