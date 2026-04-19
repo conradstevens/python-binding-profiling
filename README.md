@@ -20,7 +20,7 @@ git clone --recurse-submodules https://github.com/conradstevens/python-binding-p
 cd python-binding-profiling
 ```
 
-### Building Compiled Packages
+### Building Compiled Packages and Wheels
 Build and compile python wheels and libraries 
 ```commandline
 just build  
@@ -40,3 +40,9 @@ Relative results plots are relative to the python run time.
 ## Tier list
 Influencing this list was the amount of effort, control and of course performance.    
 ![Tier List](media/tier_list.png)
+
+## Test
+To test the equivalence and proper reference properties of classes run:
+```commandline
+just test  
+```
