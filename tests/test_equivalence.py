@@ -4,12 +4,12 @@ import pytest
 from numpy.typing import NDArray
 
 from python_binding_profiling.profiler import ModuleProtocol
-from pure_python.raw_python import MyClass
+from python_pacakge.raw_python import MyClass
 
 ### Modules
 
 ## Python imported by wheel
-import pure_python.raw_python as packaged_raw_python
+import python_pacakge.raw_python as python_pacakge
 
 ## Python pacakge optimized with numba
 import numba_package.numba_python as numba_python
@@ -23,22 +23,23 @@ import cpp.pybind11_package.cmake_build_release.pybind11_bindings as pybind11_bi
 
 ## CPP Nanobind package
 # noinspection PyUnresolvedReferences
-import cpp.nanobind_package.cmake_build_release.nano_bindings as nano_bindings
+import cpp.nanobind_package.cmake_build_release.nanobind_package as nano_bindings
 
 ## C Library
 # noinspection PyUnresolvedReferences
-import c.c_package.cmake_build_release.c_package as c_lib
+import c.c_package.cmake_build_release.c_package as c_package
 
 
 EQUIVALENCE_TOLERANCE: float = 1e-6
 TEST_VAL: int = -999
 
 MODULES_TO_TEST: list[ModuleProtocol] = [
-    packaged_raw_python,
+    python_pacakge,
     pybind11_bindings,
     nano_bindings,
     numba_python,
     cython_module,
+    c_package
 ]
 
 X_Y_PAIRS = ((1, 2), (3, 4), (5, 10), (100, 1000))
@@ -48,7 +49,7 @@ CLASS_INIT_ARGS = ((1, 2, 1), (3, 4, 2), (5, 6, 3), (7, 8, 100))
 
 @pytest.fixture
 def ref():
-    return packaged_raw_python
+    return python_pacakge
 
 
 @pytest.fixture

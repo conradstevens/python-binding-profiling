@@ -11,6 +11,7 @@ BURNER_TRIALS := "200"
 
 profile-all: profile-pypy
     #!/usr/bin/env bash
+    mkdir plot_outputs
     uv run main.py \
         --num-trials {{NUM_TRIALS}} \
         --fibonacci-number {{FIBONACCI_NUMBER}} \
@@ -25,6 +26,17 @@ profile-pypy:
         --fibonacci-number {{FIBONACCI_NUMBER}} \
         --burner-trials {{BURNER_TRIALS}}
     deactivate
+
+
+########################################################################################################################
+################################################     BUILD SCRIPTS     #################################################
+########################################################################################################################
+
+
+test:
+    #!/usr/bin/env bash
+    uv sync -extra dev
+    pytest tests/test_equivalence.py
 
 
 ########################################################################################################################
