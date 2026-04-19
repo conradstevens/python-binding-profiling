@@ -8,7 +8,7 @@ find_package(Python 3.12 COMPONENTS Interpreter Development REQUIRED)
 # Add Libraries
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib/pybind11)
 
-# Cregit ate Python extension module
+# Create Python extension module
 pybind11_add_module(pybind11_bindings src/bindings_11.cpp)
 
 target_include_directories(pybind11_bindings PRIVATE ${CMAKE_SOURCE_DIR}/include)

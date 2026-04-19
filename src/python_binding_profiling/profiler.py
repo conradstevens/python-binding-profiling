@@ -1,10 +1,11 @@
 import logging
+import json
 import shutil
 import types
 import subprocess
 from pathlib import Path
 from time import time
-from typing import Callable, Type, Protocol
+from typing import Callable, Type, Protocol, Dict
 import numpy as np
 from numpy.typing import NDArray
 
@@ -41,9 +42,10 @@ class Profiler:
 
     def __init__(
             self,
-            modulo: ModuleProtocol | types.ModuleType,
             header: str,
+            modulo: ModuleProtocol | types.ModuleType,
     ) -> None:
+        """Profile the python packages"""
         ## Module used to call functions
         self._m: ModuleProtocol = modulo
 
@@ -51,10 +53,15 @@ class Profiler:
         self._header: str = header
 
         ## Make class to call functions for
-        self._m_class = self._m.MyClass(99, 100, self._FIB_NUM)
+        self._m_class = None if self._m is None else self._m.MyClass(99, 100, self._FIB_NUM)
+
+        ## Store Profile results
+        self.profile_results: dict[str, float] = dict()
 
     def profile(self):
         """Profile all elements being tested and prints their results"""
+        if self._NUM_TRIALS is None or self._FIB_NUM is None or self._BURNER_TRIALS is None:
+            raise RuntimeError("Static Profiler variables not set")
         self.print_heading()
         self.profile_func(self._m.addition, 99, 100)
         self.profile_func(self._m.addition_three_times, 99, 100)
@@ -66,19 +73,21 @@ class Profiler:
         self.profile_func(self._m_class.class_fibonacci)
         self.profile_func(self._m_class.class_fibonacci_numpy)
 
-    @classmethod
-    def profile_func(cls, obj: Callable, *args, **kwargs):
-        # Setting cache
-        for i in range(cls._BURNER_TRIALS):
+    def profile_func(self, obj: Callable, *args, **kwargs):
+        """Profile single python function, method call or initialization"""
+        for i in range(self._BURNER_TRIALS):
             _ = obj(*args, **kwargs)
 
-        lapsed_time = 0
-        for i in range(cls._NUM_TRIALS):
+        time_passed = 0
+        for i in range(self._NUM_TRIALS):
             start_time = time()
             _ = obj(*args, **kwargs)
             end_time = time()
-            lapsed_time += (end_time - start_time)
-        print(f"{obj.__name__}: {round(lapsed_time, 4)}")
+            time_passed += (end_time - start_time)
+
+        print(f"{obj.__name__}: {round(time_passed, 4)}")
+        self.profile_results[obj.__name__] = time_passed / self._NUM_TRIALS
+
 
     @classmethod
     def set_num_trials(cls, num_trials: int):
@@ -126,6 +135,7 @@ class Profiler:
         print(result.stdout)
 
     def print_heading(self):
+        """Heading showing package name in terminal"""
         # Get terminal width, default to 80 if unable to determine
         try:
             width = shutil.get_terminal_size().columns
@@ -152,3 +162,31 @@ class Profiler:
         # Print bottom border
         print('#' * width)
         print()
+
+    def save_results_to_json(self, save_path: Path):
+        """Save the json file to outputs"""
+        save_file: Path = save_path / f"{self.header}_results.json"
+        with open(save_file, "w") as f:
+            json.dump(self.profile_results, f, indent=2)
+
+
+    @property
+    def header(self) -> str:
+        return self._header
+
+
+class ProfilerJson(Profiler):
+    def __init__(self, header: str, json_path: Path):
+        super().__init__(header=header, modulo=None)
+        self.results_path: Path = json_path
+
+    def profile(self):
+        self.print_heading()
+        try:
+            with open(self.results_path, "r") as f:
+                self.profile_results: dict[str, float] = json.load(f)
+        except FileNotFoundError:
+            raise FileNotFoundError(f"{self.results_path} does not exist")
+
+        for key, val in self.profile_results.items():
+            print(f"{key}: {round(val, 4)}")

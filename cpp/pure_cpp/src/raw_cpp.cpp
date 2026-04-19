@@ -42,7 +42,6 @@ double MyClass::class_addition(const double x_, const double y_) const {
 }
 
 double MyClass::class_addition_three_times(const double x_, const double y_) const {
-    /** Addition function in cpp */
     double var = x_ + y_;
     var /= 5;
     var *= 7;

@@ -11,10 +11,11 @@ build/
 .pytest_cache/
 .coverage
 htmlcov/
-
+plot_outputs/
 # Virtual environments
 venv/
 .venv/
+pypy_venv
 ENV/
 env/
 
@@ -52,6 +53,9 @@ CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
 Makefile
+
+# Results
+python/pypy/outputs/
 
 # Claude
 .claude/
