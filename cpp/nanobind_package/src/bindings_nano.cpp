@@ -130,7 +130,7 @@ nb::ndarray<nb::numpy, double>& MyClass::class_fibonacci_numpy() {
     return _fib_arr;
 }
 
-NB_MODULE(nano_bindings, m) {
+NB_MODULE(nanobind_package, m) {
     m.doc() = "Nanobind functions and classes for profiling";
     m.def("addition", &addition, "Nanobind, Addition");
     m.def("addition_three_times", &addition_three_times, "Nanobind function that adds, divides and multiplies two floats");
